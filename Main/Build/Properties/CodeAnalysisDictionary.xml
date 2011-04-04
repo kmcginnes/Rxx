@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+	<Words>
+		<Recognized>
+			<!--
+				Note: Words are case-insensitive.
+			-->
+
+			<Word>Rxx</Word>
+
+			<!--
+				Code Analysis incorrectly reports "ss" as a spelling error in resource strings that format a TimeSpan.
+				For example: {0:mm\:ss\.ff}
+			-->
+			<Word>ss</Word>
+
+		</Recognized>
+	</Words>
+</Dictionary>

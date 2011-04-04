@@ -1,0 +1,75 @@
+Goals and Guidelines for Rxx
+http://rxx.codeplex.com/
+
+	Date				Author				Changes
+	4/2/2011		Dave S.				First draft
+
+
+Mission Statement: 
+
+	Rxx provides LINQ extensions that are supplementary to Microsoft's Reactive Extensions for .NET (Rx).
+
+
+Project Management and Design Goals: 
+
+	1. Use CodePlex for coordination, issue tracking, discussions, development, TFS source control, documentation and delivery.
+		a. Also consider supporting NuGet in the future as another delivery channel.
+	2. All content licensed under the Microsoft Public License (Ms-PL).
+	3. Produce a solid, simple and single deliverable class library for download.
+
+		Simple and single deliverable class library =
+		a. A wide variety of APIs and extensions that solve specific, real-world problems using LINQ.
+			i. For now, target the .NET 4.0 Extended Framework only.
+			ii. All code will be written in C# using Visual Studio 2010.
+		b. Focus on the Rx and Ix spaces only, with Rx as the priority.
+		c. Do not include any one-offs, out-of-band or targeted APIs; e.g., a reactive service wrapper for the Twitter streaming API does not belong in this project.
+		d. Do not include any tools, installers, executables, build scripts, Visual Studio extensions, T4 templates, etc.
+		e. Additional projects for unit tests and/or hands-on labs are acceptable as long as they are focused on the APIs being delivered.
+
+		Solid =
+		f. Deliver completed APIs only (binary download).
+			i. Incomplete source code check-ins are acceptable if clearly commented as being incomplete/untested and indicating what’s missing.
+		g. Deliver tested APIs only (binary download).
+			i. Test by writing specialized labs, keeping end-users in mind.  Labs should illustrate real-world usage while exercising the API.
+			ii. Unit test when necessary based on the volatility or complexity of the API under development.  (Developer’s discretion.)
+		h. Standardized: 
+			i. Follow the Rx Design Guidelines.
+					http://go.microsoft.com/fwlink/?LinkID=205219
+			ii. Follow the Microsoft Design Guidelines for Developing Class Libraries.
+					http://msdn.microsoft.com/en-us/library/ms229042.aspx
+		i. Write reference documentation – XML comments for IntelliSense.  At least include the basics, like a summary for every public method.
+		j. Write conceptual documentation – CodePlex Documentation tab.  At least include a general API taxonomy with a summary for each logical API.
+			i. As time permits:  Detail each API’s design goals and common usage scenarios.  Include code examples.
+	4. Perform unconditional source code check-ins on a need-by-need basis.
+		a. Code review is recommended, but optional.
+	5. Democratically agree upon deliverable content and dates.
+	6. Democratically consider additional coordinators and contributors on a per-request basis.
+
+
+Design Guidelines:
+
+	1. Rx Design Guidelines
+		 http://go.microsoft.com/fwlink/?LinkID=205219
+	2. Microsoft Design Guidelines for Developing Class Libraries
+		 http://msdn.microsoft.com/en-us/library/ms229042.aspx
+
+
+Coding Styles and Tools:
+
+	1. Use Code Contracts instead of the classic if-then-throw style parameter validation.
+		 http://msdn.microsoft.com/en-us/devlabs/dd491992
+	2. Use Code Analysis in Visual Studio and tweak the rule-set for use with Code Contracts.
+		 http://msdn.microsoft.com/en-us/library/3z0aeatx.aspx
+	3. Use StyleCop and tweak the rule-set for use with Code Contracts.
+		 http://stylecop.codeplex.com/
+	4. Use IntelliSense Code Snippets to organize code files and to quickly author common code blocks.
+		 See the Build\Snippets\_Read Me.txt file in this solution for more information.
+
+	Fix or suppress all warnings before distributing new versions of Rxx for public consumption.
+
+
+Testing Procedures:
+
+	1. Use the DaveSexton.Labs infrastructure project to create new hands-on labs and test APIs as they are being developed.
+	2. Write Unit Tests when appropriate.
+		 http://msdn.microsoft.com/en-us/library/dd264975.aspx

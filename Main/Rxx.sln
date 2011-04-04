@@ -1,0 +1,128 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artifacts", "Artifacts", "{DC93B4C6-C9A9-48DD-BDE1-7929348CB3E0}"
+	ProjectSection(SolutionItems) = preProject
+		Artifacts\Goals and Guidelines.txt = Artifacts\Goals and Guidelines.txt
+		Artifacts\Release Notes.txt = Artifacts\Release Notes.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Project.targets = Build\Project.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{7813925C-F1CD-4204-BD5B-8DBDC90D1685}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Units", "Units", "{F6F21A07-1E98-481E-AB39-D55340AB571B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labs", "Labs", "{C61969C1-533A-41ED-939B-F19C257536A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{6A01EF33-ABE6-4D18-9525-AFA78C664186}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{FBCF9F08-0D6A-4F61-9BA3-07F076168F0B}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Properties\AssemblyInfoShared.cs = Build\Properties\AssemblyInfoShared.cs
+		Build\Properties\CodeAnalysisDictionary.xml = Build\Properties\CodeAnalysisDictionary.xml
+		Build\Properties\Rxx.ruleset = Build\Properties\Rxx.ruleset
+		Build\Properties\Rxx.snk = Build\Properties\Rxx.snk
+		Build\Properties\Settings.StyleCop = Build\Properties\Settings.StyleCop
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snippets", "Snippets", "{2CB1BA08-9880-4705-A14B-D46DC2453071}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Snippets\_Read Me.txt = Build\Snippets\_Read Me.txt
+		Build\Snippets\layout.snippet = Build\Snippets\layout.snippet
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rxx", "Source\Rxx\Rxx.csproj", "{6205C95C-1237-4419-8B7B-BA13AA00C62B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{ACD2EB7F-24CC-478B-8699-04238179DD27}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Rxx.vsmdi = Rxx.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rxx.UnitTests", "Testing\Rxx.UnitTests\Rxx.UnitTests.csproj", "{2B040F33-83C3-414E-B62C-894343171C09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rxx.Labs", "Testing\Rxx.Labs\Rxx.Labs.csproj", "{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{D81AB3E0-F9A2-4E2F-A593-61AB8CA5F218}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labs", "Labs", "{EDEA810D-D55F-4942-A8C9-D0CA945E1877}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Labs\DaveSexton.Labs.dll = Build\Labs\DaveSexton.Labs.dll
+		Build\Labs\DaveSexton.Labs.XML = Build\Labs\DaveSexton.Labs.XML
+		Build\Labs\Labs.targets = Build\Labs\Labs.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs03
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Source\\Rxx\\Rxx.csproj
+		SccProjectTopLevelParentUniqueName1 = Rxx.sln
+		SccProjectName1 = Source/Rxx
+		SccLocalPath1 = Source\\Rxx
+		SccProjectUniqueName2 = Testing\\Rxx.UnitTests\\Rxx.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName2 = Rxx.sln
+		SccProjectName2 = Testing/Rxx.UnitTests
+		SccLocalPath2 = Testing\\Rxx.UnitTests
+		SccProjectUniqueName3 = Testing\\Rxx.Labs\\Rxx.Labs.csproj
+		SccProjectTopLevelParentUniqueName3 = Rxx.sln
+		SccProjectName3 = Testing/Rxx.Labs
+		SccLocalPath3 = Testing\\Rxx.Labs
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Rxx.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2B040F33-83C3-414E-B62C-894343171C09}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FBCF9F08-0D6A-4F61-9BA3-07F076168F0B} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
+		{2CB1BA08-9880-4705-A14B-D46DC2453071} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
+		{EDEA810D-D55F-4942-A8C9-D0CA945E1877} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
+		{F6F21A07-1E98-481E-AB39-D55340AB571B} = {7813925C-F1CD-4204-BD5B-8DBDC90D1685}
+		{C61969C1-533A-41ED-939B-F19C257536A2} = {7813925C-F1CD-4204-BD5B-8DBDC90D1685}
+		{ACD2EB7F-24CC-478B-8699-04238179DD27} = {F6F21A07-1E98-481E-AB39-D55340AB571B}
+		{2B040F33-83C3-414E-B62C-894343171C09} = {F6F21A07-1E98-481E-AB39-D55340AB571B}
+		{EB68F9C7-42C9-4ABB-81E0-53F4836360A0} = {C61969C1-533A-41ED-939B-F19C257536A2}
+		{6205C95C-1237-4419-8B7B-BA13AA00C62B} = {6A01EF33-ABE6-4D18-9525-AFA78C664186}
+	EndGlobalSection
+EndGlobal

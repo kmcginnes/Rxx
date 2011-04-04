@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>DaveSexton.Labs</name>
+  </assembly>
+  <members>
+    <member name="T:DaveSexton.Labs.Properties.Resources">
+      <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.ResourceManager">
+      <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.Culture">
+      <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.AllLabsCompleted">
+      <summary>
+              Looks up a localized string similar to All labs completed..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.AssemblyTitleFormat">
+      <summary>
+              Looks up a localized string similar to {0} Labs.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.CategoryMenu">
+      <summary>
+               Looks up a localized string similar to Categories: 
+            .
+             </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.ChoiceFormat">
+      <summary>
+              Looks up a localized string similar to    {0}. {1}.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.ChoicePrompt">
+      <summary>
+              Looks up a localized string similar to Enter your choice (Esc to exit): .
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.DefaultCategoryName">
+      <summary>
+              Looks up a localized string similar to {No Category}.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.DiscoveredLabsCountFormat">
+      <summary>
+              Looks up a localized string similar to {0} lab(s) found..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.LabCompleted_Inline">
+      <summary>
+              Looks up a localized string similar to  completed..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.LabDescriptionPrefix">
+      <summary>
+              Looks up a localized string similar to       .
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.LabInfoFormat">
+      <summary>
+              Looks up a localized string similar to {0} (lab {1} of {2}).
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.LabMenuFormat">
+      <summary>
+               Looks up a localized string similar to {0} Labs: 
+            .
+             </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.MainMenu">
+      <summary>
+               Looks up a localized string similar to Choose an option: 
+            .
+             </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.MainMenuExecuteAllLabs">
+      <summary>
+              Looks up a localized string similar to    2. Execute all labs..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.MainMenuExecuteIndividualLabs">
+      <summary>
+              Looks up a localized string similar to    1. Execute individual labs of your choice..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.ParentCategoryChoice">
+      <summary>
+              Looks up a localized string similar to    0. {Parent Category}.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.PressAnyKeyToCancel_Inline">
+      <summary>
+              Looks up a localized string similar to - Press any key to cancel....
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.PressAnyKeyToContinue_Inline">
+      <summary>
+              Looks up a localized string similar to   Press any key to continue....
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.PressAnyKeyToEndProgram">
+      <summary>
+              Looks up a localized string similar to Press any key to end this program....
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.PressCtrlToShowSourceCode">
+      <summary>
+              Looks up a localized string similar to    Ctrl+[Letter] shows the lab's source code..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.PressShiftToOpenSourceCode">
+      <summary>
+              Looks up a localized string similar to    Shift+[Letter] opens the lab's source code..
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.ShowSourceCode">
+      <summary>
+              Looks up a localized string similar to Show the source code for each lab?  (Y/N): .
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.Skipped_Inline">
+      <summary>
+              Looks up a localized string similar to - Skipped.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.WelcomeFormat">
+      <summary>
+              Looks up a localized string similar to Welcome to {0}, {1}.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Properties.Resources.ZeroLabs">
+      <summary>
+              Looks up a localized string similar to No labs were found so the program will exit..
+            </summary>
+    </member>
+    <member name="T:DaveSexton.Labs.LabCatalog">
+      <summary>
+            Provides members that specify the activation and discovery strategy
+            of the <see cref="T:DaveSexton.Labs.LabController" />, and optionally creates 
+            <see cref="T:DaveSexton.Labs.Lab" /> objects to be executed with priority before all
+            of the discovered labs.
+            </summary>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCatalog.#ctor">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.LabCatalog" /> class for derived classes.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCatalog.Activation">
+      <summary>
+            Gets the strategy that the <see cref="T:DaveSexton.Labs.LabController" /> will use to 
+            discover and activate labs.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCatalog.LabTypes">
+      <summary>
+            Gets a sequence of types that derive from <see cref="T:DaveSexton.Labs.Lab" /> to be 
+            used by the <see cref="T:DaveSexton.Labs.LabController" /> during automatic discovery.
+            The specific semantics of <see cref="P:DaveSexton.Labs.LabCatalog.LabTypes" /> depends upon the 
+            <see cref="P:DaveSexton.Labs.LabCatalog.Activation" /> strategy of the <see cref="T:DaveSexton.Labs.LabCatalog" />.
+            </summary>
+      <getter>
+        <ensures>Contract.Result&lt;IEnumerable&lt;Type&gt;&gt;() != null</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCatalog.PriorityLabs">
+      <summary>
+            Gets a sequence of <see cref="T:DaveSexton.Labs.Lab" /> objects to be activated by
+            the <see cref="T:DaveSexton.Labs.LabController" /> in the order that they are received.
+            </summary>
+      <remarks>
+        <alert type="note">
+            Whether or not <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> are used by the <see cref="T:DaveSexton.Labs.LabController" />
+            depends upon the <see cref="P:DaveSexton.Labs.LabCatalog.Activation" /> strategy of the <see cref="T:DaveSexton.Labs.LabCatalog" />.
+            </alert>
+      </remarks>
+      <getter>
+        <ensures>Contract.Result&lt;IEnumerable&lt;Lab&gt;&gt;() != null</ensures>
+      </getter>
+    </member>
+    <member name="T:DaveSexton.Labs.LabActivationStrategies">
+      <summary>
+            Defines flags that specify how labs are discovered by the 
+            <see cref="T:DaveSexton.Labs.LabController" /> when using a <see cref="T:DaveSexton.Labs.LabCatalog" />.
+            </summary>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.None">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to not run any labs.
+            </summary>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.CatalogLabs">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute all labs that are returned
+            by the <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> property.
+            </summary>
+      <remarks>
+        <alert type="note">
+            Labs returned by <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> are executed before all discovered 
+            labs when both the <see cref="F:DaveSexton.Labs.LabActivationStrategies.CatalogLabs" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoveredLabs" /> 
+            flags are specified.
+            </alert>
+      </remarks>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.DiscoveredLabs">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute all discovered labs.
+            </summary>
+      <remarks>
+        <alert type="note">
+            Labs returned by <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> are executed before all discovered 
+            labs when both the <see cref="F:DaveSexton.Labs.LabActivationStrategies.CatalogLabs" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoveredLabs" /> 
+            flags are specified.
+            </alert>
+      </remarks>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.DiscoverExplicitLabTypesOnly">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute only those discovered labs 
+            that are of the types specified in <see cref="P:DaveSexton.Labs.LabCatalog.LabTypes" />.  This flag 
+            is only meaningful when <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoveredLabs" /> is also specified.
+            </summary>
+      <remarks>
+        <alert type="note">
+          <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoverExplicitLabTypesOnly" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.ExcludeCatalogLabTypesFromDiscovery" /> 
+            are mutually exclusive.  If both flags are specified, then  
+            <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoverExplicitLabTypesOnly" /> is applied.
+            </alert>
+      </remarks>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.ExcludeCatalogLabTypesFromDiscovery">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute only those discovered labs 
+            that are not of the types specified in <see cref="P:DaveSexton.Labs.LabCatalog.LabTypes" />.  This 
+            flag is only meaningful when <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoveredLabs" /> is also specified.
+            </summary>
+      <remarks>
+        <alert type="note">
+          <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoverExplicitLabTypesOnly" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.ExcludeCatalogLabTypesFromDiscovery" /> 
+            are mutually exclusive.  If both flags are specified, then  
+            <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoverExplicitLabTypesOnly" /> is applied.
+            </alert>
+      </remarks>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.All">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute all labs that are returned
+            by the <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> property, followed by all discovered labs.
+            This flag is a combination of <see cref="F:DaveSexton.Labs.LabActivationStrategies.CatalogLabs" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoveredLabs" />.
+            </summary>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.AllByCatalog">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute all labs that are returned
+            by the <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> property, followed by all discovered labs 
+            of the types specified in <see cref="P:DaveSexton.Labs.LabCatalog.LabTypes" />.  This flag is a 
+            combination of <see cref="F:DaveSexton.Labs.LabActivationStrategies.All" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.DiscoverExplicitLabTypesOnly" />.
+            </summary>
+    </member>
+    <member name="F:DaveSexton.Labs.LabActivationStrategies.AllWithExclusions">
+      <summary>
+            Instructs the <see cref="!:LabContoller" /> to execute all labs that are returned
+            by the <see cref="P:DaveSexton.Labs.LabCatalog.PriorityLabs" /> property, followed by all discovered labs of
+            types that are not specified in <see cref="P:DaveSexton.Labs.LabCatalog.LabTypes" />.  This flag is a 
+            combination of <see cref="F:DaveSexton.Labs.LabActivationStrategies.All" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.ExcludeCatalogLabTypesFromDiscovery" />.
+            </summary>
+    </member>
+    <member name="T:DaveSexton.Labs.LabController">
+      <summary>
+            Executes <see cref="T:DaveSexton.Labs.Lab" /> instances and optionally discovers labs automatically.
+            </summary>
+      <remarks>
+            - Typically provides a UI for choosing labs to be executed.
+            - Discovery or Catalog
+            
+            Automatically discovers types that derive from <see cref="T:DaveSexton.Labs.Lab" /> within the assembly
+            in which the type that derives from <see cref="T:DaveSexton.Labs.LabController" /> is defined.
+            
+            ..Catalog can create instances of labs to be executed..
+            </remarks>
+      <invariant>catalog != null</invariant>
+      <invariant>controllerListener != null</invariant>
+      <invariant>targetTraceListeners != null</invariant>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.#ctor">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.LabTraceObject" /> class for derived classes.
+            </summary>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.#ctor">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.LabController" /> class for derived classes.
+            </summary>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.#ctor(DaveSexton.Labs.LabCatalog)">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.LabController" /> class for derived classes.
+            </summary>
+      <requires>catalog != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.AddTraceSources(System.Collections.Generic.IEnumerable{System.Diagnostics.TraceSource})">
+      <summary>
+            Associates <see cref="T:System.Diagnostics.TraceSource" /> objects with the <see cref="T:System.Diagnostics.TraceListener" /> for the 
+            <see cref="T:DaveSexton.Labs.LabController" />, and also the listeners returned by the <see cref="P:DaveSexton.Labs.Lab.TraceListeners" />
+            property for each <see cref="T:DaveSexton.Labs.Lab" /> that is executed.
+            </summary>
+      <requires>traceSources != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.InitializeTrace">
+      <summary>
+            Adds a <see cref="T:System.Diagnostics.TraceListener" /> to the <see cref="F:DaveSexton.Labs.LabTraceSources.Default" /><see cref="T:System.Diagnostics.TraceSource" />.
+            This listener redirects trace input to the <see cref="M:DaveSexton.Labs.LabController.Write(System.String)" />, <see cref="M:DaveSexton.Labs.LabController.WriteLine(System.String)" /> and <see cref="M:DaveSexton.Labs.LabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)" /> 
+            methods of the <see cref="T:DaveSexton.Labs.LabController" />.
+            </summary>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Dispose">
+      <summary>
+            Releases all resources used by an instance of the <see cref="T:DaveSexton.Labs.LabController" /> class.
+            </summary>
+      <remarks>
+            This method calls the virtual <see cref="M:DaveSexton.Labs.LabController.Dispose(System.Boolean)" /> method, passing in <strong>true</strong>, and then suppresses 
+            finalization of the instance.
+            </remarks>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Dispose(System.Boolean)">
+      <summary>
+            Releases the unmanaged resources used by an instance of the <see cref="T:DaveSexton.Labs.LabController" /> class and optionally releases the managed resources.
+            </summary>
+      <param name="disposing">
+        <strong>true</strong> to release both managed and unmanaged resources; <strong>false</strong> to release only unmanaged resources.</param>
+    </member>
+    <!-- Badly formed XML comment ignored for member "T:DaveSexton.Labs.Lab" -->
+    <member name="M:DaveSexton.Labs.Lab.CanExecute">
+      <summary>
+            Gets whether the <see cref="T:DaveSexton.Labs.LabController" /> should call <see cref="M:DaveSexton.Labs.Lab.Main" />
+            when the <see cref="T:DaveSexton.Labs.Lab" /> is next in the queue to be executed.
+            If <see cref="M:DaveSexton.Labs.Lab.CanExecute" /> returns <see langword="false" />, then the 
+            <see cref="T:DaveSexton.Labs.Lab" /> is skipped.
+            </summary>
+      <remarks>
+            Derived classes can override <see cref="M:DaveSexton.Labs.Lab.CanExecute" /> to include custom logic
+            that determines whether the <see cref="T:DaveSexton.Labs.Lab" /> should be skipped at runtime.
+            </remarks>
+      <returns>
+            Returns <see langword="true" /> if <see cref="P:DaveSexton.Labs.Lab.IsEnabled" /> is <see langword="true" />
+            and <see langword="false" /> otherwise.
+            </returns>
+      <pure />
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.Main">
+      <summary>
+            The entry point of the <see cref="T:DaveSexton.Labs.Lab" />, which is called automatically 
+            by the <see cref="T:DaveSexton.Labs.LabController" /> if <see cref="M:DaveSexton.Labs.Lab.CanExecute" /> returns
+            <see langword="true" />.
+            </summary>
+      <remarks>
+        <alert type="implement">
+            When implemented by a derived class, <see cref="M:DaveSexton.Labs.Lab.Main" /> must block the 
+            current thread until the <see cref="T:DaveSexton.Labs.Lab" /> has completed.  Asynchronous labs 
+            are not currently supported.  By returning from <see cref="M:DaveSexton.Labs.Lab.Main" />, the 
+            <see cref="T:DaveSexton.Labs.Lab" /> indicates to the <see cref="T:DaveSexton.Labs.LabController" /> that it has 
+            completed and the next <see cref="T:DaveSexton.Labs.Lab" />, if any, can be started.
+            </alert>
+      </remarks>
+      <requires>CanExecute()</requires>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.Name">
+      <summary>
+            Gets the name of the <see cref="T:DaveSexton.Labs.Lab" />.
+            </summary>
+      <remarks>
+        <!-- No matching elements were found for the following include tag -->
+        <include file="Lab.xml" path="property[@id=&quot;Name&quot;]/*" />
+      </remarks>
+      <getter>
+        <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.Description">
+      <summary>
+            Gets a brief textual description of the <see cref="T:DaveSexton.Labs.Lab" />.
+            </summary>
+      <remarks>
+        <!-- No matching elements were found for the following include tag -->
+        <include file="Lab.xml" path="property[@id=&quot;Description&quot;]/*" />
+      </remarks>
+      <getter>
+        <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.Categories">
+      <summary>
+            Gets the categories in which this <see cref="T:DaveSexton.Labs.Lab" /> is defined.
+            </summary>
+      <remarks>
+        <!-- No matching elements were found for the following include tag -->
+        <include file="Lab.xml" path="property[@id=&quot;Categories&quot;]/*" />
+      </remarks>
+      <getter>
+        <ensures>Contract.Result&lt;IList&lt;string&gt;&gt;() != null</ensures>
+        <ensures>Contract.Result&lt;IList&lt;string&gt;&gt;().IsReadOnly</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.IsCancellable">
+      <summary>
+            Gets whether the <see cref="T:DaveSexton.Labs.Lab" /> may be cancelled.
+            </summary>
+      <getter>
+        <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+        <requires>description != null</requires>
+        <requires>categories != null</requires>
+        <requires>categories.IsReadOnly</requires>
+      </getter>
+      <setter>
+        <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+        <requires>description != null</requires>
+        <requires>categories != null</requires>
+        <requires>categories.IsReadOnly</requires>
+      </setter>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.IsEnabled">
+      <summary>
+            Gets whether the <see cref="T:DaveSexton.Labs.Lab" /> should be included when it's discovered by 
+            the <see cref="T:DaveSexton.Labs.LabController" />.
+            </summary>
+      <getter>
+        <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+        <requires>description != null</requires>
+        <requires>categories != null</requires>
+        <requires>categories.IsReadOnly</requires>
+      </getter>
+      <setter>
+        <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+        <requires>description != null</requires>
+        <requires>categories != null</requires>
+        <requires>categories.IsReadOnly</requires>
+      </setter>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.PauseOnCompletion">
+      <summary>
+            Gets or sets whether the <see cref="T:DaveSexton.Labs.LabController" /> should pause for user 
+            input after the <see cref="T:DaveSexton.Labs.Lab" /> completes, but only when it's not the final 
+            <see cref="T:DaveSexton.Labs.Lab" /> to be executed.  The default value is <see langword="true" />.
+            </summary>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.TraceListeners">
+      <summary>
+            Gets the <see cref="T:System.Diagnostics.TraceListener" /> instances that will be use while the 
+            <see cref="T:DaveSexton.Labs.Lab" /> is running.  By default, an empty sequence is returned.
+            </summary>
+      <getter>
+        <ensures>Contract.Result&lt;IEnumerable&lt;TraceListener&gt;&gt;() != null</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.SourceCode">
+      <summary>
+            Gets the lab's source code.
+            </summary>
+      <remarks>
+        <para>
+            The <see cref="P:DaveSexton.Labs.Lab.SourceCode" /> property depends upon lab applications using the <strong>Labs.targets</strong>
+            file as part of its normal build process.  This file embeds the source code for all types that derive from 
+            <see cref="T:DaveSexton.Labs.Lab" /> into the target assembly; otherwise, <see langword="null" /> is returned.
+            </para>
+        <para>
+            The <see cref="P:DaveSexton.Labs.Lab.SourceCode" /> property is virtual so that derived types may acquire the lab's source code 
+            using a different mechanism.
+            </para>
+      </remarks>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousTraceListener.#ctor(System.Action{System.String},System.Action{System.String})">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.AnonymousTraceListener" /> class.
+            </summary>
+      <requires>write != null</requires>
+      <requires>writeLine != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousTraceListener.#ctor(System.Action{System.String},System.Action{System.String},System.Action{System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String})">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.AnonymousTraceListener" /> class.
+            </summary>
+      <requires>write != null</requires>
+      <requires>writeLine != null</requires>
+      <requires>trace != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousTraceListener.#ctor(System.String,System.Action{System.String},System.Action{System.String})">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.AnonymousTraceListener" /> class.
+            </summary>
+      <requires>name != null</requires>
+      <requires>write != null</requires>
+      <requires>writeLine != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousTraceListener.#ctor(System.String,System.Action{System.String},System.Action{System.String},System.Action{System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String})">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.AnonymousTraceListener" /> class.
+            </summary>
+      <requires>name != null</requires>
+      <requires>write != null</requires>
+      <requires>writeLine != null</requires>
+      <requires>trace != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.#ctor">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.ConsoleLabController" /> class.
+            </summary>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.#ctor(DaveSexton.Labs.LabCatalog)">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.ConsoleLabController" /> class.
+            </summary>
+      <requires>catalog != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When error tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When warning tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When warning tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When verbose tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerboseIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When verbose tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When information tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When information tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStop(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspend(System.Diagnostics.TraceSource,System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspendIf(System.Diagnostics.TraceSource,System.Func{System.Boolean},System.Func{System.String})">
+      <summary>
+            When activity tracing is enabled, invokes the specified <paramref name="predicate" /> function and if <see langword="true" />, 
+            invokes the specified <paramref name="message" /> function and traces the result.
+            </summary>
+      <remarks>
+            This overload is useful for when it's expensive to create trace messages.  By passing in a function instead, 
+            the configured trace level may be consulted first to see if it allows messages to be written at the specified 
+            level.  Only if the mesage can be written will the function be invoked.
+            </remarks>
+      <requires>source != null</requires>
+      <requires>predicate != null</requires>
+      <requires>message != null</requires>
+    </member>
+    <member name="T:DaveSexton.Labs.AnonymousLab">
+      <summary>
+            Dynamic <see cref="T:DaveSexton.Labs.Lab" /> that accepts an <see cref="T:System.Action" /> delegate for the 
+            <see cref="M:DaveSexton.Labs.Lab.Main" /> method, without requiring an explicit class to be defined.
+            </summary>
+      <invariant>main != null</invariant>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousLab.#ctor(System.Boolean,System.Action)">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.AnonymousLab" /> class.
+            </summary>
+      <requires>main != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousLab.#ctor(System.Boolean,System.Func{System.Boolean},System.Action)">
+      <summary>
+            Constructs a new instance of the <see cref="T:DaveSexton.Labs.AnonymousLab" /> class.
+            </summary>
+      <requires>canExecute != null</requires>
+      <requires>main != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.Exception)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspendIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspendIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerboseIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStop(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspend(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspend(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerboseIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStop(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Reflection.ReflectionExtensions.TryGetAttributeValue``1(System.Type,System.Func{``0,System.String},System.String@)">
+      <requires>type != null</requires>
+      <requires>getValue != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out value))</ensures>
+    </member>
+    <member name="M:System.Reflection.ReflectionExtensions.TryGetAttributeValue``1(System.Reflection.Assembly,System.Func{``0,System.String},System.String@)">
+      <requires>assembly != null</requires>
+      <requires>getValue != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out value))</ensures>
+    </member>
+    <member name="M:System.Reflection.ReflectionExtensions.TryGetAssemblyTitle(System.Reflection.Assembly,System.String@)">
+      <requires>assembly != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out title))</ensures>
+    </member>
+    <member name="M:System.Reflection.ReflectionExtensions.TryGetAttributeValue``1(``0[],System.Func{``0,System.String},System.String@)">
+      <requires>attributes != null</requires>
+      <requires>getValue != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCatalog.GetSourceCodeResourceManager(DaveSexton.Labs.Lab)">
+      <requires>lab != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceInformation(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceLine(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceInformation(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceWarning(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.Trace(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceWarning(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceFailure(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceLine(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.Trace(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.Format(System.String,System.Object[])">
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceError(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceError(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceFailure(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceSuccess(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceSuccess(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires>labs != null</requires>
+      <requires>labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.SetTraceListeners(System.Collections.Generic.IEnumerable{System.Diagnostics.TraceListener})">
+      <requires>listeners != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)">
+      <requires>lab != null</requires>
+      <requires>number &gt; 0</requires>
+      <requires>total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Execute(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab},System.Boolean,System.Boolean)">
+      <requires>labs != null</requires>
+      <requires>labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Initialize(DaveSexton.Labs.Lab)">
+      <requires>lab != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.WriteLine(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Write(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires>labs != null</requires>
+      <requires>labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.TraceLabDescriptionIf(System.Boolean,System.String)">
+      <requires>description != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)">
+      <requires>lab != null</requires>
+      <requires>lab.CanExecute()</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.TraceHeader(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.Int32)">
+      <requires>discoveryCatalog != null</requires>
+      <requires>labCount &gt; -1</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.TraceHeader(System.Reflection.Assembly,System.Int32)">
+      <requires>assembly != null</requires>
+      <requires>labCount &gt; -1</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)">
+      <requires>lab != null</requires>
+      <requires>number &gt; 0</requires>
+      <requires>total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.StartDebug(System.ComponentModel.Composition.Primitives.ComposablePartCatalog)">
+      <requires>discoveryCatalog != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.UnsetTraceListeners(System.Collections.Generic.IEnumerable{System.Diagnostics.TraceListener})">
+      <requires>listeners != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Start(System.ComponentModel.Composition.Primitives.ComposablePartCatalog)">
+      <requires>discoveryCatalog != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+      <requires>lab != null</requires>
+      <requires>number &gt; 0</requires>
+      <requires>total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.LoadLabs(System.ComponentModel.Composition.Primitives.ComposablePartCatalog)">
+      <requires>discoveryCatalog != null</requires>
+      <ensures>Contract.Result&lt;ICollection&lt;Lab&gt;&gt;() != null</ensures>
+      <ensures>Contract.Result&lt;ICollection&lt;Lab&gt;&gt;().IsReadOnly</ensures>
+    </member>
+    <member name="T:DaveSexton.Labs.Lab">
+      <invariant>!string.IsNullOrWhiteSpace(labName)</invariant>
+      <invariant>description != null</invariant>
+      <invariant>categories != null</invariant>
+      <invariant>categories.IsReadOnly</invariant>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.TryGetDisplayName(System.Type,System.String@)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out displayName))</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.TryGetDescription(System.Type,System.String@)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out description))</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.GetLabNameFromType(System.Type)">
+      <requires>type != null</requires>
+      <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.#ctor(System.String)">
+      <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.GetLabDescriptionFromType(System.Type)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="P:DaveSexton.Labs.Lab.SourceCodeResourceManager">
+      <getter>
+        <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+        <requires>description != null</requires>
+        <requires>categories != null</requires>
+        <requires>categories.IsReadOnly</requires>
+      </getter>
+      <setter>
+        <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+        <requires>description != null</requires>
+        <requires>categories != null</requires>
+        <requires>categories.IsReadOnly</requires>
+      </setter>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.TryGetCategory(System.Type,System.String@)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out category))</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.RemoveLabSuffix(System.String)">
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.#ctor(System.String,System.Boolean)">
+      <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.GetLabCategoriesFromType(System.Type)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;IList&lt;string&gt;&gt;() != null</ensures>
+      <ensures>Contract.Result&lt;IList&lt;string&gt;&gt;().IsReadOnly</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.Execute">
+      <requires>CanExecute()</requires>
+    </member>
+    <member name="T:DaveSexton.Labs.AnonymousTraceListener">
+      <invariant>trace != null</invariant>
+      <invariant>write != null</invariant>
+      <invariant>writeLine != null</invariant>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleFormat.AutoWrap(System.String,System.String)">
+      <requires>linePrefix != null</requires>
+      <requires>!string.IsNullOrWhiteSpace(message)</requires>
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.Write(System.String)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Write(System.String)" inheritedFromTypeName="LabController">message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)" inheritedFromTypeName="LabController">lab != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)" inheritedFromTypeName="LabController">number &gt; 0</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)" inheritedFromTypeName="LabController">total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.TraceLabDescriptionIf(System.Boolean,System.String)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.TraceLabDescriptionIf(System.Boolean,System.String)" inheritedFromTypeName="LabController">description != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)" inheritedFromTypeName="LabController">message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WaitForSelection(System.String,System.ConsoleKey[])">
+      <requires>validChoices != null</requires>
+      <ensures>Contract.Result&lt;ConsoleKeyInfo&gt;().Key == ConsoleKey.Escape
+				|| validChoices.Contains(Contract.Result&lt;ConsoleKeyInfo&gt;().Key)</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">lab != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">number &gt; 0</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.FormatLabDescription(System.String)">
+      <requires>!string.IsNullOrWhiteSpace(description)</requires>
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteLabHeader(System.String,System.Int32,System.Int32,System.ConsoleColor)">
+      <requires>number &gt; 0</requires>
+      <requires>total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.ChoiceMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires>labs != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteChoices(DaveSexton.Labs.LabCategory,System.Boolean)">
+      <requires>category.Initialized</requires>
+      <ensures>Contract.Result&lt;ICollection&lt;ConsoleKey&gt;&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteLine(System.String)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.WriteLine(System.String)" inheritedFromTypeName="LabController">message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.ExecuteChoice(System.ConsoleKeyInfo,DaveSexton.Labs.LabCategory@,System.Collections.Generic.Stack{DaveSexton.Labs.LabCategory})">
+      <requires>category.Initialized</requires>
+      <requires>parents != null</requires>
+      <ensures>Contract.ValueAtReturn(out category).Initialized</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.Execute(DaveSexton.Labs.Lab)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)" inheritedFromTypeName="LabController">lab != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)" inheritedFromTypeName="LabController">lab.CanExecute()</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.TryExecuteLab(System.ConsoleKeyInfo,DaveSexton.Labs.LabCategory)">
+      <requires>category.Initialized</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousLab.Main">
+      <requires inheritedFrom="M:DaveSexton.Labs.Lab.Main" inheritedFromTypeName="Lab">CanExecute()</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousLab.CreateName">
+      <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+    </member>
+    <member name="T:DaveSexton.Labs.LabCategory">
+      <invariant>!initialized || !string.IsNullOrWhiteSpace(name)</invariant>
+      <invariant>!initialized || labs != null</invariant>
+      <invariant>!initialized || labs.IsReadOnly</invariant>
+      <invariant>!initialized || subcategories != null</invariant>
+      <invariant>!initialized || subcategories.IsReadOnly</invariant>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.GetHashCode">
+      <ensures>Contract.Result&lt;int&gt;() == (initialized ? name.GetHashCode() : 0)</ensures>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCategory.Labs">
+      <getter>
+        <ensures>!initialized || Contract.Result&lt;IList&lt;Lab&gt;&gt;() != null</ensures>
+        <ensures>!initialized || Contract.Result&lt;IList&lt;Lab&gt;&gt;().IsReadOnly</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCategory.DefaultCategoryName">
+      <getter>
+        <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCategory.Subcategories">
+      <getter>
+        <ensures>!initialized || Contract.Result&lt;IList&lt;LabCategory&gt;&gt;() != null</ensures>
+        <ensures>!initialized || Contract.Result&lt;IList&lt;LabCategory&gt;&gt;().IsReadOnly</ensures>
+      </getter>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.#ctor(System.String,System.Collections.Generic.IEnumerable{DaveSexton.Labs.Lab},System.Collections.Generic.IEnumerable{DaveSexton.Labs.LabCategory})">
+      <requires>!string.IsNullOrWhiteSpace(name)</requires>
+      <requires>labs != null</requires>
+      <requires>subcategories != null</requires>
+      <ensures>Contract.ValueAtReturn(out initialized) == true</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.#ctor(System.Collections.Generic.IEnumerable{DaveSexton.Labs.Lab},System.Collections.Generic.IEnumerable{DaveSexton.Labs.LabCategory})">
+      <requires>labs != null</requires>
+      <requires>subcategories != null</requires>
+      <ensures>Contract.ValueAtReturn(out initialized) == true</ensures>
+    </member>
+    <member name="P:DaveSexton.Labs.LabCategory.Name">
+      <getter>
+        <ensures>!initialized || !string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+      </getter>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.Organize(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires>labs != null</requires>
+      <ensures>Contract.Result&lt;LabCategory&gt;().Initialized</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.OrganizeRecursive(System.Collections.Generic.IEnumerable{DaveSexton.Labs.Lab},System.Int32)">
+      <requires>labs != null</requires>
+      <requires>depth &gt; -1</requires>
+      <ensures>Contract.Result&lt;Tuple&lt;List&lt;Lab&gt;, IEnumerable&lt;LabCategory&gt;&gt;&gt;() != null</ensures>
+      <ensures>Contract.Result&lt;Tuple&lt;List&lt;Lab&gt;, IEnumerable&lt;LabCategory&gt;&gt;&gt;().Item1 != null</ensures>
+      <ensures>Contract.Result&lt;Tuple&lt;List&lt;Lab&gt;, IEnumerable&lt;LabCategory&gt;&gt;&gt;().Item2 != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.ToString">
+      <ensures>Contract.Result&lt;string&gt;() == ((name == null) ? string.Empty : Name)</ensures>
+      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="P:DaveSexton.Labs.DefaultLabCatalog.PriorityLabs">
+      <getter>
+        <ensures inheritedFrom="M:DaveSexton.Labs.LabCatalog.get_PriorityLabs" inheritedFromTypeName="LabCatalog">Contract.Result&lt;IEnumerable&lt;Lab&gt;&gt;() != null</ensures>
+      </getter>
+    </member>
+    <member name="P:DaveSexton.Labs.DefaultLabCatalog.LabTypes">
+      <getter>
+        <ensures inheritedFrom="M:DaveSexton.Labs.LabCatalog.get_LabTypes" inheritedFromTypeName="LabCatalog">Contract.Result&lt;IEnumerable&lt;Type&gt;&gt;() != null</ensures>
+      </getter>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,14 @@
+Release Notes for Rxx
+http://rxx.codeplex.com/
+
+	Date				Author				Changes
+	4/2/2011		Dave S.				First draft
+
+Online version: 
+http://rxx.codeplex.com/wikipage?title=Release%20Notes
+
+
+Rxx Version: 1.0
+Change Log:
+
+	- TODO: First change item
