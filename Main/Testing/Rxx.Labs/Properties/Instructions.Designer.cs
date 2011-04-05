@@ -61,6 +61,24 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input.
+        /// </summary>
+        internal static string Input {
+            get {
+                return ResourceManager.GetString("Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter text at the prompt.  To end this lab, just press Enter..
+        /// </summary>
+        internal static string IxTraceLabInstructions {
+            get {
+                return ResourceManager.GetString("IxTraceLabInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Press any key to cancel....
         /// </summary>
         internal static string PressAnyKeyToCancel {

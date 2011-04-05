@@ -10,9 +10,9 @@ namespace Rxx.Labs.Interactive
 	{
 		protected override void Main()
 		{
-			var xs = Enumerable.Range(0, 5);
-
 			TraceLine(Instructions.WaitForCompletion);
+
+			var xs = Enumerable.Range(0, 5);
 
 			xs.Run(ConsoleOutput);
 		}

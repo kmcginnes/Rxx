@@ -11,9 +11,9 @@ namespace Rxx.Labs.Reactive
 	{
 		protected override void Main()
 		{
-			var xs = Observable.Interval(TimeSpan.FromSeconds(1)).Take(5);
-
 			TraceLine(Instructions.PressAnyKeyToCancel);
+
+			var xs = Observable.Interval(TimeSpan.FromSeconds(1)).Take(5);
 
 			using (xs.Subscribe(ConsoleOutput))
 			{

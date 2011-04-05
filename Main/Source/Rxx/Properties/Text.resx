@@ -117,16 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Input" xml:space="preserve">
-    <value>Input</value>
+  <data name="DefaultDisposedSubscriptionMessage" xml:space="preserve">
+    <value>Disposed subscription.</value>
   </data>
-  <data name="IxTraceLabInstructions" xml:space="preserve">
-    <value>Enter text at the prompt.  To end this lab, just press Enter.</value>
+  <data name="DefaultDisposingSubscriptionMessage" xml:space="preserve">
+    <value>Disposing subscription.</value>
   </data>
-  <data name="PressAnyKeyToCancel" xml:space="preserve">
-    <value>Press any key to cancel...</value>
+  <data name="DefaultOnCompletedMessage" xml:space="preserve">
+    <value>Observable completed.</value>
   </data>
-  <data name="WaitForCompletion" xml:space="preserve">
-    <value>Please wait for the sequence to complete...</value>
+  <data name="DefaultSubscribedMessage" xml:space="preserve">
+    <value>Subscribed to observable.</value>
+  </data>
+  <data name="DefaultSubscribingMessage" xml:space="preserve">
+    <value>Subscribing to observable.</value>
+  </data>
+  <data name="DisposedSubscriptionFormat" xml:space="preserve">
+    <value>Disposed subscription: {0}.</value>
+  </data>
+  <data name="DisposingSubscriptionFormat" xml:space="preserve">
+    <value>Disposing subscription: {0}.</value>
+  </data>
+  <data name="SubscribedFormat" xml:space="preserve">
+    <value>Subscribed to observable: {0}.</value>
+  </data>
+  <data name="SubscribingFormat" xml:space="preserve">
+    <value>Subscribing to observable: {0}.</value>
   </data>
 </root>

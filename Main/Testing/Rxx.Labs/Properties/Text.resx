@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
   <data name="OnCompletedEmpty" xml:space="preserve">
     <value>Sequence did not have any values.</value>
   </data>
@@ -128,5 +131,8 @@
   </data>
   <data name="OnNextTimeFormat" xml:space="preserve">
     <value>OnNext: ({0:mm\:ss\.ff}): {1}</value>
+  </data>
+  <data name="PromptFormat" xml:space="preserve">
+    <value>{0}&gt; </value>
   </data>
 </root>

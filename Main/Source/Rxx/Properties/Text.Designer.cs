@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Rxx.Labs.Properties {
+namespace Rxx.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Rxx.Labs.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rxx.Labs.Properties.Text", typeof(Text).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rxx.Properties.Text", typeof(Text).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,83 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Done.
+        ///   Looks up a localized string similar to Disposed subscription..
         /// </summary>
-        internal static string Done {
+        internal static string DefaultDisposedSubscriptionMessage {
             get {
-                return ResourceManager.GetString("Done", resourceCulture);
+                return ResourceManager.GetString("DefaultDisposedSubscriptionMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sequence did not have any values..
+        ///   Looks up a localized string similar to Disposing subscription..
         /// </summary>
-        internal static string OnCompletedEmpty {
+        internal static string DefaultDisposingSubscriptionMessage {
             get {
-                return ResourceManager.GetString("OnCompletedEmpty", resourceCulture);
+                return ResourceManager.GetString("DefaultDisposingSubscriptionMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnCompleted: ({0:mm\:ss\.ff}).
+        ///   Looks up a localized string similar to Observable completed..
         /// </summary>
-        internal static string OnCompletedTimeFormat {
+        internal static string DefaultOnCompletedMessage {
             get {
-                return ResourceManager.GetString("OnCompletedTimeFormat", resourceCulture);
+                return ResourceManager.GetString("DefaultOnCompletedMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnError: ({0:mm\:ss\.ff}): {1}.
+        ///   Looks up a localized string similar to Subscribed to observable..
         /// </summary>
-        internal static string OnErrorTimeFormat {
+        internal static string DefaultSubscribedMessage {
             get {
-                return ResourceManager.GetString("OnErrorTimeFormat", resourceCulture);
+                return ResourceManager.GetString("DefaultSubscribedMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnNext: ({0:mm\:ss\.ff}): {1}.
+        ///   Looks up a localized string similar to Subscribing to observable..
         /// </summary>
-        internal static string OnNextTimeFormat {
+        internal static string DefaultSubscribingMessage {
             get {
-                return ResourceManager.GetString("OnNextTimeFormat", resourceCulture);
+                return ResourceManager.GetString("DefaultSubscribingMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}&gt; .
+        ///   Looks up a localized string similar to Disposed subscription: {0}..
         /// </summary>
-        internal static string PromptFormat {
+        internal static string DisposedSubscriptionFormat {
             get {
-                return ResourceManager.GetString("PromptFormat", resourceCulture);
+                return ResourceManager.GetString("DisposedSubscriptionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disposing subscription: {0}..
+        /// </summary>
+        internal static string DisposingSubscriptionFormat {
+            get {
+                return ResourceManager.GetString("DisposingSubscriptionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subscribed to observable: {0}..
+        /// </summary>
+        internal static string SubscribedFormat {
+            get {
+                return ResourceManager.GetString("SubscribedFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subscribing to observable: {0}..
+        /// </summary>
+        internal static string SubscribingFormat {
+            get {
+                return ResourceManager.GetString("SubscribingFormat", resourceCulture);
             }
         }
     }

@@ -14,8 +14,8 @@ namespace Rxx.Labs
 		 */
 		private static IEnumerable<Lab> GetPriorityLabs()
 		{
-			// yield return new Reactive.Some-Lab-Name();
-			yield break;
+			yield return new Reactive.TraceLab();
+			yield return new Interactive.TraceLab();
 		}
 	}
 }

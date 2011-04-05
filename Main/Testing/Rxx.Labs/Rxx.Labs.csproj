@@ -58,7 +58,7 @@
     <CodeContractsRuntimeThrowOnFailure>False</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
     <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
-    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
     <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
     <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
     <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
@@ -166,12 +166,14 @@
     <Compile Include="ConsoleObserver.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
+    <Compile Include="Interactive\TraceLab.cs" />
     <Compile Include="Properties\Instructions.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Instructions.resx</DependentUpon>
     </Compile>
     <Compile Include="Reactive\ExampleLab.cs" />
+    <Compile Include="Reactive\TraceLab.cs" />
     <Compile Include="RxxLab.cs" />
     <Compile Include="Interactive\ExampleLab.cs" />
     <Compile Include="Program.cs" />
