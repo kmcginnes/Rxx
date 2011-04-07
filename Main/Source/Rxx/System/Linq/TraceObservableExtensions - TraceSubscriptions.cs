@@ -6,7 +6,7 @@ using TraceSource = System.Diagnostics.TraceSource;
 
 namespace System.Linq
 {
-	/* This class is named TraceObservableExtensions instead of ObservableExtensions2 because the Trace<T> methods cause the C# compiler
+	/* This class is named TraceObservableExtensions instead of Observable2 because the Trace<T> methods cause the C# compiler
 	 * to complain when using static methods on System.Diagnostics.Trace; i.e., it must be fully qualified when used in extension methods.
 	 */
 

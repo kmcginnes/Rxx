@@ -117,28 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EnterAValueForBar" xml:space="preserve">
-    <value>Enter a value for Bar</value>
+  <data name="PropertyDoesNotSupportChangeEvents" xml:space="preserve">
+    <value>The specified property does not support change events.</value>
   </data>
-  <data name="EnterAValueForBaz" xml:space="preserve">
-    <value>Enter a value for Baz</value>
+  <data name="PropertyExpressionContainsIndexer" xml:space="preserve">
+    <value>The specified expression contains an indexer.</value>
   </data>
-  <data name="EnterAValueForFoo" xml:space="preserve">
-    <value>Enter a value for Foo</value>
+  <data name="PropertyExpressionNotUnderstood" xml:space="preserve">
+    <value>The specified expression cannot be understood as a property.</value>
   </data>
-  <data name="Input" xml:space="preserve">
-    <value>Input</value>
+  <data name="PropertyExpressionOwnerNotUnderstood" xml:space="preserve">
+    <value>The specified expression cannot be understood as a property being read from a local variable, field, another property, or a chain of fields and properties.</value>
   </data>
-  <data name="IxTraceLabInstructions" xml:space="preserve">
-    <value>Enter text at the prompt.  To end this lab, just press Enter.</value>
+  <data name="PropertyExpressionTooComplex" xml:space="preserve">
+    <value>The specified expression contains more than just fields and properties.</value>
   </data>
-  <data name="PressAnyKeyToCancel" xml:space="preserve">
-    <value>Press any key to cancel...</value>
-  </data>
-  <data name="PressAnyKeyToContinue" xml:space="preserve">
-    <value>Press any key to continue...</value>
-  </data>
-  <data name="WaitForCompletion" xml:space="preserve">
-    <value>Please wait for the sequence to complete...</value>
+  <data name="PropertyExpresssionOwnerNotDetermined" xml:space="preserve">
+    <value>The owner of the specified property could not be determined.</value>
   </data>
 </root>

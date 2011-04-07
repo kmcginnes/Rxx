@@ -14,8 +14,7 @@ namespace Rxx.Labs
 		 */
 		private static IEnumerable<Lab> GetPriorityLabs()
 		{
-			yield return new Reactive.OperationalLab();
-			yield return new Interactive.OperationalLab();
+			yield return new Reactive.PropertyChangedLab();
 		}
 	}
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Rxx.Labs.Properties {
+namespace Rxx.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Rxx.Labs.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Instructions {
+    internal class Errors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Instructions() {
+        internal Errors() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Rxx.Labs.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rxx.Labs.Properties.Instructions", typeof(Instructions).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rxx.Properties.Errors", typeof(Errors).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,56 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter a value for Bar.
+        ///   Looks up a localized string similar to The specified property does not support change events..
         /// </summary>
-        internal static string EnterAValueForBar {
+        internal static string PropertyDoesNotSupportChangeEvents {
             get {
-                return ResourceManager.GetString("EnterAValueForBar", resourceCulture);
+                return ResourceManager.GetString("PropertyDoesNotSupportChangeEvents", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter a value for Baz.
+        ///   Looks up a localized string similar to The specified expression contains an indexer..
         /// </summary>
-        internal static string EnterAValueForBaz {
+        internal static string PropertyExpressionContainsIndexer {
             get {
-                return ResourceManager.GetString("EnterAValueForBaz", resourceCulture);
+                return ResourceManager.GetString("PropertyExpressionContainsIndexer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter a value for Foo.
+        ///   Looks up a localized string similar to The specified expression cannot be understood as a property..
         /// </summary>
-        internal static string EnterAValueForFoo {
+        internal static string PropertyExpressionNotUnderstood {
             get {
-                return ResourceManager.GetString("EnterAValueForFoo", resourceCulture);
+                return ResourceManager.GetString("PropertyExpressionNotUnderstood", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Input.
+        ///   Looks up a localized string similar to The specified expression cannot be understood as a property being read from a local variable, field, another property, or a chain of fields and properties..
         /// </summary>
-        internal static string Input {
+        internal static string PropertyExpressionOwnerNotUnderstood {
             get {
-                return ResourceManager.GetString("Input", resourceCulture);
+                return ResourceManager.GetString("PropertyExpressionOwnerNotUnderstood", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter text at the prompt.  To end this lab, just press Enter..
+        ///   Looks up a localized string similar to The specified expression contains more than just fields and properties..
         /// </summary>
-        internal static string IxTraceLabInstructions {
+        internal static string PropertyExpressionTooComplex {
             get {
-                return ResourceManager.GetString("IxTraceLabInstructions", resourceCulture);
+                return ResourceManager.GetString("PropertyExpressionTooComplex", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Press any key to cancel....
+        ///   Looks up a localized string similar to The owner of the specified property could not be determined..
         /// </summary>
-        internal static string PressAnyKeyToCancel {
+        internal static string PropertyExpresssionOwnerNotDetermined {
             get {
-                return ResourceManager.GetString("PressAnyKeyToCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Press any key to continue....
-        /// </summary>
-        internal static string PressAnyKeyToContinue {
-            get {
-                return ResourceManager.GetString("PressAnyKeyToContinue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please wait for the sequence to complete....
-        /// </summary>
-        internal static string WaitForCompletion {
-            get {
-                return ResourceManager.GetString("WaitForCompletion", resourceCulture);
+                return ResourceManager.GetString("PropertyExpresssionOwnerNotDetermined", resourceCulture);
             }
         }
     }

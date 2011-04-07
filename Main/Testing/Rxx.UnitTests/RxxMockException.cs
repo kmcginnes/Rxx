@@ -20,7 +20,7 @@ namespace Rxx.UnitTests
 		{
 		}
 
-		protected RxxMockException(SerializationInfo info, StreamingContext context)
+		private RxxMockException(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 		}
