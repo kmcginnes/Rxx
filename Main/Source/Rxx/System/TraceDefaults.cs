@@ -83,7 +83,7 @@ namespace System
 			Contract.Requires(nextFormat != null);
 			Contract.Ensures(Contract.Result<Func<int, T, string>>() != null);
 
-			return (id, value) => FormatMessage(id, string.Format(CultureInfo.CurrentCulture, nextFormat, value));
+			return (id, value) => string.Format(CultureInfo.CurrentCulture, nextFormat, id, value);
 		}
 
 		internal static Func<int, Exception, string> GetIdentityFormatOnError(string errorFormat)
@@ -91,7 +91,7 @@ namespace System
 			Contract.Requires(errorFormat != null);
 			Contract.Ensures(Contract.Result<Func<int, Exception, string>>() != null);
 
-			return (id, error) => FormatMessage(id, string.Format(CultureInfo.CurrentCulture, errorFormat, error));
+			return (id, error) => string.Format(CultureInfo.CurrentCulture, errorFormat, id, error);
 		}
 
 		internal static Func<int, string> GetIdentityMessageOnCompleted(string completedMessage)
@@ -99,7 +99,7 @@ namespace System
 			Contract.Requires(completedMessage != null);
 			Contract.Ensures(Contract.Result<Func<int, string>>() != null);
 
-			return id => FormatMessage(id, completedMessage);
+			return id => string.Format(CultureInfo.CurrentCulture, completedMessage, id);
 		}
 	}
 }

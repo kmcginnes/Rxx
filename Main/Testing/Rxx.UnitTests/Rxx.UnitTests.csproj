@@ -91,7 +91,21 @@
     <Compile Include="..\..\Build\Properties\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
+    <Compile Include="Interactive\TraceIdentityTests - System.Diagnostics.Trace.cs" />
+    <Compile Include="Interactive\TraceIdentityTests - System.Diagnostics.TraceSouce.cs" />
+    <Compile Include="Interactive\TraceTests - System.Diagnostics.Trace.cs" />
+    <Compile Include="Interactive\TraceTests - System.Diagnostics.TraceSouce.cs" />
+    <Compile Include="RxxMockException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reactive\TraceSubscriptionTests.cs" />
+    <Compile Include="Reactive\TraceIdentityTests - System.Diagnostics.Trace.cs" />
+    <Compile Include="Reactive\TraceIdentityTests - System.Diagnostics.TraceSouce.cs" />
+    <Compile Include="Reactive\TraceTests - System.Diagnostics.TraceSouce.cs" />
+    <Compile Include="Reactive\TraceTests - System.Diagnostics.Trace.cs" />
+    <Compile Include="RxxTests.cs" />
+    <Compile Include="RxxTraceTests.cs" />
+    <Compile Include="TestTraceListener.cs" />
+    <Compile Include="TestTraceSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\Rxx\Rxx.csproj">
@@ -103,6 +117,7 @@
     <None Include="packages.config" />
     <None Include="Properties\Rxx.snk" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
