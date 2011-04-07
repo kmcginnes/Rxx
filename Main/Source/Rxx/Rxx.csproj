@@ -144,6 +144,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Text.resx</DependentUpon>
     </Compile>
+    <Compile Include="System\Disposables\MutableDisposableExtensions.cs" />
     <Compile Include="System\Linq\Expressions\ExpressionExtensions.cs" />
     <Compile Include="System\Linq\Observable2 - FromPropertyChangedPattern.cs" />
     <Compile Include="System\Linq\OperationalEnumerable - AsOperational Primitives.cs" />
