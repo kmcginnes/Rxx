@@ -88,6 +88,15 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Press any key to continue....
+        /// </summary>
+        internal static string PressAnyKeyToContinue {
+            get {
+                return ResourceManager.GetString("PressAnyKeyToContinue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please wait for the sequence to complete....
         /// </summary>
         internal static string WaitForCompletion {

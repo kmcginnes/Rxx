@@ -7,7 +7,8 @@
 			-->
 
 			<Word>Rxx</Word>
-
+			<Word>combinators</Word>
+			
 			<!--
 				Code Analysis incorrectly reports "ss" as a spelling error in resource strings that format a TimeSpan.
 				For example: {0:mm\:ss\.ff}

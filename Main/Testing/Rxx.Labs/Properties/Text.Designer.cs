@@ -106,6 +106,24 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The AsOperational extension method also allows you to define binary and unary operator overloads as functions for any type, not just the primitive numeric types.  Furthermore, you can also specify a different binary strategy for combining sequences operationally (although the following example does not show that feature in particular)..
+        /// </summary>
+        internal static string OperationalLabAdvanced {
+            get {
+                return ResourceManager.GetString("OperationalLabAdvanced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operator overload methods are combinators.  Rxx provides an AsOperational extension method that converts sequences of the primitive numeric types into sequences that can be combined using the basic C# operators.  Currently included are the binary +, -, *, / operators and the unary +, - operators, for any of the primitive numeric types in which C# implicitly defines them..
+        /// </summary>
+        internal static string OperationalLabBasic {
+            get {
+                return ResourceManager.GetString("OperationalLabBasic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}&gt; .
         /// </summary>
         internal static string PromptFormat {

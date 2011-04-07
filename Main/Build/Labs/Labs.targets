@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
+	<!--
+	To include this MSBuild file in your Labs project, insert the following <Import /> element into your 
+	project file *after* the language <Import /> element.  Then replace "enter_your_path" with the full or 
+	relative path to the Labs.targets file.
+	
+	<Import Name="enter_your_path\Labs.targets" />
+	-->
+
 	<PropertyGroup>
 		<LabSourceCodeResourceName>LabSourceCode</LabSourceCodeResourceName>
 		<LabSourceCodeResourceFile>$(IntermediateOutputPath)$(LabSourceCodeResourceName).resx</LabSourceCodeResourceFile>
 		<TemporaryLabsOutputDir>$(IntermediateOutputPath)LabsTemp\</TemporaryLabsOutputDir>
 	</PropertyGroup>
+
+	<UsingTask TaskName="FindLabs" AssemblyFile="DaveSexton.Labs.dll" />
 
 	<UsingTask TaskName="ReadFilesAsMetadata" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
 		<ParameterGroup>
@@ -24,8 +34,6 @@ foreach (var file in Files)
 			</Code>
 		</Task>
 	</UsingTask>
-
-	<UsingTask TaskName="FindLabs" AssemblyFile="DaveSexton.Labs.dll" />
 
 	<UsingTask TaskName="CreateResXFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
 		<ParameterGroup>
@@ -57,14 +65,17 @@ using (var writer = new ResXResourceWriter(TargetFile))
 		<Delete Files="$(LabSourceCodeResourceFile)" />
 	</Target>
 
-	<Target Name="PreBuildLabsFirstPass" BeforeTargets="BeforeBuild" Condition=" '$(LabsBuildSecondPass)' != 'True' ">
+	<Target Name="PreBuildLabsFirstPass" Condition=" '$(LabsBuildSecondPass)' != 'True' "
+					BeforeTargets="BeforeBuild">
 		<PropertyGroup>
+			<!-- This property must only be applied after Build, not after Clean, so leave it inside this target -->
 			<OutDir>$(TemporaryLabsOutputDir)</OutDir>
-			<RunCodeAnalysis>false</RunCodeAnalysis>
+			<CodeAnalysisInputAssembly>$(TemporaryLabsOutputDir)$(TargetFileName)</CodeAnalysisInputAssembly>
 		</PropertyGroup>
 	</Target>
 
-	<Target Name="PostBuildLabsFirstPass" Condition=" '$(LabsBuildSecondPass)' != 'True' " AfterTargets="AfterBuild">
+	<Target Name="PostBuildLabsFirstPass" Condition=" '$(LabsBuildSecondPass)' != 'True' "
+					AfterTargets="AfterBuild">
 		<ItemGroup>
 			<_TemporaryLabsOutputDirItem Include="$(TemporaryLabsOutputDir)" />
 		</ItemGroup>
@@ -75,6 +86,10 @@ using (var writer = new ResXResourceWriter(TargetFile))
 		</PropertyGroup>
 		<ItemGroup>
 			<_SecondPassBuildProperties Include="LabsBuildSecondPass=True" />
+			<_SecondPassBuildProperties Include="RunCodeAnalysis=False" />
+			<_SecondPassBuildProperties Include="SourceAnalysisEnabled=False" />
+			<_SecondPassBuildProperties Include="CodeContractsRunCodeAnalysis=False" />
+			<_SecondPassBuildProperties Include="RunCodeAnalysis=False" />
 			<_SecondPassBuildProperties Include="Platform=$(Platform)" />
 			<_SecondPassBuildProperties Include="Configuration=$(Configuration)" />
 			<_SecondPassBuildProperties Include="DaveSextonLabsAssemblyFile=$(_DaveSextonLabsAssemblyFile)" />

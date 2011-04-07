@@ -122,7 +122,7 @@
     <CodeContractsAnalysisWarningLevel>2</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DaveSexton.Labs, Version=1.2.4111.14912, Culture=neutral, PublicKeyToken=09aedbbcd2ef4748, processorArchitecture=MSIL">
+    <Reference Include="DaveSexton.Labs">
       <HintPath>..\..\Build\Labs\DaveSexton.Labs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -166,6 +166,7 @@
     <Compile Include="ConsoleObserver.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
+    <Compile Include="Interactive\OperationalLab.cs" />
     <Compile Include="Interactive\TraceLab.cs" />
     <Compile Include="Properties\Instructions.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -173,6 +174,7 @@
       <DependentUpon>Instructions.resx</DependentUpon>
     </Compile>
     <Compile Include="Reactive\ExampleLab.cs" />
+    <Compile Include="Reactive\OperationalLab.cs" />
     <Compile Include="Reactive\TraceLab.cs" />
     <Compile Include="RxxLab.cs" />
     <Compile Include="Interactive\ExampleLab.cs" />

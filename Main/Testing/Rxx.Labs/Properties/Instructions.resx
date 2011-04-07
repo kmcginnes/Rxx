@@ -126,6 +126,9 @@
   <data name="PressAnyKeyToCancel" xml:space="preserve">
     <value>Press any key to cancel...</value>
   </data>
+  <data name="PressAnyKeyToContinue" xml:space="preserve">
+    <value>Press any key to continue...</value>
+  </data>
   <data name="WaitForCompletion" xml:space="preserve">
     <value>Please wait for the sequence to complete...</value>
   </data>

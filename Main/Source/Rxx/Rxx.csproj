@@ -139,6 +139,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Text.resx</DependentUpon>
     </Compile>
+    <Compile Include="System\Linq\OperationalEnumerable - AsOperational Primitives.cs" />
+    <Compile Include="System\Linq\OperationalEnumerable - AsOperational.cs" />
+    <Compile Include="System\Linq\OperationalEnumerable{T}.cs" />
+    <Compile Include="System\Linq\OperationalEnumerable{TIn, TOut}.cs" />
+    <Compile Include="System\Linq\OperationalObservable{T}.cs" />
+    <Compile Include="System\Linq\OperationalObservable - AsOperational Primitives.cs" />
+    <Compile Include="System\Linq\OperationalObservable - AsOperational.cs" />
+    <Compile Include="System\Linq\OperationalObservable{TIn, TOut}.cs" />
     <Compile Include="System\Linq\TraceEnumerableExtensions - TraceIdentity.cs" />
     <Compile Include="System\Linq\TraceEnumerableExtensions - Trace.cs" />
     <Compile Include="System\Linq\TraceObservableExtensions - TraceSubscriptions.cs" />
