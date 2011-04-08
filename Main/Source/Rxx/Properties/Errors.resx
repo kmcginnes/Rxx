@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EventIsNotCompatibleWithEventArgs" xml:space="preserve">
+    <value>The event member's delegate has an arguments parameter that is not compatible with System.EventArgs.  Member name: {0}.</value>
+  </data>
+  <data name="EventIsNotCompatibleWithEventHandler" xml:space="preserve">
+    <value>The event member's delegate is not compatible with System.EventHandler&lt;TEventArgs&gt;.  Member name: {0}.</value>
+  </data>
   <data name="PropertyDoesNotSupportChangeEvents" xml:space="preserve">
     <value>The specified property does not support change events.</value>
   </data>
@@ -134,5 +140,8 @@
   </data>
   <data name="PropertyExpresssionOwnerNotDetermined" xml:space="preserve">
     <value>The owner of the specified property could not be determined.</value>
+  </data>
+  <data name="PropertyIsReadOnly" xml:space="preserve">
+    <value>The specified property is read-only.  Property name: {0}.</value>
   </data>
 </root>

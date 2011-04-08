@@ -61,6 +61,24 @@ namespace Rxx.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The event member&apos;s delegate has an arguments parameter that is not compatible with System.EventArgs.  Member name: {0}..
+        /// </summary>
+        internal static string EventIsNotCompatibleWithEventArgs {
+            get {
+                return ResourceManager.GetString("EventIsNotCompatibleWithEventArgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The event member&apos;s delegate is not compatible with System.EventHandler&lt;TEventArgs&gt;.  Member name: {0}..
+        /// </summary>
+        internal static string EventIsNotCompatibleWithEventHandler {
+            get {
+                return ResourceManager.GetString("EventIsNotCompatibleWithEventHandler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The specified property does not support change events..
         /// </summary>
         internal static string PropertyDoesNotSupportChangeEvents {
@@ -111,6 +129,15 @@ namespace Rxx.Properties {
         internal static string PropertyExpresssionOwnerNotDetermined {
             get {
                 return ResourceManager.GetString("PropertyExpresssionOwnerNotDetermined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified property is read-only.  Property name: {0}..
+        /// </summary>
+        internal static string PropertyIsReadOnly {
+            get {
+                return ResourceManager.GetString("PropertyIsReadOnly", resourceCulture);
             }
         }
     }

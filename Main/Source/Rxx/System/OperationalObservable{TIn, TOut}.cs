@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
+using System.Linq;
 
-namespace System.Linq
+namespace System
 {
 	public class OperationalObservable<TIn, TOut> : IObservable<TIn>
 	{

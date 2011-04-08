@@ -38,6 +38,23 @@ namespace Rxx.Labs
 
 			return observer;
 		}
+
+		protected virtual Func<IObserver<object>> ConsoleOutput(string name)
+		{
+			Contract.Requires(!string.IsNullOrWhiteSpace(name));
+			Contract.Ensures(Contract.Result<Func<IObserver<object>>>() != null);
+
+			return () =>
+			{
+				Contract.Ensures(Contract.Result<IObserver<object>>() != null);
+
+				var observer = new ConsoleObserver<object>(name, ShowTimeOnNext);
+
+				observer.StartTimer();
+
+				return observer;
+			};
+		}
 		#endregion
 	}
 }

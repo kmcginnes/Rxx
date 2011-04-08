@@ -70,6 +70,33 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assigning asyncObj.Message asynchronously....
+        /// </summary>
+        internal static string ObservableDynamicObjectLabAssigningMessage {
+            get {
+                return ResourceManager.GetString("ObservableDynamicObjectLabAssigningMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calling asyncObj.Calculate() asynchronously....
+        /// </summary>
+        internal static string ObservableDynamicObjectLabCallingCalculate {
+            get {
+                return ResourceManager.GetString("ObservableDynamicObjectLabCallingCalculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calling asyncObj.Ping() asynchronously....
+        /// </summary>
+        internal static string ObservableDynamicObjectLabCallingPing {
+            get {
+                return ResourceManager.GetString("ObservableDynamicObjectLabCallingPing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sequence did not have any values..
         /// </summary>
         internal static string OnCompletedEmpty {
@@ -79,7 +106,7 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnCompleted: ({0:mm\:ss\.ff}).
+        ///   Looks up a localized string similar to OnCompleted ({0:mm\:ss\.ff}).
         /// </summary>
         internal static string OnCompletedTimeFormat {
             get {
@@ -88,7 +115,7 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnError: ({0:mm\:ss\.ff}): {1}.
+        ///   Looks up a localized string similar to OnError ({0:mm\:ss\.ff}): {1}.
         /// </summary>
         internal static string OnErrorTimeFormat {
             get {
@@ -97,7 +124,7 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnNext: ({0:mm\:ss\.ff}): {1}.
+        ///   Looks up a localized string similar to OnNext ({0:mm\:ss\.ff}): {1}.
         /// </summary>
         internal static string OnNextTimeFormat {
             get {

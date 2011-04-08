@@ -1,8 +1,11 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
-namespace System.Linq
+namespace System
 {
-	public sealed class OperationalObservable<T> : OperationalObservable<T, T>
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix",
+		Justification = "This class is not intended to be consumed publicly.  It's public only so that the compiler can resolve operator overloads.")]
+	public sealed class OperationalEnumerable<T> : OperationalEnumerable<T, T>
 	{
 		#region Public Properties
 		#endregion
@@ -11,9 +14,9 @@ namespace System.Linq
 		#endregion
 
 		#region Constructors
-		internal OperationalObservable(
-			IObservable<T> source,
-			Func<IObservable<T>, IObservable<T>, Func<T, T, T>, IObservable<T>> binaryOperation,
+		internal OperationalEnumerable(
+			IEnumerable<T> source,
+			Func<IEnumerable<T>, IEnumerable<T>, Func<T, T, T>, IEnumerable<T>> binaryOperation,
 			Func<T, T, T> add,
 			Func<T, T, T> subtract,
 			Func<T, T, T> multiply,
@@ -29,7 +32,7 @@ namespace System.Linq
 					divide,
 					positive,
 					negative,
-					result => new OperationalObservable<T>(
+					result => new OperationalEnumerable<T>(
 						result,
 						binaryOperation,
 						add,

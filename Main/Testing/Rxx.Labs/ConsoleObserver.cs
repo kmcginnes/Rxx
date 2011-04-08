@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using Rxx.Labs.Properties;
 
@@ -20,6 +21,7 @@ namespace Rxx.Labs
 		#region Private / Protected
 		private readonly Stopwatch watch = new Stopwatch();
 		private readonly bool showTimeOnNext, showValues;
+		private readonly string name;
 		private bool hasValue;
 		#endregion
 
@@ -40,11 +42,32 @@ namespace Rxx.Labs
 			this.showTimeOnNext = showTimeOnNext;
 			this.showValues = !(typeof(T) == typeof(Unit));
 		}
+
+		/// <summary>
+		/// Constructs a new instance of the <see cref="ConsoleObserver" /> class.
+		/// </summary>
+		public ConsoleObserver(string name)
+			: this(name, showTimeOnNext: true)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(name));
+		}
+
+		/// <summary>
+		/// Constructs a new instance of the <see cref="ConsoleObserver" /> class.
+		/// </summary>
+		public ConsoleObserver(string name, bool showTimeOnNext)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(name));
+
+			this.name = name;
+			this.showTimeOnNext = showTimeOnNext;
+			this.showValues = !(typeof(T) == typeof(Unit));
+		}
 		#endregion
 
 		#region Methods
 		[ContractInvariantMethod]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Required for code contracts.")]
+		[SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Required for code contracts.")]
 		private void ObjectInvariant()
 		{
 			Contract.Invariant(watch != null);
@@ -53,6 +76,17 @@ namespace Rxx.Labs
 		public void StartTimer()
 		{
 			watch.Restart();
+		}
+
+		[SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Console.Write(System.String)", 
+			Justification = "Single whitespace.")]
+		private void WriteName()
+		{
+			if (name != null)
+			{
+				Console.Write(name);
+				Console.Write(" ");
+			}
 		}
 		#endregion
 
@@ -64,6 +98,8 @@ namespace Rxx.Labs
 			if (showValues)
 			{
 				Console.ForegroundColor = ConsoleColor.Yellow;
+
+				WriteName();
 
 				if (showTimeOnNext)
 				{
@@ -84,6 +120,8 @@ namespace Rxx.Labs
 
 			Console.ForegroundColor = ConsoleColor.Red;
 
+			WriteName();
+
 			Console.WriteLine(Text.OnErrorTimeFormat, watch.Elapsed);
 			Console.WriteLine(error.Message);
 
@@ -98,11 +136,15 @@ namespace Rxx.Labs
 			{
 				Console.ForegroundColor = ConsoleColor.Magenta;
 
+				WriteName();
+
 				Console.WriteLine(Text.OnCompletedEmpty);
 				Console.WriteLine();
 			}
 
 			Console.ForegroundColor = ConsoleColor.Green;
+
+			WriteName();
 
 			Console.WriteLine(Text.OnCompletedTimeFormat, watch.Elapsed);
 

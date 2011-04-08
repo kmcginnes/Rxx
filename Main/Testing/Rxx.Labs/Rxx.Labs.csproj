@@ -169,6 +169,7 @@
     <Compile Include="ConsoleObserver.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interactive\OperationalLab.cs" />
     <Compile Include="Interactive\TraceLab.cs" />
     <Compile Include="Properties\Instructions.Designer.cs">
@@ -177,6 +178,7 @@
       <DependentUpon>Instructions.resx</DependentUpon>
     </Compile>
     <Compile Include="Reactive\ExampleLab.cs" />
+    <Compile Include="Reactive\ObservableDynamicObjectLab.cs" />
     <Compile Include="Reactive\OperationalLab.cs" />
     <Compile Include="Reactive\PropertyChangedLab.cs" />
     <Compile Include="Reactive\TraceLab.cs" />

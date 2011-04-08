@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq.Expressions;
 using System.Reflection;
-using Rxx.Properties;
+using Rxx;
 
 namespace System.Linq
 {
@@ -93,28 +93,11 @@ namespace System.Linq
 
 				string propertyName = propertyInfo.Name;
 
-				var propertyDescriptor = (from p in TypeDescriptor.GetProperties(source).Cast<PropertyDescriptor>()
-																	where string.Equals(p.Name, propertyName, StringComparison.Ordinal)
-																	select p)
-																	.Single();
+				var propertyDescriptor = ComponentReflection.GetProperty(source, propertyName, StringComparison.Ordinal);
 
 				Contract.Assume(propertyDescriptor != null);
 
-				if (!propertyDescriptor.SupportsChangeEvents)
-					throw new ArgumentException(Errors.PropertyDoesNotSupportChangeEvents, "property");
-
-				var observable =
-					from e in Observable.FromEvent<EventHandler, EventArgs>(
-						d => d.Invoke,
-						h => propertyDescriptor.AddValueChanged(source, h),
-						h => propertyDescriptor.RemoveValueChanged(source, h))
-					select Event.Create(
-						e.Sender,
-						e.EventArgs as PropertyChangedEventArgs ?? new PropertyChangedEventArgs(propertyName));
-
-				Contract.Assume(observable != null);
-
-				return observable;
+				return propertyDescriptor.PropertyChanged(source);
 			}
 		}
 	}

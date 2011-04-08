@@ -120,17 +120,26 @@
   <data name="Done" xml:space="preserve">
     <value>Done</value>
   </data>
+  <data name="ObservableDynamicObjectLabAssigningMessage" xml:space="preserve">
+    <value>Assigning asyncObj.Message asynchronously...</value>
+  </data>
+  <data name="ObservableDynamicObjectLabCallingCalculate" xml:space="preserve">
+    <value>Calling asyncObj.Calculate() asynchronously...</value>
+  </data>
+  <data name="ObservableDynamicObjectLabCallingPing" xml:space="preserve">
+    <value>Calling asyncObj.Ping() asynchronously...</value>
+  </data>
   <data name="OnCompletedEmpty" xml:space="preserve">
     <value>Sequence did not have any values.</value>
   </data>
   <data name="OnCompletedTimeFormat" xml:space="preserve">
-    <value>OnCompleted: ({0:mm\:ss\.ff})</value>
+    <value>OnCompleted ({0:mm\:ss\.ff})</value>
   </data>
   <data name="OnErrorTimeFormat" xml:space="preserve">
-    <value>OnError: ({0:mm\:ss\.ff}): {1}</value>
+    <value>OnError ({0:mm\:ss\.ff}): {1}</value>
   </data>
   <data name="OnNextTimeFormat" xml:space="preserve">
-    <value>OnNext: ({0:mm\:ss\.ff}): {1}</value>
+    <value>OnNext ({0:mm\:ss\.ff}): {1}</value>
   </data>
   <data name="OperationalLabAdvanced" xml:space="preserve">
     <value>The AsOperational extension method also allows you to define binary and unary operator overloads as functions for any type, not just the primitive numeric types.  Furthermore, you can also specify a different binary strategy for combining sequences operationally (although the following example does not show that feature in particular).</value>
