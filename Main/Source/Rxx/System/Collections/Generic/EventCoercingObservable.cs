@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+﻿using System.Diagnostics.Contracts;
 
-namespace System
+namespace System.Collections.Generic
 {
 	internal sealed class EventCoercingObservable<TSource, TTarget> : CoercingObservable<IEvent<TSource>, IEvent<TTarget>>
 	{

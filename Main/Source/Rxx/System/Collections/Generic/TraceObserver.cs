@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
-namespace System
+namespace System.Collections.Generic
 {
 	public class TraceObserver<T> : IObserver<T>, IObserver<T, string>
 	{

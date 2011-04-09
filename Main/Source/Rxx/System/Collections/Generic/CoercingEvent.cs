@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 
-namespace System
+namespace System.Collections.Generic
 {
 	internal sealed class CoercingEvent<TSource, TTarget> : IEvent<TTarget>
 	{

@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Threading;
 
-namespace System
+namespace System.Collections.Generic
 {
 	public class IdentifiedTraceObserver<T> : TraceObserver<T>
 	{

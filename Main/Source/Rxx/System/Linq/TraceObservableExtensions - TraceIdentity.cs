@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using TraceSource = System.Diagnostics.TraceSource;
 
 namespace System.Linq

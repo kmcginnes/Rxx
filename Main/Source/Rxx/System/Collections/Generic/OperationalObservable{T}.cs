@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.Contracts;
 
-namespace System
+namespace System.Collections.Generic
 {
 	public sealed class OperationalObservable<T> : OperationalObservable<T, T>
 	{

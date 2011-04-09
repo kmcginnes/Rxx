@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 
-namespace System
+namespace System.Collections.Generic
 {
 	internal class CoercingObserver<TSource, TTarget> : IObserver<TSource>
 	{

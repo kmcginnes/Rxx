@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Linq;
 
-namespace System
+namespace System.Collections.Generic
 {
 	public class OperationalObservable<TIn, TOut> : IObservable<TIn>
 	{

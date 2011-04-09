@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.Contracts;
 
-namespace System
+namespace System.Collections.Generic
 {
 	internal class CoercingObservable<TSource, TTarget> : IObservable<TTarget>
 	{
