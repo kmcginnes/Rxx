@@ -146,7 +146,7 @@
       <DependentUpon>Text.resx</DependentUpon>
     </Compile>
     <Compile Include="System\ComponentModel\PropertyDescriptorExtensions.cs" />
-    <Compile Include="EventProxyObservable.cs" />
+    <Compile Include="System\Collections\Generic\EventProxyObservable.cs" />
     <Compile Include="System\Linq\Observable2 - Priming.cs" />
     <Compile Include="System\Linq\Observable2 - Coerce.cs" />
     <Compile Include="System\Collections\Generic\CoercingEvent.cs" />

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
-namespace Rxx
+namespace System.Collections.Generic
 {
 	internal sealed class EventProxyObservable : IObservable<IEvent<EventArgs>>
 	{
