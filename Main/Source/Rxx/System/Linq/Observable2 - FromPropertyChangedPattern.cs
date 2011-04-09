@@ -54,8 +54,6 @@ namespace System.Linq
 			return observable;
 		}
 
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly",
-			Justification = "This is a private method that is only called by methods that use 'property' as the parameter name.")]
 		public static IObservable<IEvent<PropertyChangedEventArgs>> FromPropertyChangedPattern<TSource>(
 			TSource source,
 			Func<PropertyInfo> getPropertyInfo)

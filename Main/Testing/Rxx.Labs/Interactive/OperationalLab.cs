@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using DaveSexton.Labs;
 using Rxx.Labs.Properties;
 
 namespace Rxx.Labs.Interactive
 {
-	[DisplayName("Ix Operator Overloads")]
+	[DisplayName("Operator Overloads")]
 	[Description("Example using the interactive AsOperational extensions.")]
 	public sealed class OperationalLab : RxxLab
 	{
 		protected override void Main()
 		{
-			TraceLine(ConsoleFormat.Wrap("  ", Text.OperationalLabBasic));
-			TraceLine();
+			TraceDescription(Text.OperationalLabBasic);
 
 			var xs = new[] { 1, 2, 3, 4 };
 			var ys = new[] { 5, 6, 7, 8 };
@@ -32,8 +30,7 @@ namespace Rxx.Labs.Interactive
 			Console.ReadKey();
 
 			TraceLine();
-			TraceLine(ConsoleFormat.Wrap("  ", Text.OperationalLabAdvanced));
-			TraceLine();
+			TraceDescription(Text.OperationalLabAdvanced);
 
 			// Define an operational factory so operators are only specified once.
 			var o = (Func<IEnumerable<int>, OperationalEnumerable<int>>)

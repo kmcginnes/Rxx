@@ -7,14 +7,13 @@ using Rxx.Labs.Properties;
 
 namespace Rxx.Labs.Reactive
 {
-	[DisplayName("Rx Operator Overloads")]
+	[DisplayName("Operator Overloads")]
 	[Description("Example using the reactive AsOperational extensions.")]
 	public sealed class OperationalLab : RxxLab
 	{
 		protected override void Main()
 		{
-			TraceLine(ConsoleFormat.Wrap("  ", Text.OperationalLabBasic));
-			TraceLine();
+			TraceDescription(Text.OperationalLabBasic);
 			TraceLine(Instructions.PressAnyKeyToCancel);
 
 			var xs = new Subject<int>();
@@ -48,8 +47,7 @@ namespace Rxx.Labs.Reactive
 			}
 
 			TraceLine();
-			TraceLine(ConsoleFormat.Wrap("  ", Text.OperationalLabAdvanced));
-			TraceLine();
+			TraceDescription(Text.OperationalLabAdvanced);
 			TraceLine(Instructions.PressAnyKeyToCancel);
 
 			// Define an operational factory so operators are only specified once.

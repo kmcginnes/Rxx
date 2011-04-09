@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using DaveSexton.Labs;
 
 namespace Rxx.Labs
@@ -28,6 +29,12 @@ namespace Rxx.Labs
 		#endregion
 
 		#region Methods
+		protected static void TraceDescription(string description)
+		{
+			TraceLine(ConsoleFormat.Wrap("  ", description));
+			TraceLine();
+		}
+
 		protected virtual IObserver<object> ConsoleOutput()
 		{
 			Contract.Ensures(Contract.Result<IObserver<object>>() != null);
@@ -54,6 +61,19 @@ namespace Rxx.Labs
 
 				return observer;
 			};
+		}
+
+		protected virtual Func<IObserver<object>> ConsoleOutput(string nameFormat, params object[] args)
+		{
+			Contract.Requires(!string.IsNullOrWhiteSpace(nameFormat));
+			Contract.Requires(args != null);
+			Contract.Ensures(Contract.Result<Func<IObserver<object>>>() != null);
+
+			string name = string.Format(CultureInfo.CurrentCulture, nameFormat, args);
+
+			Contract.Assume(!string.IsNullOrWhiteSpace(name));
+
+			return ConsoleOutput(name);
 		}
 		#endregion
 	}

@@ -147,6 +147,7 @@
     </Compile>
     <Compile Include="System\ComponentModel\PropertyDescriptorExtensions.cs" />
     <Compile Include="EventProxyObservable.cs" />
+    <Compile Include="System\Linq\Observable2 - Priming.cs" />
     <Compile Include="System\Linq\Observable2 - Coerce.cs" />
     <Compile Include="System\CoercingEvent.cs" />
     <Compile Include="System\EventCoercingObserver.cs" />

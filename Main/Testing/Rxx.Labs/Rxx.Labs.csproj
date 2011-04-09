@@ -180,6 +180,7 @@
     <Compile Include="Reactive\ExampleLab.cs" />
     <Compile Include="Reactive\ObservableDynamicObjectLab.cs" />
     <Compile Include="Reactive\OperationalLab.cs" />
+    <Compile Include="Reactive\PrimingLab.cs" />
     <Compile Include="Reactive\PropertyChangedLab.cs" />
     <Compile Include="Reactive\TraceLab.cs" />
     <Compile Include="RxxLab.cs" />

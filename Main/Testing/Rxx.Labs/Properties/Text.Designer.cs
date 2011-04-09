@@ -61,11 +61,56 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disposing.
+        /// </summary>
+        internal static string Disposing {
+            get {
+                return ResourceManager.GetString("Disposing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disposing: {0}.
+        /// </summary>
+        internal static string DisposingFormat {
+            get {
+                return ResourceManager.GetString("DisposingFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Done.
         /// </summary>
         internal static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generated.
+        /// </summary>
+        internal static string Generated {
+            get {
+                return ResourceManager.GetString("Generated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generated: {0}.
+        /// </summary>
+        internal static string GeneratedFormat {
+            get {
+                return ResourceManager.GetString("GeneratedFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} observed.
+        /// </summary>
+        internal static string NamedObserverFormat {
+            get {
+                return ResourceManager.GetString("NamedObserverFormat", resourceCulture);
             }
         }
         
@@ -93,6 +138,15 @@ namespace Rxx.Labs.Properties {
         internal static string ObservableDynamicObjectLabCallingPing {
             get {
                 return ResourceManager.GetString("ObservableDynamicObjectLabCallingPing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Observed.
+        /// </summary>
+        internal static string Observed {
+            get {
+                return ResourceManager.GetString("Observed", resourceCulture);
             }
         }
         
@@ -151,11 +205,56 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Prime operator connects a connectable observable automatically on the first subscription and never disconnects..
+        /// </summary>
+        internal static string PrimingLabPrime {
+            get {
+                return ResourceManager.GetString("PrimingLabPrime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartPrimed creates a warm observable for the specified action or function.  Essentially, it works like a lazy Start, invoking the action or function upon the first subscription only..
+        /// </summary>
+        internal static string PrimingLabStartPrimed {
+            get {
+                return ResourceManager.GetString("PrimingLabStartPrimed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}&gt; .
         /// </summary>
         internal static string PromptFormat {
             get {
                 return ResourceManager.GetString("PromptFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Started: {0}.
+        /// </summary>
+        internal static string StartedFormat {
+            get {
+                return ResourceManager.GetString("StartedFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subscribing.
+        /// </summary>
+        internal static string Subscribing {
+            get {
+                return ResourceManager.GetString("Subscribing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subscribing: {0}.
+        /// </summary>
+        internal static string SubscribingFormat {
+            get {
+                return ResourceManager.GetString("SubscribingFormat", resourceCulture);
             }
         }
     }

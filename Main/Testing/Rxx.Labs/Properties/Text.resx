@@ -117,8 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Disposing" xml:space="preserve">
+    <value>Disposing</value>
+  </data>
+  <data name="DisposingFormat" xml:space="preserve">
+    <value>Disposing: {0}</value>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>Done</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generated</value>
+  </data>
+  <data name="GeneratedFormat" xml:space="preserve">
+    <value>Generated: {0}</value>
+  </data>
+  <data name="NamedObserverFormat" xml:space="preserve">
+    <value>{0} observed</value>
   </data>
   <data name="ObservableDynamicObjectLabAssigningMessage" xml:space="preserve">
     <value>Assigning asyncObj.Message asynchronously...</value>
@@ -128,6 +143,9 @@
   </data>
   <data name="ObservableDynamicObjectLabCallingPing" xml:space="preserve">
     <value>Calling asyncObj.Ping() asynchronously...</value>
+  </data>
+  <data name="Observed" xml:space="preserve">
+    <value>Observed</value>
   </data>
   <data name="OnCompletedEmpty" xml:space="preserve">
     <value>Sequence did not have any values.</value>
@@ -147,7 +165,22 @@
   <data name="OperationalLabBasic" xml:space="preserve">
     <value>Operator overload methods are combinators.  Rxx provides an AsOperational extension method that converts sequences of the primitive numeric types into sequences that can be combined using the basic C# operators.  Currently included are the binary +, -, *, / operators and the unary +, - operators, for any of the primitive numeric types in which C# implicitly defines them.</value>
   </data>
+  <data name="PrimingLabPrime" xml:space="preserve">
+    <value>The Prime operator connects a connectable observable automatically on the first subscription and never disconnects.</value>
+  </data>
+  <data name="PrimingLabStartPrimed" xml:space="preserve">
+    <value>StartPrimed creates a warm observable for the specified action or function.  Essentially, it works like a lazy Start, invoking the action or function upon the first subscription only.</value>
+  </data>
   <data name="PromptFormat" xml:space="preserve">
     <value>{0}&gt; </value>
+  </data>
+  <data name="StartedFormat" xml:space="preserve">
+    <value>Started: {0}</value>
+  </data>
+  <data name="Subscribing" xml:space="preserve">
+    <value>Subscribing</value>
+  </data>
+  <data name="SubscribingFormat" xml:space="preserve">
+    <value>Subscribing: {0}</value>
   </data>
 </root>

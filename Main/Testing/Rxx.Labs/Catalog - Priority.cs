@@ -14,7 +14,7 @@ namespace Rxx.Labs
 		 */
 		private static IEnumerable<Lab> GetPriorityLabs()
 		{
-			yield return new Reactive.ObservableDynamicObjectLab();
+			yield return new Reactive.PrimingLab();
 		}
 	}
 }
