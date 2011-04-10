@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using Rxx.Labs.Properties;
 
 namespace Rxx.Labs
@@ -21,7 +22,7 @@ namespace Rxx.Labs
 		#region Private / Protected
 		private readonly Stopwatch watch = new Stopwatch();
 		private readonly bool showTimeOnNext, showValues;
-		private readonly string name;
+		private readonly string name, valueFormat;
 		private bool hasValue;
 		#endregion
 
@@ -63,6 +64,19 @@ namespace Rxx.Labs
 			this.showTimeOnNext = showTimeOnNext;
 			this.showValues = !(typeof(T) == typeof(Unit));
 		}
+
+		/// <summary>
+		/// Constructs a new instance of the <see cref="ConsoleObserver" /> class.
+		/// </summary>
+		internal ConsoleObserver(string name, string valueFormat, bool showTimeOnNext)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(valueFormat));
+
+			this.name = name;
+			this.valueFormat = valueFormat;
+			this.showTimeOnNext = showTimeOnNext;
+			this.showValues = !(typeof(T) == typeof(Unit));
+		}
 		#endregion
 
 		#region Methods
@@ -73,16 +87,58 @@ namespace Rxx.Labs
 			Contract.Invariant(watch != null);
 		}
 
+		public static ConsoleObserver<T> Error()
+		{
+			Contract.Ensures(Contract.Result<ConsoleObserver<T>>() != null);
+
+			return new ConsoleObserver<T>()
+			{
+				hasValue = true		// assumption
+			};
+		}
+
+		public static ConsoleObserver<T> Error(string name)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(name));
+			Contract.Ensures(Contract.Result<ConsoleObserver<T>>() != null);
+
+			return new ConsoleObserver<T>(name)
+			{
+				hasValue = true		// assumption
+			};
+		}
+
+		public static ConsoleObserver<T> Completed()
+		{
+			Contract.Ensures(Contract.Result<ConsoleObserver<T>>() != null);
+
+			return new ConsoleObserver<T>()
+			{
+				hasValue = true		// assumption
+			};
+		}
+
+		public static ConsoleObserver<T> Completed(string name)
+		{
+			Contract.Requires(!string.IsNullOrEmpty(name));
+			Contract.Ensures(Contract.Result<ConsoleObserver<T>>() != null);
+
+			return new ConsoleObserver<T>(name)
+			{
+				hasValue = true		// assumption
+			};
+		}
+
 		public void StartTimer()
 		{
 			watch.Restart();
 		}
 
-		[SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Console.Write(System.String)", 
+		[SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Console.Write(System.String)",
 			Justification = "Single whitespace.")]
 		private void WriteName()
 		{
-			if (name != null)
+			if (!string.IsNullOrWhiteSpace(name))
 			{
 				Console.Write(name);
 				Console.Write(" ");
@@ -103,11 +159,17 @@ namespace Rxx.Labs
 
 				if (showTimeOnNext)
 				{
-					Console.WriteLine(Text.OnNextTimeFormat, watch.Elapsed, value);
+					if (valueFormat != null)
+						Console.WriteLine(Text.OnNextTimeFormat, watch.Elapsed, string.Format(CultureInfo.CurrentCulture, valueFormat, value));
+					else
+						Console.WriteLine(Text.OnNextTimeFormat, watch.Elapsed, value);
 				}
 				else
 				{
-					Console.WriteLine(value);
+					if (valueFormat != null)
+						Console.WriteLine(string.Format(CultureInfo.CurrentCulture, valueFormat, value));
+					else
+						Console.WriteLine(value);
 				}
 
 				Console.ResetColor();
@@ -122,8 +184,7 @@ namespace Rxx.Labs
 
 			WriteName();
 
-			Console.WriteLine(Text.OnErrorTimeFormat, watch.Elapsed);
-			Console.WriteLine(error.Message);
+			Console.WriteLine(Text.OnErrorTimeFormat, watch.Elapsed, error.Message);
 
 			Console.ResetColor();
 		}

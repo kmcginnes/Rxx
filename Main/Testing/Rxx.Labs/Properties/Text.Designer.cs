@@ -106,6 +106,15 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The specified URL is not valid..
+        /// </summary>
+        internal static string InvalidUrl {
+            get {
+                return ResourceManager.GetString("InvalidUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} observed.
         /// </summary>
         internal static string NamedObserverFormat {

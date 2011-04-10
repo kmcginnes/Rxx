@@ -61,6 +61,15 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter a URL.
+        /// </summary>
+        internal static string EnterAUrl {
+            get {
+                return ResourceManager.GetString("EnterAUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter a value for Bar.
         /// </summary>
         internal static string EnterAValueForBar {
@@ -84,6 +93,15 @@ namespace Rxx.Labs.Properties {
         internal static string EnterAValueForFoo {
             get {
                 return ResourceManager.GetString("EnterAValueForFoo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the response.
+        /// </summary>
+        internal static string EnterTheResponse {
+            get {
+                return ResourceManager.GetString("EnterTheResponse", resourceCulture);
             }
         }
         

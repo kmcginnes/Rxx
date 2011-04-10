@@ -81,17 +81,9 @@ namespace Rxx.Labs.Reactive
 			using (seeBarChange.Subscribe(ConsoleOutput))
 			using (seeBazChange.Subscribe(ConsoleOutput))
 			{
-				Console.Write(Text.PromptFormat, Instructions.EnterAValueForFoo);
-
-				foo.Value = Console.ReadLine();
-
-				Console.Write(Text.PromptFormat, Instructions.EnterAValueForBar);
-
-				bar.Value = Console.ReadLine();
-
-				Console.Write(Text.PromptFormat, Instructions.EnterAValueForBaz);
-
-				baz.Value = Console.ReadLine();
+				foo.Value = UserInput(Text.PromptFormat, Instructions.EnterAValueForFoo);
+				bar.Value = UserInput(Text.PromptFormat, Instructions.EnterAValueForBar);
+				baz.Value = UserInput(Text.PromptFormat, Instructions.EnterAValueForBaz);
 			}
 		}
 	}

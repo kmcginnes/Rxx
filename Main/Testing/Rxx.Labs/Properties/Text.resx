@@ -132,6 +132,9 @@
   <data name="GeneratedFormat" xml:space="preserve">
     <value>Generated: {0}</value>
   </data>
+  <data name="InvalidUrl" xml:space="preserve">
+    <value>The specified URL is not valid.</value>
+  </data>
   <data name="NamedObserverFormat" xml:space="preserve">
     <value>{0} observed</value>
   </data>

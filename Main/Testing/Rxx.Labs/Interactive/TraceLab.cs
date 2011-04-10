@@ -27,15 +27,13 @@ namespace Rxx.Labs.Interactive
 			System.Diagnostics.Trace.Listeners.Clear();
 		}
 
-		private static IEnumerable<string> GetLinesFromUser()
+		private IEnumerable<string> GetLinesFromUser()
 		{
 			Console.WriteLine();
 
 			do
 			{
-				Console.Write(Text.PromptFormat, Instructions.Input);
-
-				string line = Console.ReadLine();
+				string line = UserInput(Text.PromptFormat, Instructions.Input);
 
 				if (string.IsNullOrWhiteSpace(line))
 					break;
