@@ -79,6 +79,15 @@ namespace Rxx.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The PairDirection value is invalid..
+        /// </summary>
+        internal static string InvalidPairDirectionValue {
+            get {
+                return ResourceManager.GetString("InvalidPairDirectionValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The specified property does not support change events..
         /// </summary>
         internal static string PropertyDoesNotSupportChangeEvents {

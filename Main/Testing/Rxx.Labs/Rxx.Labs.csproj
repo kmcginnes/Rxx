@@ -177,6 +177,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Instructions.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reactive\WebClientLab.cs" />
+    <Compile Include="Reactive\PairingLab.cs" />
     <Compile Include="Reactive\ExampleLab.cs" />
     <Compile Include="Reactive\ObservableDynamicObjectLab.cs" />
     <Compile Include="Reactive\OperationalLab.cs" />

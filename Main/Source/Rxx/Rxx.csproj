@@ -145,8 +145,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Text.resx</DependentUpon>
     </Compile>
+    <Compile Include="System\Collections\Generic\AnonymousPairedObserver.cs" />
+    <Compile Include="System\Collections\Generic\IPairedObservable.cs" />
+    <Compile Include="System\Collections\Generic\IPairedObserver.cs" />
+    <Compile Include="System\Linq\Observable2 - DefaultIfEmpty.cs" />
+    <Compile Include="System\Linq\PairedObservable - Take.cs" />
+    <Compile Include="System\Linq\Observable2 - Pairing.cs" />
+    <Compile Include="System\Linq\PairDirection.cs" />
+    <Compile Include="System\Net\ObservableHttpListener.cs" />
+    <Compile Include="System\PairedObservableExtensions.cs" />
+    <Compile Include="System\Collections\Generic\AnonymousPairedObservable.cs" />
+    <Compile Include="System\Linq\PairedObservable - Select.cs" />
+    <Compile Include="System\Linq\PairedObservable - Combine.cs" />
+    <Compile Include="System\Linq\PairedObserver - Create.cs" />
     <Compile Include="System\ComponentModel\PropertyDescriptorExtensions.cs" />
     <Compile Include="System\Collections\Generic\EventProxyObservable.cs" />
+    <Compile Include="System\Linq\PairedObservable - Create.cs" />
+    <Compile Include="System\Maybe.cs" />
+    <Compile Include="System\Net\ObservableWebClient - OpenWrite.cs" />
+    <Compile Include="System\Net\ObservableWebClient - UploadString.cs" />
+    <Compile Include="System\Net\ObservableWebClient - UploadValues.cs" />
+    <Compile Include="System\Net\ObservableWebClient - UploadFile.cs" />
+    <Compile Include="System\Net\ObservableWebClient - UploadData.cs" />
+    <Compile Include="System\Net\ObservableWebClient - OpenRead.cs" />
+    <Compile Include="System\Net\ObservableWebClient - DownloadString.cs" />
+    <Compile Include="System\Net\ObservableWebClient - DownloadFile.cs" />
+    <Compile Include="System\RightValue.cs" />
+    <Compile Include="System\Either.cs" />
+    <Compile Include="System\LeftValue.cs" />
+    <Compile Include="System\Linq\Observable2 - FromEventBasedAsyncPattern.cs" />
     <Compile Include="System\Linq\Observable2 - Priming.cs" />
     <Compile Include="System\Linq\Observable2 - Coerce.cs" />
     <Compile Include="System\Collections\Generic\CoercingEvent.cs" />
@@ -157,6 +184,7 @@
     <Compile Include="System\Disposables\MutableDisposableExtensions.cs" />
     <Compile Include="System\Linq\Expressions\ExpressionExtensions.cs" />
     <Compile Include="System\Linq\Observable2 - FromPropertyChangedPattern.cs" />
+    <Compile Include="System\Net\ObservableWebClient - DownloadData.cs" />
     <Compile Include="System\ObservableDynamicObject.cs" />
     <Compile Include="System\Linq\OperationalEnumerable - AsOperational Primitives.cs" />
     <Compile Include="System\Linq\OperationalEnumerable - AsOperational.cs" />
