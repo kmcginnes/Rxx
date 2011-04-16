@@ -167,6 +167,7 @@
     <Compile Include="Catalog - Priority.cs" />
     <Compile Include="Catalog.cs" />
     <Compile Include="ConsoleObserver.cs" />
+    <Compile Include="Reactive\TimeShiftingLab.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />

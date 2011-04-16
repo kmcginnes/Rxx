@@ -6,7 +6,7 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
-		public static IObservable<Stream> OpenWriteObservable(
+		public static IObservable<Stream> OpenWrite(
 			Uri address,
 			string method)
 		{

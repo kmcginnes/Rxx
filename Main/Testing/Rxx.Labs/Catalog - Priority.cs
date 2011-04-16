@@ -14,8 +14,7 @@ namespace Rxx.Labs
 		 */
 		private static IEnumerable<Lab> GetPriorityLabs()
 		{
-			yield return new Reactive.WebClientLab();
-			yield return new Reactive.PairingLab();
+			yield return new Reactive.TimeShiftingLab();
 		}
 	}
 }

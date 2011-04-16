@@ -7,7 +7,7 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
-		public static IObservable<string> DownloadFileObservable(
+		public static IObservable<string> DownloadFile(
 			Uri address,
 			string fileName)
 		{

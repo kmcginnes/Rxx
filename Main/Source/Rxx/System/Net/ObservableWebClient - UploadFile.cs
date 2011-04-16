@@ -6,7 +6,7 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
-		public static IObservable<byte[]> UploadFileObservable(
+		public static IObservable<byte[]> UploadFile(
 			Uri address,
 			string method,
 			string fileName)

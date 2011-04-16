@@ -5,7 +5,7 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
-		public static IObservable<string> UploadStringObservable(
+		public static IObservable<string> UploadString(
 			Uri address,
 			string method,
 			string data)

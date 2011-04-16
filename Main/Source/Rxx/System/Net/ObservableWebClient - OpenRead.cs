@@ -7,7 +7,7 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
-		public static IObservable<Stream> OpenReadObservable(
+		public static IObservable<Stream> OpenRead(
 			Uri address)
 		{
 			Contract.Requires(address != null);

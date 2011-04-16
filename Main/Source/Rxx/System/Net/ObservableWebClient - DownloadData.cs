@@ -6,7 +6,7 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
-		public static IObservable<byte[]> DownloadDataObservable(
+		public static IObservable<byte[]> DownloadData(
 			Uri address)
 		{
 			Contract.Requires(address != null);

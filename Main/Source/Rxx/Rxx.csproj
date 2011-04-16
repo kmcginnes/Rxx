@@ -148,6 +148,8 @@
     <Compile Include="System\Collections\Generic\AnonymousPairedObserver.cs" />
     <Compile Include="System\Collections\Generic\IPairedObservable.cs" />
     <Compile Include="System\Collections\Generic\IPairedObserver.cs" />
+    <Compile Include="System\Linq\Observable2 - Concurrency.cs" />
+    <Compile Include="System\Linq\Observable2 - Time Shifting.cs" />
     <Compile Include="System\Linq\Observable2 - DefaultIfEmpty.cs" />
     <Compile Include="System\Linq\PairedObservable - Take.cs" />
     <Compile Include="System\Linq\Observable2 - Pairing.cs" />

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Disposables;
 using System.Linq;
+using System.Net;
+using System.Threading;
 using DaveSexton.Labs;
 
 namespace Rxx.Labs
@@ -11,7 +11,7 @@ namespace Rxx.Labs
 		/* Anonymous experiments (optional)
 		 * 
 		 * Enable this anonymous lab and it will be executed before all of 
-		 * the discovered labs, including the labs specified above.
+		 * the priority labs and discovered labs.
 		 */
 		private const bool anonymousEnabled = false;
 
