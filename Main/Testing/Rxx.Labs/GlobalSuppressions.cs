@@ -16,3 +16,4 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "Rxx.Labs.Reactive.ObservableDynamicObjectLab+Poco.#Message")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Scope = "member", Target = "Rxx.Labs.Reactive.ObservableDynamicObjectLab+Poco.#Calculate(System.String)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "Rxx.Labs.Reactive.ObservableDynamicObjectLab+Poco.#Calculate(System.String)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2201:DoNotRaiseReservedExceptionTypes", Scope = "member", Target = "Rxx.Labs.Reactive.RetryLab.#.ctor()")]

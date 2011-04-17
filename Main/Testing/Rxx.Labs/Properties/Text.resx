@@ -174,8 +174,14 @@
   <data name="PrimingLabStartPrimed" xml:space="preserve">
     <value>StartPrimed creates a warm observable for the specified action or function.  Essentially, it works like a lazy Start, invoking the action or function upon the first subscription only.</value>
   </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+  </data>
   <data name="PromptFormat" xml:space="preserve">
     <value>{0}&gt; </value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
   </data>
   <data name="StartedFormat" xml:space="preserve">
     <value>Started: {0}</value>

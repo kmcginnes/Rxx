@@ -93,14 +93,14 @@ namespace Rxx.Labs.Reactive
 
 				using (ObservableWebClient.DownloadDataWithProgress(url).Subscribe(
 					ConsoleOutputOnNext<DownloadProgressChangedEventArgs>(
-						"Progress",
+						Text.Progress,
 						progress => string.Format(
 							System.Globalization.CultureInfo.CurrentCulture,
 							"{0,5:P0} - {1} of {2} byte(s)",
 							progress.ProgressPercentage / 100f,
 							progress.BytesReceived,
 							progress.TotalBytesToReceive)),
-					ConsoleOutputOnNext<byte[]>("Result", bytes => bytes.Length + " byte(s)"),
+					ConsoleOutputOnNext<byte[]>(Text.Result, bytes => bytes.Length + " byte(s)"),
 					ConsoleOutputOnError(),
 					ConsoleOutputOnCompleted()))
 				{

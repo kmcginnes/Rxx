@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace System.Linq
 {
@@ -44,6 +45,74 @@ namespace System.Linq
 			Contract.Assume(observable != null);
 
 			return observable;
+		}
+
+		public static IPairedObservable<TLeft, TRight> TakeLeft<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source,
+			int count)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(count >= 0);
+			Contract.Ensures(Contract.Result<IPairedObservable<TLeft, TRight>>() != null);
+
+			return PairedObservable.CreateWithDisposable<TLeft, TRight>(
+				observer =>
+				{
+					int remaining = count;
+
+					return source.Subscribe(
+						left =>
+						{
+							if (remaining > 0)
+							{
+								remaining--;
+
+								observer.OnNextLeft(left);
+
+								if (remaining == 0)
+								{
+									observer.OnCompleted();
+								}
+							}
+						},
+						observer.OnNextRight,
+						observer.OnError,
+						observer.OnCompleted);
+				});
+		}
+
+		public static IPairedObservable<TLeft, TRight> TakeRight<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source,
+			int count)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(count >= 0);
+			Contract.Ensures(Contract.Result<IPairedObservable<TLeft, TRight>>() != null);
+
+			return PairedObservable.CreateWithDisposable<TLeft, TRight>(
+				observer =>
+				{
+					int remaining = count;
+
+					return source.Subscribe(
+						observer.OnNextLeft,
+						right =>
+						{
+							if (remaining > 0)
+							{
+								remaining--;
+
+								observer.OnNextRight(right);
+
+								if (remaining == 0)
+								{
+									observer.OnCompleted();
+								}
+							}
+						},
+						observer.OnError,
+						observer.OnCompleted);
+				});
 		}
 	}
 }

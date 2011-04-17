@@ -147,4 +147,7 @@
   <data name="WaitForCompletion" xml:space="preserve">
     <value>Please wait for the sequence to complete...</value>
   </data>
+  <data name="WaitForError" xml:space="preserve">
+    <value>Please wait for the sequence to fail...</value>
+  </data>
 </root>

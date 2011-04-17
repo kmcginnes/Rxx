@@ -141,6 +141,29 @@ namespace Rxx.Labs
 			};
 		}
 
+		protected virtual Action<T> ConsoleOutputOnNext<T>()
+		{
+			Contract.Ensures(Contract.Result<Action<T>>() != null);
+
+			var observer = new ConsoleObserver<object>(ShowTimeOnNext);
+
+			observer.StartTimer();
+
+			return value => observer.OnNext(value);
+		}
+
+		protected virtual Action<T> ConsoleOutputOnNext<T>(string name)
+		{
+			Contract.Requires(!string.IsNullOrWhiteSpace(name));
+			Contract.Ensures(Contract.Result<Action<T>>() != null);
+
+			var observer = new ConsoleObserver<object>(name, ShowTimeOnNext);
+
+			observer.StartTimer();
+
+			return value => observer.OnNext(value);
+		}
+
 		protected virtual Action<T> ConsoleOutputOnNext<T>(Func<T, string> format)
 		{
 			Contract.Requires(format != null);
@@ -151,28 +174,6 @@ namespace Rxx.Labs
 			observer.StartTimer();
 
 			return value => observer.OnNext(format(value));
-		}
-
-		protected virtual Action<Exception> ConsoleOutputOnError()
-		{
-			Contract.Ensures(Contract.Result<Action<Exception>>() != null);
-
-			var observer = ConsoleObserver<object>.Error();
-
-			observer.StartTimer();
-
-			return ex => observer.OnError(ex);
-		}
-
-		protected virtual Action ConsoleOutputOnCompleted()
-		{
-			Contract.Ensures(Contract.Result<Action>() != null);
-
-			var observer = ConsoleObserver<object>.Completed();
-
-			observer.StartTimer();
-
-			return observer.OnCompleted;
 		}
 
 		protected virtual Action<T> ConsoleOutputOnNext<T>(string name, Func<T, string> format)
@@ -188,6 +189,17 @@ namespace Rxx.Labs
 			return value => observer.OnNext(format(value));
 		}
 
+		protected virtual Action<Exception> ConsoleOutputOnError()
+		{
+			Contract.Ensures(Contract.Result<Action<Exception>>() != null);
+
+			var observer = ConsoleObserver<object>.Error();
+
+			observer.StartTimer();
+
+			return observer.OnError;
+		}
+
 		protected virtual Action<Exception> ConsoleOutputOnError(string name)
 		{
 			Contract.Requires(!string.IsNullOrWhiteSpace(name));
@@ -197,7 +209,18 @@ namespace Rxx.Labs
 
 			observer.StartTimer();
 
-			return ex => observer.OnError(ex);
+			return observer.OnError;
+		}
+
+		protected virtual Action ConsoleOutputOnCompleted()
+		{
+			Contract.Ensures(Contract.Result<Action>() != null);
+
+			var observer = ConsoleObserver<object>.Completed();
+
+			observer.StartTimer();
+
+			return observer.OnCompleted;
 		}
 
 		protected virtual Action ConsoleOutputOnCompleted(string name)

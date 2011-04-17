@@ -14,6 +14,7 @@ namespace Rxx.Labs
 		 */
 		private static IEnumerable<Lab> GetPriorityLabs()
 		{
+			yield return new Reactive.RetryLab();
 			yield return new Reactive.TimeShiftingLab();
 		}
 	}

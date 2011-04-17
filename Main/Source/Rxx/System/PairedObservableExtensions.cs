@@ -76,5 +76,73 @@ namespace System
 				onError,
 				onCompleted));
 		}
+
+		public static void Run<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source,
+			Action<TLeft> onNextLeft,
+			Action<TRight> onNextRight)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(onNextLeft != null);
+			Contract.Requires(onNextRight != null);
+
+			source.Run(PairedObserver.Create(
+				onNextLeft,
+				onNextRight));
+		}
+
+		public static void Run<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source,
+			Action<TLeft> onNextLeft,
+			Action<TRight> onNextRight,
+			Action<Exception> onError)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(onNextLeft != null);
+			Contract.Requires(onNextRight != null);
+			Contract.Requires(onError != null);
+
+			source.Run(PairedObserver.Create(
+				onNextLeft,
+				onNextRight,
+				onError));
+		}
+
+		public static void Run<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source,
+			Action<TLeft> onNextLeft,
+			Action<TRight> onNextRight,
+			Action onCompleted)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(onNextLeft != null);
+			Contract.Requires(onNextRight != null);
+			Contract.Requires(onCompleted != null);
+
+			source.Run(PairedObserver.Create(
+				onNextLeft,
+				onNextRight,
+				onCompleted));
+		}
+
+		public static void Run<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source,
+			Action<TLeft> onNextLeft,
+			Action<TRight> onNextRight,
+			Action<Exception> onError,
+			Action onCompleted)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(onNextLeft != null);
+			Contract.Requires(onNextRight != null);
+			Contract.Requires(onError != null);
+			Contract.Requires(onCompleted != null);
+
+			source.Run(PairedObserver.Create(
+				onNextLeft,
+				onNextRight,
+				onError,
+				onCompleted));
+		}
 	}
 }
