@@ -9,7 +9,7 @@ using Rxx.Labs.Properties;
 namespace Rxx.Labs.Reactive
 {
 	[DisplayName("Reactive WebClient")]
-	[Description("Examples of making web requests using ObservableWebClient and ObservableHttpListener.")]
+	[Description("Making web requests using ObservableWebClient and ObservableHttpListener.")]
 	public sealed class WebClientLab : RxxLab
 	{
 		private void DownloadHtmlExperiment()

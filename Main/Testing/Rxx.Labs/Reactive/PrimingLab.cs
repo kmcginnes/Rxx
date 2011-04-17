@@ -6,7 +6,7 @@ using Rxx.Labs.Properties;
 namespace Rxx.Labs.Reactive
 {
 	[DisplayName("Primed Observables")]
-	[Description("Examples of the Prime and PrimeStart operators.")]
+	[Description("Using the Prime and PrimeStart operators.")]
 	public sealed class PrimingLab : RxxLab
 	{
 		protected override void Main()

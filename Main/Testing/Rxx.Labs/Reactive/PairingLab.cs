@@ -6,7 +6,7 @@ using Rxx.Labs.Properties;
 namespace Rxx.Labs.Reactive
 {
 	[DisplayName("Paired Observables")]
-	[Description("Examples of tracking progress with IPairedObservable and the Pair operator.")]
+	[Description("Tracking progress with IPairedObservable and the Pair operator.")]
 	public sealed class PairingLab : RxxLab
 	{
 		private void ValueDependentExperiment()
@@ -19,8 +19,8 @@ namespace Rxx.Labs.Reactive
 			var progressOnly = sourceWithProgress.TakeRight();
 			var resultOnly = sourceWithProgress.TakeLeft().TakeLast(1);
 
-			using (progressOnly.Subscribe(ConsoleOutputFormat("Progress", "{0,5:P0}")))
-			using (resultOnly.Subscribe(ConsoleOutput("Result")))
+			using (progressOnly.Subscribe(ConsoleOutputFormat(Text.Progress, "{0,5:P0}")))
+			using (resultOnly.Subscribe(ConsoleOutput(Text.Result)))
 			using (sourceWithProgress.Connect())
 			{
 				Console.ReadKey();
@@ -42,8 +42,8 @@ namespace Rxx.Labs.Reactive
 			var progressOnly = sourceWithProgress.TakeRight().DistinctUntilChanged();
 			var resultOnly = sourceWithProgress.TakeLeft().TakeLast(1);
 
-			using (progressOnly.Subscribe(ConsoleOutputFormat("Progress", "{0,5:P0}")))
-			using (resultOnly.Subscribe(ConsoleOutput("Result")))
+			using (progressOnly.Subscribe(ConsoleOutputFormat(Text.Progress, "{0,5:P0}")))
+			using (resultOnly.Subscribe(ConsoleOutput(Text.Result)))
 			using (sourceWithProgress.Connect())
 			{
 				Console.ReadKey();

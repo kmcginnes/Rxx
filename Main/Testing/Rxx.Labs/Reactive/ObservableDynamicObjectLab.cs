@@ -8,8 +8,8 @@ using Rxx.Labs.Properties;
 namespace Rxx.Labs.Reactive
 {
 	[DisplayName("Dynamic Observable")]
-	[Description("Shows how to use ObservableDynamicObject to wrap a normal "
-						 + "object's properties, events and methods into observables.")]
+	[Description("Using ObservableDynamicObject to wrap a normal object's "
+						 + "properties, events and methods into observables.")]
 	public sealed class ObservableDynamicObjectLab : RxxLab
 	{
 		private sealed class Poco

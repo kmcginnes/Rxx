@@ -7,8 +7,8 @@ using Rxx.Labs.Properties;
 
 namespace Rxx.Labs.Interactive
 {
-	[DisplayName("Interactive Trace")]
-	[Description("Example usage of the IEnumerable<T> Trace* extensions.")]
+	[DisplayName("Tracing")]
+	[Description("One example of the many interactive Trace extensions.")]
 	public sealed class TraceLab : RxxLab
 	{
 		protected override void Main()

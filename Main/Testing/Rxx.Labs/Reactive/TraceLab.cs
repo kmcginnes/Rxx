@@ -6,8 +6,8 @@ using Rxx.Labs.Properties;
 
 namespace Rxx.Labs.Reactive
 {
-	[DisplayName("Reactive Trace")]
-	[Description("Example usage of the IObservable<T> Trace* extensions.")]
+	[DisplayName("Tracing")]
+	[Description("One example of the many reactive Trace extensions.")]
 	public sealed class TraceLab : RxxLab
 	{
 		protected override void Main()

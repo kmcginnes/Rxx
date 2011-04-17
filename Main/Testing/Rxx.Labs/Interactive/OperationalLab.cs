@@ -7,7 +7,7 @@ using Rxx.Labs.Properties;
 namespace Rxx.Labs.Interactive
 {
 	[DisplayName("Operator Overloads")]
-	[Description("Example using the interactive AsOperational extensions.")]
+	[Description("Interactive AsOperational extensions.")]
 	public sealed class OperationalLab : RxxLab
 	{
 		protected override void Main()
