@@ -138,6 +138,12 @@
   <data name="DisposingSubscriptionFormat" xml:space="preserve">
     <value>Disposing subscription: {0}.</value>
   </data>
+  <data name="FileSystemWatcherBufferChangeFormat" xml:space="preserve">
+    <value>Increasing FileSystemWatcher buffer size from {0} to {1}.</value>
+  </data>
+  <data name="FileSystemWatcherBufferOverflowFormat" xml:space="preserve">
+    <value>FileSystemWatcher buffer overflow: {0}</value>
+  </data>
   <data name="SubscribedFormat" xml:space="preserve">
     <value>Subscribed to observable: {0}.</value>
   </data>
