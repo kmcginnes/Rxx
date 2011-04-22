@@ -51,56 +51,52 @@ namespace System.Linq
 
 			return PairedObservable.CreateWithDisposable<TLeft, TRight>(
 				observer =>
-					leftSource
-						.Select(left => new Maybe<TLeft>(left))
-						.StartWith(new Maybe<TLeft>())
-						.CombineLatest(
-							rightSource
-								.Select(right => new Maybe<TRight>(right))
-								.StartWith(new Maybe<TRight>()),
-							(left, right) => new
+					leftSource.Maybe()
+					.CombineLatest(
+						rightSource.Maybe(),
+						(left, right) => new
+						{
+							left,
+							right
+						})
+					.Subscribe(
+						pair =>
+						{
+							if (!pair.left.HasValue)
 							{
-								left,
-								right
-							})
-						.Subscribe(
-							pair =>
+								if (pair.right.HasValue)
+								{
+									observer.OnNextRight(pair.right.Value);
+								}
+							}
+							else if (!pair.right.HasValue)
 							{
-								if (!pair.left.HasValue)
-								{
-									if (pair.right.HasValue)
-									{
-										observer.OnNextRight(pair.right.Value);
-									}
-								}
-								else if (!pair.right.HasValue)
-								{
-									observer.OnNextLeft(pair.left.Value);
-								}
-								else
-								{
-									var left = pair.left.Value;
-									var right = pair.right.Value;
+								observer.OnNextLeft(pair.left.Value);
+							}
+							else
+							{
+								var left = pair.left.Value;
+								var right = pair.right.Value;
 
-									switch (directionSelector(left, right))
-									{
-										case PairDirection.Left:
-											observer.OnNextLeft(left);
-											break;
-										case PairDirection.Right:
-											observer.OnNextRight(right);
-											break;
-										case PairDirection.Both:
-											observer.OnNextLeft(left);
-											observer.OnNextRight(right);
-											break;
-										case PairDirection.Neither:
-											break;
-										default:
-											throw new InvalidOperationException(Errors.InvalidPairDirectionValue);
-									}
+								switch (directionSelector(left, right))
+								{
+									case PairDirection.Left:
+										observer.OnNextLeft(left);
+										break;
+									case PairDirection.Right:
+										observer.OnNextRight(right);
+										break;
+									case PairDirection.Both:
+										observer.OnNextLeft(left);
+										observer.OnNextRight(right);
+										break;
+									case PairDirection.Neither:
+										break;
+									default:
+										throw new InvalidOperationException(Errors.InvalidPairDirectionValue);
 								}
-							},
+							}
+						},
 						observer.OnError,
 						observer.OnCompleted));
 		}

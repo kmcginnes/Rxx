@@ -1,8 +1,14 @@
-﻿namespace System
+﻿using System.Diagnostics.Contracts;
+
+namespace System
 {
 	public struct Maybe<T> : IEquatable<Maybe<T>>
 	{
 		#region Public Properties
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", 
+			Justification = "It's simpler than constructing the static type; it also makes sense being that it's a struct.")]
+		public static readonly Maybe<T> Empty = new Maybe<T>();
+
 		public bool HasValue
 		{
 			get
@@ -15,6 +21,8 @@
 		{
 			get
 			{
+				Contract.Requires(hasValue);
+
 				return value;
 			}
 		}
@@ -22,6 +30,7 @@
 
 		#region Private / Protected
 		private readonly T value;
+		[ContractPublicPropertyName("HasValue")]
 		private readonly bool hasValue;
 		#endregion
 

@@ -16,7 +16,7 @@ namespace System.Linq
 			Contract.Ensures(Contract.Result<IObservable<Tuple<TLeft, TRight>>>() != null);
 
 			var observable = source.Scan(
-				Tuple.Create(new Maybe<TLeft>(), new Maybe<TRight>()),
+				Tuple.Create(Maybe<TLeft>.Empty, Maybe<TRight>.Empty),
 				(acc, cur) =>
 				{
 					if (cur.IsLeft)
