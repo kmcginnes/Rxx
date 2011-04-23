@@ -152,9 +152,7 @@
     <Compile Include="System\IO\FileSystemWatcherExtensions.cs" />
     <Compile Include="System\IO\FileSystemNotification.cs" />
     <Compile Include="System\Linq\Observable2 - Maybe.cs" />
-    <Compile Include="System\Linq\Observable2 - Time - TakeUntil.cs" />
     <Compile Include="System\Linq\Observable2 - Time - Shifting.cs" />
-    <Compile Include="System\Linq\Observable2 - Time - Delay.cs" />
     <Compile Include="System\Linq\Observable2 - Errors - Catch.cs" />
     <Compile Include="System\Linq\Observable2 - Errors - Retry.cs" />
     <Compile Include="System\Linq\Observable2 - Concurrency.cs" />

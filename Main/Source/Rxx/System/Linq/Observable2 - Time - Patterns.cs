@@ -65,9 +65,8 @@ namespace System.Linq
 							}
 						}
 
-						return now + total;
-					},
-					scheduler);
+						return Observable.Timer(now + total, scheduler);
+					});
 			});
 
 			Contract.Assume(observable != null);
@@ -134,9 +133,8 @@ namespace System.Linq
 							}
 						}
 
-						return now + total;
-					},
-					scheduler);
+						return Observable.Timer(now + total, scheduler);
+					});
 			});
 
 			Contract.Assume(observable != null);

@@ -12,7 +12,7 @@ namespace Rxx.Labs.Reactive
 		private void IntervalExperiment()
 		{
 			var xs = Observable.Range(1, 3)
-				.Concat(Observable2.Delay(-1, TimeSpan.FromSeconds(4.5)).IgnoreValues())
+				.Concat(Observable.Empty<int>().Delay(TimeSpan.FromSeconds(4.5)))
 				.Concat(Observable.Range(4, 3))
 				.AsInterval(TimeSpan.FromSeconds(1));
 
@@ -25,7 +25,7 @@ namespace Rxx.Labs.Reactive
 		private void TimerExperiment()
 		{
 			var xs = Observable.Range(1, 3)
-				.Concat(Observable2.Delay(-1, TimeSpan.FromSeconds(4.5)).IgnoreValues())
+				.Concat(Observable.Empty<int>().Delay(TimeSpan.FromSeconds(4.5)))
 				.Concat(Observable.Range(4, 3))
 				.AsTimer(TimeSpan.FromSeconds(1));
 
@@ -38,7 +38,7 @@ namespace Rxx.Labs.Reactive
 		private void PulseExperiment()
 		{
 			var xs = Observable.Range(1, 3)
-				.Concat(Observable2.Delay(-1, TimeSpan.FromSeconds(4.5)).IgnoreValues())
+				.Concat(Observable.Empty<int>().Delay(TimeSpan.FromSeconds(4.5)))
 				.Concat(Observable.Range(4, 3))
 				.Pulse(TimeSpan.FromSeconds(1));
 
