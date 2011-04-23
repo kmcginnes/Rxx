@@ -6,29 +6,63 @@ using Rxx.Labs.Properties;
 namespace Rxx.Labs.Reactive
 {
 	[DisplayName("Time Shifting")]
-	[Description("Creating Interval and Timer sequences with arbitrary data.")]
+	[Description("Converting sequences of arbitrary data to Intervals, Timers and Pulses.")]
 	public sealed class TimeShiftingLab : RxxLab
 	{
-		protected override void Main()
+		private void IntervalExperiment()
 		{
-			TraceLine(Instructions.PressAnyKeyToCancel);
-
-			var xs = Observable.Range(1, 5).AsInterval(TimeSpan.FromSeconds(1));
+			var xs = Observable.Range(1, 3)
+				.Concat(Observable2.Delay(-1, TimeSpan.FromSeconds(4.5)).IgnoreValues())
+				.Concat(Observable.Range(4, 3))
+				.AsInterval(TimeSpan.FromSeconds(1));
 
 			using (xs.Subscribe(ConsoleOutput))
 			{
 				Console.ReadKey();
 			}
+		}
+
+		private void TimerExperiment()
+		{
+			var xs = Observable.Range(1, 3)
+				.Concat(Observable2.Delay(-1, TimeSpan.FromSeconds(4.5)).IgnoreValues())
+				.Concat(Observable.Range(4, 3))
+				.AsTimer(TimeSpan.FromSeconds(1));
+
+			using (xs.Subscribe(ConsoleOutput))
+			{
+				Console.ReadKey();
+			}
+		}
+
+		private void PulseExperiment()
+		{
+			var xs = Observable.Range(1, 3)
+				.Concat(Observable2.Delay(-1, TimeSpan.FromSeconds(4.5)).IgnoreValues())
+				.Concat(Observable.Range(4, 3))
+				.Pulse(TimeSpan.FromSeconds(1));
+
+			using (xs.Subscribe(ConsoleOutput))
+			{
+				Console.ReadKey();
+			}
+		}
+
+		protected override void Main()
+		{
+			TraceLine(Instructions.PressAnyKeyToCancel);
+
+			IntervalExperiment();
 
 			TraceLine();
 			TraceLine(Instructions.PressAnyKeyToCancel);
 
-			var ys = Observable.Range(1, 5).AsTimer(TimeSpan.FromSeconds(1));
+			TimerExperiment();
 
-			using (ys.Subscribe(ConsoleOutput))
-			{
-				Console.ReadKey();
-			}
+			TraceLine();
+			TraceLine(Instructions.PressAnyKeyToCancel);
+
+			PulseExperiment();
 		}
 	}
 }

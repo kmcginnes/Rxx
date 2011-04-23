@@ -21,7 +21,7 @@ namespace System
 		{
 			get
 			{
-				Contract.Requires(hasValue);
+				Contract.Requires(HasValue);
 
 				return value;
 			}
@@ -30,7 +30,6 @@ namespace System
 
 		#region Private / Protected
 		private readonly T value;
-		[ContractPublicPropertyName("HasValue")]
 		private readonly bool hasValue;
 		#endregion
 

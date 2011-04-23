@@ -148,10 +148,17 @@
     <Compile Include="System\Collections\Generic\AnonymousPairedObserver.cs" />
     <Compile Include="System\Collections\Generic\IPairedObservable.cs" />
     <Compile Include="System\Collections\Generic\IPairedObserver.cs" />
+    <Compile Include="System\IO\FileSystemWatcherBufferOverflowException.cs" />
+    <Compile Include="System\IO\FileSystemWatcherExtensions.cs" />
+    <Compile Include="System\IO\FileSystemNotification.cs" />
+    <Compile Include="System\Linq\Observable2 - Maybe.cs" />
+    <Compile Include="System\Linq\Observable2 - Time - TakeUntil.cs" />
+    <Compile Include="System\Linq\Observable2 - Time - Shifting.cs" />
+    <Compile Include="System\Linq\Observable2 - Time - Delay.cs" />
     <Compile Include="System\Linq\Observable2 - Errors - Catch.cs" />
     <Compile Include="System\Linq\Observable2 - Errors - Retry.cs" />
     <Compile Include="System\Linq\Observable2 - Concurrency.cs" />
-    <Compile Include="System\Linq\Observable2 - Time Shifting.cs" />
+    <Compile Include="System\Linq\Observable2 - Time - Patterns.cs" />
     <Compile Include="System\Linq\Observable2 - DefaultIfEmpty.cs" />
     <Compile Include="System\Linq\PairedObservable - Take.cs" />
     <Compile Include="System\Linq\Observable2 - Pairing.cs" />
@@ -227,6 +234,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Text.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="System\Linq\Observable2.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\Build\Project.targets" />
