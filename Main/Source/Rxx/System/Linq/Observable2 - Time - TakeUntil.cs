@@ -10,7 +10,7 @@ namespace System.Linq
 			Contract.Requires(source != null);
 			Contract.Ensures(Contract.Result<IObservable<TSource>>() != null);
 
-			var observable = source.TakeUntil(DelayOnCompleted(stopTime));
+			var observable = source.TakeUntil(Delay(stopTime));
 
 			Contract.Assume(observable != null);
 
@@ -23,7 +23,7 @@ namespace System.Linq
 			Contract.Requires(scheduler != null);
 			Contract.Ensures(Contract.Result<IObservable<TSource>>() != null);
 
-			var observable = source.TakeUntil(DelayOnCompleted(stopTime, scheduler));
+			var observable = source.TakeUntil(Delay(stopTime, scheduler));
 
 			Contract.Assume(observable != null);
 
@@ -35,7 +35,7 @@ namespace System.Linq
 			Contract.Requires(source != null);
 			Contract.Ensures(Contract.Result<IObservable<TSource>>() != null);
 
-			var observable = source.TakeUntil(DelayOnCompleted(duration));
+			var observable = source.TakeUntil(Delay(duration));
 
 			Contract.Assume(observable != null);
 
@@ -48,7 +48,7 @@ namespace System.Linq
 			Contract.Requires(scheduler != null);
 			Contract.Ensures(Contract.Result<IObservable<TSource>>() != null);
 
-			var observable = source.TakeUntil(DelayOnCompleted(duration, scheduler));
+			var observable = source.TakeUntil(Delay(duration, scheduler));
 
 			Contract.Assume(observable != null);
 
