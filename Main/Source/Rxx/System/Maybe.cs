@@ -1,11 +1,12 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace System
 {
 	public struct Maybe<T> : IEquatable<Maybe<T>>
 	{
 		#region Public Properties
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", 
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes",
 			Justification = "It's simpler than constructing the static type; it also makes sense being that it's a struct.")]
 		public static readonly Maybe<T> Empty = new Maybe<T>();
 
@@ -64,7 +65,7 @@ namespace System
 		public bool Equals(Maybe<T> other)
 		{
 			return hasValue == other.hasValue
-					&& (!hasValue || object.Equals(value, other.value));
+					&& (!hasValue || EqualityComparer<T>.Default.Equals(value, other.value));
 		}
 
 		public override int GetHashCode()
