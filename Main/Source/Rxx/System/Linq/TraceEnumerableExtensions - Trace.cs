@@ -4,10 +4,6 @@ using TraceSource = System.Diagnostics.TraceSource;
 
 namespace System.Linq
 {
-	/* This class is named TraceEnumerableExtensions instead of EnumerableExtensions2 because the Trace<T> methods cause the C# compiler
-	 * to complain when using static methods on System.Diagnostics.Trace; i.e., it must be fully qualified when used in extension methods.
-	 */
-
 	public static partial class TraceEnumerableExtensions
 	{
 		#region System.Diagnostics.Trace
@@ -48,13 +44,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
-		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, Func<T, string> getMessage)
+		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, Func<T, string> messageSelector)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
-			var enumerable = source.Do(new TraceObserver<T>(getMessage));
+			var enumerable = source.Do(new TraceObserver<T>(messageSelector));
 
 			Contract.Assume(enumerable != null);
 
@@ -86,13 +82,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
-		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, Func<Exception, string> getMessage)
+		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, Func<Exception, string> messageSelector)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
-			var enumerable = source.Do(new TraceObserver<T>(_ => null, getMessage));
+			var enumerable = source.Do(new TraceObserver<T>(_ => null, messageSelector));
 
 			Contract.Assume(enumerable != null);
 
@@ -124,13 +120,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
-		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, Func<string> getMessage)
+		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, Func<string> messageSelector)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
-			var enumerable = source.Do(new TraceObserver<T>(_ => null, getMessage));
+			var enumerable = source.Do(new TraceObserver<T>(_ => null, messageSelector));
 
 			Contract.Assume(enumerable != null);
 
@@ -179,14 +175,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
-		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, TraceSource trace, Func<T, string> getMessage)
+		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, TraceSource trace, Func<T, string> messageSelector)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
-			var enumerable = source.Do(new TraceObserver<T>(trace, getMessage));
+			var enumerable = source.Do(new TraceObserver<T>(trace, messageSelector));
 
 			Contract.Assume(enumerable != null);
 
@@ -220,14 +216,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
-		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, TraceSource trace, Func<Exception, string> getMessage)
+		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, TraceSource trace, Func<Exception, string> messageSelector)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
-			var enumerable = source.Do(new TraceObserver<T>(trace, _ => null, getMessage));
+			var enumerable = source.Do(new TraceObserver<T>(trace, _ => null, messageSelector));
 
 			Contract.Assume(enumerable != null);
 
@@ -261,14 +257,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
-		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, TraceSource trace, Func<string> getMessage)
+		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, TraceSource trace, Func<string> messageSelector)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
-			var enumerable = source.Do(new TraceObserver<T>(trace, _ => null, getMessage));
+			var enumerable = source.Do(new TraceObserver<T>(trace, _ => null, messageSelector));
 
 			Contract.Assume(enumerable != null);
 

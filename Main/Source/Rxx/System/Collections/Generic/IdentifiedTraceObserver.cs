@@ -7,15 +7,28 @@ namespace System.Collections.Generic
 	public class IdentifiedTraceObserver<T> : TraceObserver<T>
 	{
 		#region Public Properties
+		public string Identity
+		{
+			get
+			{
+				Contract.Ensures(!string.IsNullOrWhiteSpace(Contract.Result<string>()));
+
+				return id;
+			}
+			set
+			{
+				Contract.Requires(!string.IsNullOrWhiteSpace(value));
+
+				this.id = value;
+			}
+		}
 		#endregion
 
 		#region Private / Protected
-		private static int counter;
-
-		private readonly int id;
-		private readonly Func<int, T, string> onNext;
-		private readonly Func<int, Exception, string> onError;
-		private readonly Func<int, string> onCompleted;
+		private string id;
+		private readonly Func<string, T, string> onNext;
+		private readonly Func<string, Exception, string> onError;
+		private readonly Func<string, string> onCompleted;
 		#endregion
 
 		#region Constructors
@@ -24,16 +37,16 @@ namespace System.Collections.Generic
 		{
 		}
 
-		public IdentifiedTraceObserver(Func<int, T, string> onNext)
+		public IdentifiedTraceObserver(Func<string, T, string> onNext)
 		{
 			Contract.Requires(onNext != null);
 
-			id = Interlocked.Increment(ref counter);
+			id = AutoIdentify();
 
 			this.onNext = onNext;
 		}
 
-		public IdentifiedTraceObserver(Func<int, T, string> onNext, Func<int, Exception, string> onError)
+		public IdentifiedTraceObserver(Func<string, T, string> onNext, Func<string, Exception, string> onError)
 			: this(onNext)
 		{
 			Contract.Requires(onNext != null);
@@ -42,7 +55,7 @@ namespace System.Collections.Generic
 			this.onError = onError;
 		}
 
-		public IdentifiedTraceObserver(Func<int, T, string> onNext, Func<int, string> onCompleted)
+		public IdentifiedTraceObserver(Func<string, T, string> onNext, Func<string, string> onCompleted)
 			: this(onNext)
 		{
 			Contract.Requires(onNext != null);
@@ -51,7 +64,7 @@ namespace System.Collections.Generic
 			this.onCompleted = onCompleted;
 		}
 
-		public IdentifiedTraceObserver(Func<int, T, string> onNext, Func<int, Exception, string> onError, Func<int, string> onCompleted)
+		public IdentifiedTraceObserver(Func<string, T, string> onNext, Func<string, Exception, string> onError, Func<string, string> onCompleted)
 			: this(onNext, onError)
 		{
 			Contract.Requires(onNext != null);
@@ -88,44 +101,44 @@ namespace System.Collections.Generic
 			Contract.Requires(trace != null);
 		}
 
-		public IdentifiedTraceObserver(TraceSource trace, Func<int, T, string> onNext)
+		public IdentifiedTraceObserver(TraceSource trace, Func<string, T, string> onNext)
 			: base(trace)
 		{
 			Contract.Requires(trace != null);
 			Contract.Requires(onNext != null);
 
-			id = Interlocked.Increment(ref counter);
+			id = AutoIdentify();
 
 			this.onNext = onNext;
 		}
 
-		public IdentifiedTraceObserver(TraceSource trace, Func<int, T, string> onNext, Func<int, Exception, string> onError)
+		public IdentifiedTraceObserver(TraceSource trace, Func<string, T, string> onNext, Func<string, Exception, string> onError)
 			: base(trace)
 		{
 			Contract.Requires(trace != null);
 			Contract.Requires(onNext != null);
 			Contract.Requires(onError != null);
 
-			id = Interlocked.Increment(ref counter);
+			id = AutoIdentify();
 
 			this.onNext = onNext;
 			this.onError = onError;
 		}
 
-		public IdentifiedTraceObserver(TraceSource trace, Func<int, T, string> onNext, Func<int, string> onCompleted)
+		public IdentifiedTraceObserver(TraceSource trace, Func<string, T, string> onNext, Func<string, string> onCompleted)
 			: base(trace)
 		{
 			Contract.Requires(trace != null);
 			Contract.Requires(onNext != null);
 			Contract.Requires(onCompleted != null);
 
-			id = Interlocked.Increment(ref counter);
+			id = AutoIdentify();
 
 			this.onNext = onNext;
 			this.onCompleted = onCompleted;
 		}
 
-		public IdentifiedTraceObserver(TraceSource trace, Func<int, T, string> onNext, Func<int, Exception, string> onError, Func<int, string> onCompleted)
+		public IdentifiedTraceObserver(TraceSource trace, Func<string, T, string> onNext, Func<string, Exception, string> onError, Func<string, string> onCompleted)
 			: base(trace)
 		{
 			Contract.Requires(trace != null);
@@ -133,7 +146,7 @@ namespace System.Collections.Generic
 			Contract.Requires(onError != null);
 			Contract.Requires(onCompleted != null);
 
-			id = Interlocked.Increment(ref counter);
+			id = AutoIdentify();
 
 			this.onNext = onNext;
 			this.onError = onError;
@@ -166,6 +179,25 @@ namespace System.Collections.Generic
 		#endregion
 
 		#region Methods
+		[ContractInvariantMethod]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Required for code contracts.")]
+		private void ObjectInvariant()
+		{
+			Contract.Invariant(!string.IsNullOrWhiteSpace(id));
+		}
+
+		private static string AutoIdentify()
+		{
+			Contract.Ensures(!string.IsNullOrWhiteSpace(Contract.Result<string>()));
+
+			var identity = Interlocked.Increment(ref TraceDefaults.IdentityCounter)
+				.ToString(System.Globalization.CultureInfo.InvariantCulture);
+
+			Contract.Assume(!string.IsNullOrWhiteSpace(identity));
+
+			return identity;
+		}
+
 		protected sealed override string FormatOnNext(T value)
 		{
 			return FormatOnNext(id, value);
@@ -181,7 +213,7 @@ namespace System.Collections.Generic
 			return FormatOnCompleted(id);
 		}
 
-		protected virtual string FormatOnNext(int observerId, T value)
+		protected virtual string FormatOnNext(string observerId, T value)
 		{
 			if (onNext != null)
 				return onNext(observerId, value);
@@ -189,7 +221,7 @@ namespace System.Collections.Generic
 				return null;
 		}
 
-		protected virtual string FormatOnError(int observerId, Exception exception)
+		protected virtual string FormatOnError(string observerId, Exception exception)
 		{
 			if (onError != null)
 				return onError(observerId, exception);
@@ -197,7 +229,7 @@ namespace System.Collections.Generic
 				return null;
 		}
 
-		protected virtual string FormatOnCompleted(int observerId)
+		protected virtual string FormatOnCompleted(string observerId)
 		{
 			if (onCompleted != null)
 				return onCompleted(observerId);

@@ -4,10 +4,6 @@ using TraceSource = System.Diagnostics.TraceSource;
 
 namespace System.Linq
 {
-	/* This class is named TraceObservableExtensions instead of Observable2 because the Trace<T> methods cause the C# compiler
-	 * to complain when using static methods on System.Diagnostics.Trace; i.e., it must be fully qualified when used in extension methods.
-	 */
-
 	public static partial class TraceObservableExtensions
 	{
 		#region System.Diagnostics.Trace
@@ -17,6 +13,22 @@ namespace System.Linq
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
 			var observable = source.Do(new IdentifiedTraceObserver<T>());
+
+			Contract.Assume(observable != null);
+
+			return observable;
+		}
+
+		public static IObservable<T> TraceIdentity<T>(this IObservable<T> source, string identity)
+		{
+			Contract.Requires(source != null);
+			Contract.Requires(!string.IsNullOrWhiteSpace(identity));
+			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
+
+			var observable = source.Do(new IdentifiedTraceObserver<T>()
+				{
+					Identity = identity
+				});
 
 			Contract.Assume(observable != null);
 
@@ -48,13 +60,13 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<T> TraceIdentityOnNext<T>(this IObservable<T> source, Func<int, T, string> getMessage)
+		public static IObservable<T> TraceIdentityOnNext<T>(this IObservable<T> source, Func<string, T, string> messageSelector)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
-			var observable = source.Do(new IdentifiedTraceObserver<T>(getMessage));
+			var observable = source.Do(new IdentifiedTraceObserver<T>(messageSelector));
 
 			Contract.Assume(observable != null);
 
@@ -86,13 +98,13 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<T> TraceIdentityOnError<T>(this IObservable<T> source, Func<int, Exception, string> getMessage)
+		public static IObservable<T> TraceIdentityOnError<T>(this IObservable<T> source, Func<string, Exception, string> messageSelector)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
-			var observable = source.Do(new IdentifiedTraceObserver<T>((a, b) => null, getMessage));
+			var observable = source.Do(new IdentifiedTraceObserver<T>((a, b) => null, messageSelector));
 
 			Contract.Assume(observable != null);
 
@@ -124,13 +136,13 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<T> TraceIdentityOnCompleted<T>(this IObservable<T> source, Func<int, string> getMessage)
+		public static IObservable<T> TraceIdentityOnCompleted<T>(this IObservable<T> source, Func<string, string> messageSelector)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
-			var observable = source.Do(new IdentifiedTraceObserver<T>((a, b) => null, getMessage));
+			var observable = source.Do(new IdentifiedTraceObserver<T>((a, b) => null, messageSelector));
 
 			Contract.Assume(observable != null);
 
@@ -179,14 +191,14 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<T> TraceIdentityOnNext<T>(this IObservable<T> source, TraceSource trace, Func<int, T, string> getMessage)
+		public static IObservable<T> TraceIdentityOnNext<T>(this IObservable<T> source, TraceSource trace, Func<string, T, string> messageSelector)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
-			var observable = source.Do(new IdentifiedTraceObserver<T>(trace, getMessage));
+			var observable = source.Do(new IdentifiedTraceObserver<T>(trace, messageSelector));
 
 			Contract.Assume(observable != null);
 
@@ -220,14 +232,14 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<T> TraceIdentityOnError<T>(this IObservable<T> source, TraceSource trace, Func<int, Exception, string> getMessage)
+		public static IObservable<T> TraceIdentityOnError<T>(this IObservable<T> source, TraceSource trace, Func<string, Exception, string> messageSelector)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
-			var observable = source.Do(new IdentifiedTraceObserver<T>(trace, (a, b) => null, getMessage));
+			var observable = source.Do(new IdentifiedTraceObserver<T>(trace, (a, b) => null, messageSelector));
 
 			Contract.Assume(observable != null);
 
@@ -261,14 +273,14 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<T> TraceIdentityOnCompleted<T>(this IObservable<T> source, TraceSource trace, Func<int, string> getMessage)
+		public static IObservable<T> TraceIdentityOnCompleted<T>(this IObservable<T> source, TraceSource trace, Func<string, string> messageSelector)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(getMessage != null);
+			Contract.Requires(messageSelector != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
-			var observable = source.Do(new IdentifiedTraceObserver<T>(trace, (a, b) => null, getMessage));
+			var observable = source.Do(new IdentifiedTraceObserver<T>(trace, (a, b) => null, messageSelector));
 
 			Contract.Assume(observable != null);
 

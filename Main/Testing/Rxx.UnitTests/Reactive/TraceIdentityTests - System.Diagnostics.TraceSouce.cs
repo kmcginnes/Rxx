@@ -17,7 +17,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentity(source).Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, Concat(
 					Enumerable.Range(0, 5).Select(value => TraceDefaults.DefaultOnNext(id, value)),
@@ -38,7 +38,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnNext(source).Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, Enumerable.Range(0, 5).Select(value => TraceDefaults.DefaultOnNext(id, value)));
 
@@ -57,7 +57,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnNext(source, "OnNext: {0}={1}").Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, Enumerable.Range(0, 5).Select(value => "OnNext: " + id + "=" + value));
 
@@ -76,7 +76,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnNext(source, (oId, value) => "OnNext: " + oId + "=" + value).Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, Enumerable.Range(0, 5).Select(value => "OnNext: " + id + "=" + value));
 
@@ -96,7 +96,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnError(source).Run(_ => { }, __ => { });
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, TraceDefaults.DefaultOnError(id, ex));
 
@@ -116,7 +116,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnError(source, "OnError: {0}={1}").Run(_ => { }, __ => { });
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, "OnError: " + id + "=" + ex.ToString());
 
@@ -136,7 +136,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnError(source, (oId, error) => "OnError: " + oId + "=" + error.Message).Run(_ => { }, __ => { });
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, "OnError: " + id + "=" + ex.Message);
 
@@ -155,7 +155,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnCompleted(source).Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, TraceDefaults.DefaultOnCompleted(id));
 
@@ -174,7 +174,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnCompleted(source, "OnCompleted: {0}").Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, "OnCompleted: " + id);
 
@@ -193,7 +193,7 @@ namespace Rxx.UnitTests.Reactive
 			{
 				xs.TraceIdentityOnCompleted(source, oId => "OnCompleted: " + oId).Run();
 
-				int id = GetCurrentId();
+				string id = GetCurrentId();
 
 				AssertEqual(Listener.Messages, "OnCompleted: " + id);
 

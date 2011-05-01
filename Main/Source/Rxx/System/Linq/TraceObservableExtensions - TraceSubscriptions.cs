@@ -6,10 +6,6 @@ using TraceSource = System.Diagnostics.TraceSource;
 
 namespace System.Linq
 {
-	/* This class is named TraceObservableExtensions instead of Observable2 because the Trace<T> methods cause the C# compiler
-	 * to complain when using static methods on System.Diagnostics.Trace; i.e., it must be fully qualified when used in extension methods.
-	 */
-
 	public static partial class TraceObservableExtensions
 	{
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]

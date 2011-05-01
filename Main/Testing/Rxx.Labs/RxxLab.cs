@@ -105,7 +105,7 @@ namespace Rxx.Labs
 			return url;
 		}
 
-		protected ConsoleKeyInfo PressAnyKeyToContinue()
+		protected static ConsoleKeyInfo PressAnyKeyToContinue()
 		{
 			// Clear the buffer just in case the user accidentally pressed a key during a blocking operation.
 			// This typically occurrs when a user presses a key to test whether the current operation is blocking, 
@@ -118,7 +118,7 @@ namespace Rxx.Labs
 			return Console.ReadKey(intercept: true);
 		}
 
-		private void FlushKeyboardBuffer()
+		private static void FlushKeyboardBuffer()
 		{
 			while (Console.KeyAvailable)
 				Console.ReadKey(intercept: true);

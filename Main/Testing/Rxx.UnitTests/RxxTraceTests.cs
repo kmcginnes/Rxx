@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Rxx.UnitTests
 {
@@ -16,11 +17,9 @@ namespace Rxx.UnitTests
 		#endregion
 
 		#region Private / Protected
-		protected static int GetCurrentId()
+		protected static string GetCurrentId()
 		{
-			return (int) typeof(IdentifiedTraceObserver<int>)
-				.GetField("counter", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
-				.GetValue(null);
+			return TraceDefaults.IdentityCounter.ToString(CultureInfo.InvariantCulture);
 		}
 
 		private readonly TestTraceListener testListener = new TestTraceListener();

@@ -1,10 +1,15 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 
 namespace System
 {
 	public static class TraceDefaults
 	{
+		[SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate",
+			Justification = "It's used in a thread-safe manner by only a single consumer, and also it must be exposed for unit testing.")]
+		internal static int IdentityCounter;
+
 		public static string DefaultOnNext<T>(T value)
 		{
 			Contract.Ensures(Contract.Result<string>() != null);
@@ -26,28 +31,28 @@ namespace System
 			return Rxx.Properties.Text.DefaultOnCompletedMessage;
 		}
 
-		public static string DefaultOnNext<T>(int observerId, T value)
+		public static string DefaultOnNext<T>(string observerId, T value)
 		{
 			Contract.Ensures(Contract.Result<string>() != null);
 
 			return FormatMessage(observerId, DefaultOnNext(value));
 		}
 
-		public static string DefaultOnError(int observerId, Exception exception)
+		public static string DefaultOnError(string observerId, Exception exception)
 		{
 			Contract.Ensures(Contract.Result<string>() != null);
 
 			return FormatMessage(observerId, DefaultOnError(exception));
 		}
 
-		public static string DefaultOnCompleted(int observerId)
+		public static string DefaultOnCompleted(string observerId)
 		{
 			Contract.Ensures(Contract.Result<string>() != null);
 
 			return FormatMessage(observerId, DefaultOnCompleted());
 		}
 
-		public static string FormatMessage(int observerId, string message)
+		public static string FormatMessage(string observerId, string message)
 		{
 			Contract.Ensures(Contract.Result<string>() != null);
 
@@ -78,7 +83,7 @@ namespace System
 			return () => completedMessage;
 		}
 
-		internal static Func<int, T, string> GetIdentityFormatOnNext<T>(string nextFormat)
+		internal static Func<string, T, string> GetIdentityFormatOnNext<T>(string nextFormat)
 		{
 			Contract.Requires(nextFormat != null);
 			Contract.Ensures(Contract.Result<Func<int, T, string>>() != null);
@@ -86,7 +91,7 @@ namespace System
 			return (id, value) => string.Format(CultureInfo.CurrentCulture, nextFormat, id, value);
 		}
 
-		internal static Func<int, Exception, string> GetIdentityFormatOnError(string errorFormat)
+		internal static Func<string, Exception, string> GetIdentityFormatOnError(string errorFormat)
 		{
 			Contract.Requires(errorFormat != null);
 			Contract.Ensures(Contract.Result<Func<int, Exception, string>>() != null);
@@ -94,7 +99,7 @@ namespace System
 			return (id, error) => string.Format(CultureInfo.CurrentCulture, errorFormat, id, error);
 		}
 
-		internal static Func<int, string> GetIdentityMessageOnCompleted(string completedMessage)
+		internal static Func<string, string> GetIdentityMessageOnCompleted(string completedMessage)
 		{
 			Contract.Requires(completedMessage != null);
 			Contract.Ensures(Contract.Result<Func<int, string>>() != null);
