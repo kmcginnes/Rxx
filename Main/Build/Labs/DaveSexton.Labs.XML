@@ -735,58 +735,52 @@
             combination of <see cref="F:DaveSexton.Labs.LabActivationStrategies.All" /> and <see cref="F:DaveSexton.Labs.LabActivationStrategies.ExcludeCatalogLabTypesFromDiscovery" />.
             </summary>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.String,System.Object[])">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.String)">
-      <requires>source != null</requires>
-    </member>
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.String,System.Object[])">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.String)">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.Exception)">
       <requires>source != null</requires>
     </member>
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspendIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspendIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.String)">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResume(System.Diagnostics.TraceSource,System.String,System.Object[])">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerboseIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
       <requires>source != null</requires>
     </member>
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStop(System.Diagnostics.TraceSource,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.Exception)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerboseIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStop(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspendIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStopIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.String,System.Object[])">
       <requires>source != null</requires>
     </member>
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspend(System.Diagnostics.TraceSource,System.String,System.Object[])">
@@ -795,31 +789,37 @@
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceSuspend(System.Diagnostics.TraceSource,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.String)">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String,System.Object[])">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String)">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.String,System.Object[])">
-      <requires>source != null</requires>
-    </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerbose(System.Diagnostics.TraceSource,System.String,System.Object[])">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
       <requires>source != null</requires>
     </member>
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceVerboseIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
       <requires>source != null</requires>
     </member>
-    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStop(System.Diagnostics.TraceSource,System.String,System.Object[])">
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStart(System.Diagnostics.TraceSource,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceResumeIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Boolean,System.String)">
       <requires>source != null</requires>
     </member>
     <member name="M:System.Diagnostics.TraceSourceExtensions.TraceInformationIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceWarningIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
+      <requires>source != null</requires>
+    </member>
+    <member name="M:System.Diagnostics.TraceSourceExtensions.TraceStartIf(System.Diagnostics.TraceSource,System.Boolean,System.String,System.Object[])">
       <requires>source != null</requires>
     </member>
     <member name="M:System.Reflection.ReflectionExtensions.TryGetAttributeValue``1(System.Type,System.Func{``0,System.String},System.String@)">
@@ -832,86 +832,76 @@
       <requires>getValue != null</requires>
       <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out value))</ensures>
     </member>
-    <member name="M:System.Reflection.ReflectionExtensions.TryGetAssemblyTitle(System.Reflection.Assembly,System.String@)">
-      <requires>assembly != null</requires>
-      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out title))</ensures>
-    </member>
     <member name="M:System.Reflection.ReflectionExtensions.TryGetAttributeValue``1(``0[],System.Func{``0,System.String},System.String@)">
       <requires>attributes != null</requires>
       <requires>getValue != null</requires>
     </member>
+    <member name="M:System.Reflection.ReflectionExtensions.TryGetAssemblyTitle(System.Reflection.Assembly,System.String@)">
+      <requires>assembly != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out title))</ensures>
+    </member>
     <member name="M:DaveSexton.Labs.LabCatalog.GetSourceCodeResourceManager(DaveSexton.Labs.Lab)">
       <requires>lab != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceInformation(System.String,System.Object[])">
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceLine(System.String,System.Object[])">
       <requires>format != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabTraceObject.TraceLine(System.String)">
       <requires>message != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceInformation(System.String)">
-      <requires>message != null</requires>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceInformation(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceError(System.String,System.Object[])">
+      <requires>format != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabTraceObject.TraceWarning(System.String,System.Object[])">
       <requires>format != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.Trace(System.String)">
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceSuccess(System.String,System.Object[])">
+      <requires>format != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceFailure(System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceInformation(System.String)">
       <requires>message != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabTraceObject.TraceWarning(System.String)">
       <requires>message != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceFailure(System.String,System.Object[])">
-      <requires>format != null</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceLine(System.String,System.Object[])">
-      <requires>format != null</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.Trace(System.String,System.Object[])">
-      <requires>format != null</requires>
+    <member name="M:DaveSexton.Labs.LabTraceObject.Trace(System.String)">
+      <requires>message != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabTraceObject.Format(System.String,System.Object[])">
       <ensures>Contract.Result&lt;string&gt;() != null</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceError(System.String,System.Object[])">
+    <member name="M:DaveSexton.Labs.LabTraceObject.Trace(System.String,System.Object[])">
       <requires>format != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabTraceObject.TraceError(System.String)">
       <requires>message != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceFailure(System.String)">
-      <requires>message != null</requires>
-    </member>
     <member name="M:DaveSexton.Labs.LabTraceObject.TraceSuccess(System.String)">
       <requires>message != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabTraceObject.TraceSuccess(System.String,System.Object[])">
+    <member name="M:DaveSexton.Labs.LabTraceObject.TraceFailure(System.String,System.Object[])">
       <requires>format != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
-      <requires>labs != null</requires>
-      <requires>labs.Count &gt; 0</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)">
+    <member name="M:DaveSexton.Labs.LabController.WriteLine(System.String)">
       <requires>message != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.SetTraceListeners(System.Collections.Generic.IEnumerable{System.Diagnostics.TraceListener})">
-      <requires>listeners != null</requires>
+    <member name="M:DaveSexton.Labs.LabController.TraceLabDescriptionIf(System.Boolean,System.String)">
+      <requires>description != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)">
+    <member name="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)">
       <requires>lab != null</requires>
       <requires>number &gt; 0</requires>
       <requires>total &gt; 0</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.Execute(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab},System.Boolean,System.Boolean)">
-      <requires>labs != null</requires>
-      <requires>labs.Count &gt; 0</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.Initialize(DaveSexton.Labs.Lab)">
+    <member name="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)">
       <requires>lab != null</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.WriteLine(System.String)">
-      <requires>message != null</requires>
+      <requires>lab.CanExecute()</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabController.Write(System.String)">
       <requires>message != null</requires>
@@ -920,22 +910,7 @@
       <requires>labs != null</requires>
       <requires>labs.Count &gt; 0</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.TraceLabDescriptionIf(System.Boolean,System.String)">
-      <requires>description != null</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)">
-      <requires>lab != null</requires>
-      <requires>lab.CanExecute()</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.TraceHeader(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.Int32)">
-      <requires>discoveryCatalog != null</requires>
-      <requires>labCount &gt; -1</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.TraceHeader(System.Reflection.Assembly,System.Int32)">
-      <requires>assembly != null</requires>
-      <requires>labCount &gt; -1</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)">
+    <member name="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean,System.Boolean)">
       <requires>lab != null</requires>
       <requires>number &gt; 0</requires>
       <requires>total &gt; 0</requires>
@@ -946,13 +921,38 @@
     <member name="M:DaveSexton.Labs.LabController.UnsetTraceListeners(System.Collections.Generic.IEnumerable{System.Diagnostics.TraceListener})">
       <requires>listeners != null</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.Start(System.ComponentModel.Composition.Primitives.ComposablePartCatalog)">
-      <requires>discoveryCatalog != null</requires>
+    <member name="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires>labs != null</requires>
+      <requires>labs.Count &gt; 0</requires>
     </member>
-    <member name="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+    <member name="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)">
       <requires>lab != null</requires>
       <requires>number &gt; 0</requires>
       <requires>total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)">
+      <requires>message != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Initialize(DaveSexton.Labs.Lab)">
+      <requires>lab != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Start(System.ComponentModel.Composition.Primitives.ComposablePartCatalog)">
+      <requires>discoveryCatalog != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.SetTraceListeners(System.Collections.Generic.IEnumerable{System.Diagnostics.TraceListener})">
+      <requires>listeners != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.TraceHeader(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.Int32)">
+      <requires>discoveryCatalog != null</requires>
+      <requires>labCount &gt; -1</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.Execute(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab},System.Boolean,System.Boolean)">
+      <requires>labs != null</requires>
+      <requires>labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.LabController.TraceHeader(System.Reflection.Assembly,System.Int32)">
+      <requires>assembly != null</requires>
+      <requires>labCount &gt; -1</requires>
     </member>
     <member name="M:DaveSexton.Labs.LabController.LoadLabs(System.ComponentModel.Composition.Primitives.ComposablePartCatalog)">
       <requires>discoveryCatalog != null</requires>
@@ -964,25 +964,6 @@
       <invariant>description != null</invariant>
       <invariant>categories != null</invariant>
       <invariant>categories.IsReadOnly</invariant>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.TryGetDisplayName(System.Type,System.String@)">
-      <requires>type != null</requires>
-      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out displayName))</ensures>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.TryGetDescription(System.Type,System.String@)">
-      <requires>type != null</requires>
-      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out description))</ensures>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.GetLabNameFromType(System.Type)">
-      <requires>type != null</requires>
-      <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.#ctor(System.String)">
-      <requires>!string.IsNullOrWhiteSpace(labName)</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.GetLabDescriptionFromType(System.Type)">
-      <requires>type != null</requires>
-      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
     </member>
     <member name="P:DaveSexton.Labs.Lab.SourceCodeResourceManager">
       <getter>
@@ -998,23 +979,42 @@
         <requires>categories.IsReadOnly</requires>
       </setter>
     </member>
-    <member name="M:DaveSexton.Labs.Lab.TryGetCategory(System.Type,System.String@)">
-      <requires>type != null</requires>
-      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out category))</ensures>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.RemoveLabSuffix(System.String)">
-      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
-    </member>
-    <member name="M:DaveSexton.Labs.Lab.#ctor(System.String,System.Boolean)">
-      <requires>!string.IsNullOrWhiteSpace(labName)</requires>
-    </member>
     <member name="M:DaveSexton.Labs.Lab.GetLabCategoriesFromType(System.Type)">
       <requires>type != null</requires>
       <ensures>Contract.Result&lt;IList&lt;string&gt;&gt;() != null</ensures>
       <ensures>Contract.Result&lt;IList&lt;string&gt;&gt;().IsReadOnly</ensures>
     </member>
+    <member name="M:DaveSexton.Labs.Lab.#ctor(System.String)">
+      <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+    </member>
     <member name="M:DaveSexton.Labs.Lab.Execute">
       <requires>CanExecute()</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.GetLabDescriptionFromType(System.Type)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.TryGetDescription(System.Type,System.String@)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out description))</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.GetLabNameFromType(System.Type)">
+      <requires>type != null</requires>
+      <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.RemoveLabSuffix(System.String)">
+      <ensures>Contract.Result&lt;string&gt;() != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.TryGetCategory(System.Type,System.String@)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out category))</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.#ctor(System.String,System.Boolean)">
+      <requires>!string.IsNullOrWhiteSpace(labName)</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.Lab.TryGetDisplayName(System.Type,System.String@)">
+      <requires>type != null</requires>
+      <ensures>Contract.Result&lt;bool&gt;() == false || !string.IsNullOrWhiteSpace(Contract.ValueAtReturn(out displayName))</ensures>
     </member>
     <member name="T:DaveSexton.Labs.AnonymousTraceListener">
       <invariant>trace != null</invariant>
@@ -1025,7 +1025,8 @@
       <requires>message != null</requires>
       <ensures>Contract.Result&lt;IEnumerable&lt;string&gt;&gt;() != null</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleFormat.Wrap(System.String,System.Int32)">
+    <member name="M:DaveSexton.Labs.ConsoleFormat.Wrap(System.String,System.String)">
+      <requires>linePrefix != null</requires>
       <requires>message != null</requires>
       <ensures>Contract.Result&lt;string&gt;() != null</ensures>
     </member>
@@ -1038,29 +1039,42 @@
       <requires>message != null</requires>
       <ensures>Contract.Result&lt;string&gt;() != null</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleFormat.Wrap(System.String,System.String)">
-      <requires>linePrefix != null</requires>
+    <member name="M:DaveSexton.Labs.ConsoleFormat.Wrap(System.String,System.Int32)">
       <requires>message != null</requires>
       <ensures>Contract.Result&lt;string&gt;() != null</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.Write(System.String)">
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Write(System.String)" inheritedFromTypeName="LabController">message != null</requires>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs.Count &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteLabHeader(System.String,System.Int32,System.Int32,System.ConsoleColor)">
+      <requires>number &gt; 0</requires>
+      <requires>total &gt; 0</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs.Count &gt; 0</requires>
     </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)">
       <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)" inheritedFromTypeName="LabController">lab != null</requires>
       <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)" inheritedFromTypeName="LabController">number &gt; 0</requires>
       <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabCompleted(DaveSexton.Labs.Lab,System.Int32,System.Int32,System.Boolean)" inheritedFromTypeName="LabController">total &gt; 0</requires>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteLabHeader(System.String,System.Int32,System.Int32,System.ConsoleColor)">
-      <requires>number &gt; 0</requires>
-      <requires>total &gt; 0</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs != null</requires>
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.EndDebug(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs.Count &gt; 0</requires>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteLine(System.String)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.WriteLine(System.String)" inheritedFromTypeName="LabController">message != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.TraceLabDescriptionIf(System.Boolean,System.String)">
       <requires inheritedFrom="M:DaveSexton.Labs.LabController.TraceLabDescriptionIf(System.Boolean,System.String)" inheritedFromTypeName="LabController">description != null</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.WaitForSelection(System.String,System.ConsoleKey[])">
+      <requires>validChoices != null</requires>
+      <ensures>Contract.Result&lt;ConsoleKeyInfo&gt;().Key == ConsoleKey.Escape
+				|| validChoices.Contains(Contract.Result&lt;ConsoleKeyInfo&gt;().Key)</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">lab != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">number &gt; 0</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">total &gt; 0</requires>
     </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)">
       <requires inheritedFrom="M:DaveSexton.Labs.LabController.WriteEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)" inheritedFromTypeName="LabController">message != null</requires>
@@ -1069,47 +1083,33 @@
       <requires>!string.IsNullOrWhiteSpace(description)</requires>
       <ensures>Contract.Result&lt;string&gt;() != null</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)">
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">lab != null</requires>
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">number &gt; 0</requires>
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.LabStarting(DaveSexton.Labs.Lab,System.Int32,System.Int32)" inheritedFromTypeName="LabController">total &gt; 0</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.WaitForSelection(System.String,System.ConsoleKey[])">
-      <requires>validChoices != null</requires>
-      <ensures>Contract.Result&lt;ConsoleKeyInfo&gt;().Key == ConsoleKey.Escape
-				|| validChoices.Contains(Contract.Result&lt;ConsoleKeyInfo&gt;().Key)</ensures>
-    </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.ExecuteChoice(System.ConsoleKeyInfo,DaveSexton.Labs.LabCategory@,System.Collections.Generic.Stack{DaveSexton.Labs.LabCategory})">
       <requires>category.Initialized</requires>
       <requires>parents != null</requires>
       <ensures>Contract.ValueAtReturn(out category).Initialized</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.WriteLine(System.String)">
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.WriteLine(System.String)" inheritedFromTypeName="LabController">message != null</requires>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.Execute(DaveSexton.Labs.Lab)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)" inheritedFromTypeName="LabController">lab != null</requires>
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)" inheritedFromTypeName="LabController">lab.CanExecute()</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.ConsoleLabController.Write(System.String)">
+      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Write(System.String)" inheritedFromTypeName="LabController">message != null</requires>
     </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.TryExecuteLab(System.ConsoleKeyInfo,DaveSexton.Labs.LabCategory)">
       <requires>category.Initialized</requires>
     </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs != null</requires>
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.MainMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})" inheritedFromTypeName="LabController">labs.Count &gt; 0</requires>
-    </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.ChoiceMenu(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
       <requires>labs != null</requires>
-    </member>
-    <member name="M:DaveSexton.Labs.ConsoleLabController.Execute(DaveSexton.Labs.Lab)">
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)" inheritedFromTypeName="LabController">lab != null</requires>
-      <requires inheritedFrom="M:DaveSexton.Labs.LabController.Execute(DaveSexton.Labs.Lab)" inheritedFromTypeName="LabController">lab.CanExecute()</requires>
     </member>
     <member name="M:DaveSexton.Labs.ConsoleLabController.WriteChoices(DaveSexton.Labs.LabCategory,System.Boolean)">
       <requires>category.Initialized</requires>
       <ensures>Contract.Result&lt;ICollection&lt;ConsoleKey&gt;&gt;() != null</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.AnonymousLab.CreateName">
-      <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
-    </member>
     <member name="M:DaveSexton.Labs.AnonymousLab.Main">
       <requires inheritedFrom="M:DaveSexton.Labs.Lab.Main" inheritedFromTypeName="Lab">CanExecute()</requires>
+    </member>
+    <member name="M:DaveSexton.Labs.AnonymousLab.CreateName">
+      <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
     </member>
     <member name="T:DaveSexton.Labs.LabCategory">
       <invariant>!initialized || !string.IsNullOrWhiteSpace(name)</invariant>
@@ -1118,13 +1118,14 @@
       <invariant>!initialized || subcategories != null</invariant>
       <invariant>!initialized || subcategories.IsReadOnly</invariant>
     </member>
-    <member name="M:DaveSexton.Labs.LabCategory.GetHashCode">
-      <ensures>Contract.Result&lt;int&gt;() == (initialized ? name.GetHashCode() : 0)</ensures>
-    </member>
-    <member name="P:DaveSexton.Labs.LabCategory.DefaultCategoryName">
+    <member name="P:DaveSexton.Labs.LabCategory.Name">
       <getter>
-        <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+        <ensures>!initialized || !string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
       </getter>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.ToString">
+      <ensures>Contract.Result&lt;string&gt;() == ((name == null) ? string.Empty : Name)</ensures>
+      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
     </member>
     <member name="P:DaveSexton.Labs.LabCategory.Labs">
       <getter>
@@ -1144,23 +1145,19 @@
       <requires>subcategories != null</requires>
       <ensures>Contract.ValueAtReturn(out initialized) == true</ensures>
     </member>
-    <member name="M:DaveSexton.Labs.LabCategory.#ctor(System.Collections.Generic.IEnumerable{DaveSexton.Labs.Lab},System.Collections.Generic.IEnumerable{DaveSexton.Labs.LabCategory})">
-      <requires>labs != null</requires>
-      <requires>subcategories != null</requires>
-      <ensures>Contract.ValueAtReturn(out initialized) == true</ensures>
-    </member>
     <member name="M:DaveSexton.Labs.LabCategory.Organize(System.Collections.Generic.ICollection{DaveSexton.Labs.Lab})">
       <requires>labs != null</requires>
       <ensures>Contract.Result&lt;LabCategory&gt;().Initialized</ensures>
     </member>
-    <member name="P:DaveSexton.Labs.LabCategory.Name">
+    <member name="P:DaveSexton.Labs.LabCategory.DefaultCategoryName">
       <getter>
-        <ensures>!initialized || !string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
+        <ensures>!string.IsNullOrWhiteSpace(Contract.Result&lt;string&gt;())</ensures>
       </getter>
     </member>
-    <member name="M:DaveSexton.Labs.LabCategory.ToString">
-      <ensures>Contract.Result&lt;string&gt;() == ((name == null) ? string.Empty : Name)</ensures>
-      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
+    <member name="M:DaveSexton.Labs.LabCategory.#ctor(System.Collections.Generic.IEnumerable{DaveSexton.Labs.Lab},System.Collections.Generic.IEnumerable{DaveSexton.Labs.LabCategory})">
+      <requires>labs != null</requires>
+      <requires>subcategories != null</requires>
+      <ensures>Contract.ValueAtReturn(out initialized) == true</ensures>
     </member>
     <member name="M:DaveSexton.Labs.LabCategory.OrganizeRecursive(System.Collections.Generic.IEnumerable{DaveSexton.Labs.Lab},System.Int32)">
       <requires>labs != null</requires>
@@ -1168,6 +1165,9 @@
       <ensures>Contract.Result&lt;Tuple&lt;List&lt;Lab&gt;, IEnumerable&lt;LabCategory&gt;&gt;&gt;() != null</ensures>
       <ensures>Contract.Result&lt;Tuple&lt;List&lt;Lab&gt;, IEnumerable&lt;LabCategory&gt;&gt;&gt;().Item1 != null</ensures>
       <ensures>Contract.Result&lt;Tuple&lt;List&lt;Lab&gt;, IEnumerable&lt;LabCategory&gt;&gt;&gt;().Item2 != null</ensures>
+    </member>
+    <member name="M:DaveSexton.Labs.LabCategory.GetHashCode">
+      <ensures>Contract.Result&lt;int&gt;() == (initialized ? name.GetHashCode() : 0)</ensures>
     </member>
     <member name="P:DaveSexton.Labs.DefaultLabCatalog.PriorityLabs">
       <getter>

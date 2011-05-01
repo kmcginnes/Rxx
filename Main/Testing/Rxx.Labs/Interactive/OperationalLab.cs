@@ -24,10 +24,7 @@ namespace Rxx.Labs.Interactive
 
 			query.Run(ConsoleOutput);
 
-			TraceLine();
-			TraceLine(Instructions.PressAnyKeyToContinue);
-
-			Console.ReadKey();
+			PressAnyKeyToContinue();
 
 			TraceLine();
 			TraceDescription(Text.OperationalLabAdvanced);

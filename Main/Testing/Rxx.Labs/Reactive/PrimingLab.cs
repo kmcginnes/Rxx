@@ -34,10 +34,7 @@ namespace Rxx.Labs.Reactive
 				System.Threading.Thread.Sleep(TimeSpan.FromSeconds(2));
 			}
 
-			TraceLine();
-			TraceLine(Instructions.PressAnyKeyToContinue);
-
-			Console.ReadKey();
+			PressAnyKeyToContinue();
 
 			TraceLine();
 			TraceDescription(Text.PrimingLabStartPrimed);

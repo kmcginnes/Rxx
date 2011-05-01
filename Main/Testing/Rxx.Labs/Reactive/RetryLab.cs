@@ -73,30 +73,21 @@ namespace Rxx.Labs.Reactive
 
 			RetryExperiment();
 
-			TraceLine();
-			TraceLine(Instructions.PressAnyKeyToContinue);
-
-			Console.ReadKey();
+			PressAnyKeyToContinue();
 
 			TraceLine();
 			TraceLine(Instructions.WaitForError);
 
 			RetryConsecutiveExperiment();
 
-			TraceLine();
-			TraceLine(Instructions.PressAnyKeyToContinue);
-
-			Console.ReadKey();
+			PressAnyKeyToContinue();
 
 			TraceLine();
 			TraceLine(Instructions.WaitForError);
 
 			RetryLinearBackOffExperiment();
 
-			TraceLine();
-			TraceLine(Instructions.PressAnyKeyToContinue);
-
-			Console.ReadKey();
+			PressAnyKeyToContinue();
 
 			TraceLine();
 			TraceLine(Instructions.WaitForError);

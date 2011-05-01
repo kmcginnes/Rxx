@@ -68,10 +68,7 @@ namespace Rxx.Labs.Reactive
 
 			DurationExperiment();
 
-			TraceLine();
-			TraceLine(Instructions.PressAnyKeyToContinue);
-
-			Console.ReadKey();
+			PressAnyKeyToContinue();
 
 			TraceLine();
 			TraceLine(Instructions.WaitForCompletion);
