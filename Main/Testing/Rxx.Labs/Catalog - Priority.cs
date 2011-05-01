@@ -14,8 +14,7 @@ namespace Rxx.Labs
 		 */
 		private static IEnumerable<Lab> GetPriorityLabs()
 		{
-			yield return new Reactive.TimeShiftingLab();
-			yield return new Reactive.FileSystemWatcherLab();
+			yield return new Reactive.SelfObservingLab();
 		}
 	}
 }

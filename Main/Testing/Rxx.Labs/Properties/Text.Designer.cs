@@ -88,6 +88,15 @@ namespace Rxx.Labs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        internal static string Duration {
+            get {
+                return ResourceManager.GetString("Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generated.
         /// </summary>
         internal static string Generated {
@@ -156,6 +165,15 @@ namespace Rxx.Labs.Properties {
         internal static string Observed {
             get {
                 return ResourceManager.GetString("Observed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Observing: {0}.
+        /// </summary>
+        internal static string ObservingFormat {
+            get {
+                return ResourceManager.GetString("ObservingFormat", resourceCulture);
             }
         }
         

@@ -89,7 +89,6 @@ using (var writer = new ResXResourceWriter(TargetFile))
 			<_SecondPassBuildProperties Include="RunCodeAnalysis=False" />
 			<_SecondPassBuildProperties Include="SourceAnalysisEnabled=False" />
 			<_SecondPassBuildProperties Include="CodeContractsRunCodeAnalysis=False" />
-			<_SecondPassBuildProperties Include="RunCodeAnalysis=False" />
 			<_SecondPassBuildProperties Include="Platform=$(Platform)" />
 			<_SecondPassBuildProperties Include="Configuration=$(Configuration)" />
 			<_SecondPassBuildProperties Include="DaveSextonLabsAssemblyFile=$(_DaveSextonLabsAssemblyFile)" />

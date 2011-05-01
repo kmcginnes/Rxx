@@ -52,7 +52,6 @@ namespace Rxx.Labs.Reactive
 
 		protected override void Main()
 		{
-			TraceLine();
 			TraceLine(Instructions.PressAnyKeyToCancel);
 
 			ValueDependentExperiment();

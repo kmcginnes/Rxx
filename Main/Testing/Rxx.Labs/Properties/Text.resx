@@ -126,6 +126,9 @@
   <data name="Done" xml:space="preserve">
     <value>Done</value>
   </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
   <data name="Generated" xml:space="preserve">
     <value>Generated</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="Observed" xml:space="preserve">
     <value>Observed</value>
+  </data>
+  <data name="ObservingFormat" xml:space="preserve">
+    <value>Observing: {0}</value>
   </data>
   <data name="OnCompletedEmpty" xml:space="preserve">
     <value>Sequence did not have any values.</value>

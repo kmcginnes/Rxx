@@ -6,6 +6,19 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
+		public static IPairedObservable<TLeft, TRight> AsPairedObservable<TLeft, TRight>(
+			this IObservable<Either<TLeft, TRight>> source)
+		{
+			Contract.Requires(source != null);
+			Contract.Ensures(Contract.Result<IPairedObservable<TLeft, TRight>>() != null);
+
+			return PairedObservable.CreateWithDisposable<TLeft, TRight>(
+				observer =>
+				{
+					return source.Subscribe(observer);
+				});
+		}
+
 		public static IPairedObservable<TLeft, TRight> Pair<TLeft, TRight>(
 			this IObservable<TLeft> leftSource,
 			Func<TLeft, TRight> rightSelector)
@@ -99,19 +112,6 @@ namespace System.Linq
 						},
 						observer.OnError,
 						observer.OnCompleted));
-		}
-
-		public static IPairedObservable<TLeft, TRight> AsPairedObservable<TLeft, TRight>(
-			this IObservable<Either<TLeft, TRight>> source)
-		{
-			Contract.Requires(source != null);
-			Contract.Ensures(Contract.Result<IPairedObservable<TLeft, TRight>>() != null);
-
-			return PairedObservable.CreateWithDisposable<TLeft, TRight>(
-				observer =>
-				{
-					return source.Subscribe(observer);
-				});
 		}
 	}
 }

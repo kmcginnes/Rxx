@@ -5,7 +5,6 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
-		/// <include file='System\Linq\Observable2.xml' path='//marbleDiagram[@operator="AsInterval"]'/>
 		public static IObservable<TSource> AsInterval<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod)
@@ -21,7 +20,6 @@ namespace System.Linq
 			return AsInterval(source, minimumPeriod, scheduler);
 		}
 
-		/// <include file='System\Linq\Observable2.xml' path='//marbleDiagram[@operator="AsInterval"]'/>
 		public static IObservable<TSource> AsInterval<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod,
@@ -74,7 +72,6 @@ namespace System.Linq
 			return observable;
 		}
 
-		/// <include file='System\Linq\Observable2.xml' path='//marbleDiagram[@operator="AsTimer"]'/>
 		public static IObservable<TSource> AsTimer<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod)
@@ -90,7 +87,6 @@ namespace System.Linq
 			return AsTimer(source, minimumPeriod, scheduler);
 		}
 
-		/// <include file='System\Linq\Observable2.xml' path='//marbleDiagram[@operator="AsTimer"]'/>
 		public static IObservable<TSource> AsTimer<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod,
@@ -142,7 +138,6 @@ namespace System.Linq
 			return observable;
 		}
 
-		/// <include file='System\Linq\Observable2.xml' path='//marbleDiagram[@operator="Pulse"]'/>
 		public static IObservable<TSource> Pulse<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan period)
@@ -158,7 +153,6 @@ namespace System.Linq
 			return Pulse(source, period, scheduler);
 		}
 
-		/// <include file='System\Linq\Observable2.xml' path='//marbleDiagram[@operator="Pulse"]'/>
 		public static IObservable<TSource> Pulse<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan period,

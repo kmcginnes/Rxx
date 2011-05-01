@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using DaveSexton.Labs;
@@ -17,6 +18,18 @@ namespace Rxx.Labs
 			get;
 			set;
 		}
+
+		protected TraceSource ConsoleTrace
+		{
+			get
+			{
+				Contract.Ensures(Contract.Result<TraceSource>() != null);
+
+				return consoleTrace;
+			}
+		}
+
+		private readonly TraceSource consoleTrace = new TraceSource("RxxLab", SourceLevels.All);
 		#endregion
 
 		#region Constructors
@@ -26,10 +39,37 @@ namespace Rxx.Labs
 		protected RxxLab()
 		{
 			ShowTimeOnNext = true;
+
+			consoleTrace.Listeners.Add(new AnonymousTraceListener(
+				Lab.Trace,
+				Lab.TraceLine,
+				(cache, source, eventType, id, message) =>
+				{
+					switch (eventType)
+					{
+						case TraceEventType.Critical:
+						case TraceEventType.Error:
+							Lab.TraceError(message);
+							break;
+						case TraceEventType.Warning:
+							Lab.TraceWarning(message);
+							break;
+						default:
+							Lab.TraceInformation(message);
+							break;
+					}
+				}));
 		}
 		#endregion
 
 		#region Methods
+		[ContractInvariantMethod]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Required for code contracts.")]
+		private void ObjectInvariant()
+		{
+			Contract.Invariant(consoleTrace != null);
+		}
+
 		protected static void TraceDescription(string description)
 		{
 			TraceLine(ConsoleFormat.Wrap("  ", description));
