@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!--
+	To include this MSBuild file in your Labs project, insert the following <Import /> element into your 
+	project file *after* the language <Import /> element.  Then replace "enter_your_path" with the full or 
+	relative path to the Labs.targets file.
+	
+	<Import Name="enter_your_path\Labs.targets" />
+	-->
+
+	<PropertyGroup>
+		<LabSourceCodeResourceName>LabSourceCode</LabSourceCodeResourceName>
+		<LabSourceCodeResourceFile>$(IntermediateOutputPath)$(LabSourceCodeResourceName).resx</LabSourceCodeResourceFile>
+		<TemporaryLabsOutputDir>$(IntermediateOutputPath)LabsTemp\</TemporaryLabsOutputDir>
+	</PropertyGroup>
+
+	<UsingTask TaskName="FindLabs" AssemblyFile="DaveSexton.Labs.dll" />
+
+	<UsingTask TaskName="ReadFilesAsMetadata" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+		<ParameterGroup>
+			<Files ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" Output="true" />
+			<MetadataName Required="true" />
+		</ParameterGroup>
+		<Task>
+			<Using Namespace="System.IO" />
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+foreach (var file in Files)
+{
+	file.SetMetadata(MetadataName, File.ReadAllText(file.ItemSpec));
+}
+]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<UsingTask TaskName="CreateResXFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+		<ParameterGroup>
+			<Resources ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+			<ValueMetadata Required="true" />
+			<TargetFile Required="true" />
+		</ParameterGroup>
+		<Task>
+			<Reference Include="System.Windows.Forms" />
+			<Using Namespace="System.Resources" />
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+using (var writer = new ResXResourceWriter(TargetFile))
+{
+	foreach (var resource in Resources)
+	{
+		string name = resource.ItemSpec;
+
+		if (!string.IsNullOrEmpty(name))
+			writer.AddResource(name, resource.GetMetadata(ValueMetadata));
+	}
+}
+]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<Target Name="CleanLabs" AfterTargets="Clean">
+		<Delete Files="$(LabSourceCodeResourceFile)" />
+	</Target>
+
+	<Target Name="PreBuildLabsFirstPass" Condition=" '$(LabsBuildSecondPass)' != 'True' "
+					BeforeTargets="BeforeBuild">
+		<PropertyGroup>
+			<!-- This property must only be applied after Build, not after Clean, so leave it inside this target -->
+			<OutDir>$(TemporaryLabsOutputDir)</OutDir>
+			<CodeAnalysisInputAssembly>$(TemporaryLabsOutputDir)$(TargetFileName)</CodeAnalysisInputAssembly>
+		</PropertyGroup>
+	</Target>
+
+	<Target Name="PostBuildLabsFirstPass" Condition=" '$(LabsBuildSecondPass)' != 'True' "
+					AfterTargets="AfterBuild">
+		<ItemGroup>
+			<_TemporaryLabsOutputDirItem Include="$(TemporaryLabsOutputDir)" />
+		</ItemGroup>
+		<PropertyGroup>
+			<_TemporaryLabsOutputDir>%(_TemporaryLabsOutputDirItem.FullPath)</_TemporaryLabsOutputDir>
+			<_DaveSextonLabsAssemblyFile>$(_TemporaryLabsOutputDir)DaveSexton.Labs.dll</_DaveSextonLabsAssemblyFile>
+			<_TargetLabsAssemblyFile>$(_TemporaryLabsOutputDir)$(TargetFileName)</_TargetLabsAssemblyFile>
+		</PropertyGroup>
+		<ItemGroup>
+			<_SecondPassBuildProperties Include="LabsBuildSecondPass=True" />
+			<_SecondPassBuildProperties Include="RunCodeAnalysis=False" />
+			<_SecondPassBuildProperties Include="SourceAnalysisEnabled=False" />
+			<_SecondPassBuildProperties Include="CodeContractsRunCodeAnalysis=False" />
+			<_SecondPassBuildProperties Include="Platform=$(Platform)" />
+			<_SecondPassBuildProperties Include="Configuration=$(Configuration)" />
+			<_SecondPassBuildProperties Include="DaveSextonLabsAssemblyFile=$(_DaveSextonLabsAssemblyFile)" />
+			<_SecondPassBuildProperties Include="TargetLabsAssemblyFile=$(_TargetLabsAssemblyFile)" />
+		</ItemGroup>
+
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Build" Properties="@(_SecondPassBuildProperties)" />
+		<RemoveDir Directories="$(TemporaryLabsOutputDir)" />
+	</Target>
+
+	<PropertyGroup>
+		<BuildLabsDependsOn>
+			LoadSourceCodeAsMetadata;
+			FindLabs;
+			CreateLabSourceCodeResourceFile;
+		</BuildLabsDependsOn>
+	</PropertyGroup>
+	<Target Name="BuildLabs" Condition=" '$(LabsBuildSecondPass)' == 'True' "
+					BeforeTargets="BeforeBuild" DependsOnTargets="$(BuildLabsDependsOn)">
+		<ItemGroup>
+			<EmbeddedResource Include="$(LabSourceCodeResourceFile)" Condition=" Exists('$(LabSourceCodeResourceFile)') ">
+				<LogicalName>$(LabSourceCodeResourceName).resources</LogicalName>
+			</EmbeddedResource>
+		</ItemGroup>
+	</Target>
+
+	<Target Name="LoadSourceCodeAsMetadata">
+		<ReadFilesAsMetadata Files="@(Compile)" MetadataName="SourceCode">
+			<Output TaskParameter="Files" ItemName="CompileWithSourceCode" />
+		</ReadFilesAsMetadata>
+	</Target>
+
+	<Target Name="FindLabs">
+		<FindLabs Sources="@(CompileWithSourceCode)"
+							DaveSextonLabsAssemblyFile="$(DaveSextonLabsAssemblyFile)"
+							TargetLabsAssemblyFile="$(TargetLabsAssemblyFile)">
+			<Output TaskParameter="Labs" ItemName="Labs" />
+		</FindLabs>
+	</Target>
+
+	<Target Name="CreateLabSourceCodeResourceFile" Inputs="@(Labs)" Outputs="$(LabSourceCodeResourceFile)">
+		<CreateResXFile Resources="@(Labs)" ValueMetadata="SourceCode" TargetFile="$(LabSourceCodeResourceFile)" />
+	</Target>
+
+</Project>
