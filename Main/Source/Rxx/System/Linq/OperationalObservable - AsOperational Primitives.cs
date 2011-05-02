@@ -6,6 +6,12 @@ namespace System.Linq
 	public static partial class OperationalObservable
 	{
 		#region Public
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="SByte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<sbyte, int> AsOperational(
 			this IObservable<sbyte> source)
@@ -16,6 +22,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<sbyte, int> AsOperational(
 			this IObservable<sbyte> source,
@@ -28,6 +41,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="SByte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalObservable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<sbyte, int> AsOperational(
 			this IObservable<sbyte> source,
@@ -42,6 +63,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<byte, int> AsOperational(
 			this IObservable<byte> source)
 		{
@@ -51,6 +78,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<byte, int> AsOperational(
 			this IObservable<byte> source,
 			Func<IObservable<byte>, IObservable<byte>, Func<byte, byte, int>, IObservable<int>> binaryOperation)
@@ -62,6 +96,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalObservable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<byte, int> AsOperational(
 			this IObservable<byte> source,
 			Func<IObservable<byte>, IObservable<byte>, Func<byte, byte, int>, IObservable<int>> binaryOperation,
@@ -75,6 +117,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Char"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<char, int> AsOperational(
 			this IObservable<char> source)
 		{
@@ -84,6 +132,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Char"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<char, int> AsOperational(
 			this IObservable<char> source,
 			Func<IObservable<char>, IObservable<char>, Func<char, char, int>, IObservable<int>> binaryOperation)
@@ -95,6 +150,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Char"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalObservable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<char, int> AsOperational(
 			this IObservable<char> source,
 			Func<IObservable<char>, IObservable<char>, Func<char, char, int>, IObservable<int>> binaryOperation,
@@ -108,6 +171,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<short, int> AsOperational(
 			this IObservable<short> source)
 		{
@@ -117,6 +186,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<short, int> AsOperational(
 			this IObservable<short> source,
 			Func<IObservable<short>, IObservable<short>, Func<short, short, int>, IObservable<int>> binaryOperation)
@@ -128,6 +204,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalObservable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<short, int> AsOperational(
 			this IObservable<short> source,
 			Func<IObservable<short>, IObservable<short>, Func<short, short, int>, IObservable<int>> binaryOperation,
@@ -141,6 +225,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<ushort, int> AsOperational(
 			this IObservable<ushort> source)
@@ -151,6 +241,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<ushort, int> AsOperational(
 			this IObservable<ushort> source,
@@ -163,6 +260,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalObservable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<ushort, int> AsOperational(
 			this IObservable<ushort> source,
@@ -177,6 +282,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<int> AsOperational(
 			this IObservable<int> source)
 		{
@@ -186,6 +297,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<int> AsOperational(
 			this IObservable<int> source,
 			Func<IObservable<int>, IObservable<int>, Func<int, int, int>, IObservable<int>> binaryOperation)
@@ -197,6 +315,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<uint> AsOperational(
 			this IObservable<uint> source)
@@ -207,6 +331,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<uint> AsOperational(
 			this IObservable<uint> source,
@@ -219,6 +350,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<long> AsOperational(
 			this IObservable<long> source)
 		{
@@ -228,6 +365,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Int64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<long> AsOperational(
 			this IObservable<long> source,
 			Func<IObservable<long>, IObservable<long>, Func<long, long, long>, IObservable<long>> binaryOperation)
@@ -239,6 +383,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<ulong> AsOperational(
 			this IObservable<ulong> source)
@@ -249,6 +399,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="UInt64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalObservable<ulong> AsOperational(
 			this IObservable<ulong> source,
@@ -261,6 +418,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Single"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<float> AsOperational(
 			this IObservable<float> source)
 		{
@@ -270,6 +433,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Single"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<float> AsOperational(
 			this IObservable<float> source,
 			Func<IObservable<float>, IObservable<float>, Func<float, float, float>, IObservable<float>> binaryOperation)
@@ -281,6 +451,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Double"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<double> AsOperational(
 			this IObservable<double> source)
 		{
@@ -290,6 +466,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Double"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<double> AsOperational(
 			this IObservable<double> source,
 			Func<IObservable<double>, IObservable<double>, Func<double, double, double>, IObservable<double>> binaryOperation)
@@ -301,6 +484,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Decimal"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<decimal> AsOperational(
 			this IObservable<decimal> source)
 		{
@@ -310,6 +499,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalObservable{TIn,TOut}"/> for the specified <see cref="Decimal"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		public static OperationalObservable<decimal> AsOperational(
 			this IObservable<decimal> source,
 			Func<IObservable<decimal>, IObservable<decimal>, Func<decimal, decimal, decimal>, IObservable<decimal>> binaryOperation)

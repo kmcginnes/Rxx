@@ -4,8 +4,25 @@ using System.Diagnostics.Contracts;
 
 namespace System.Linq
 {
+	/// <summary>
+	/// Provides extension methods that convert an <see cref="IObservable{T}"/> into an <see cref="OperationalObservable{TIn,TOut}"/>.
+	/// </summary>
 	public static partial class OperationalObservable
 	{
+		/// <summary>
+		/// Creates an <see cref="OperationalObservable{T}"/> for the specified <paramref name="source"/> from the specified operators.
+		/// </summary>
+		/// <typeparam name="T">The type of objects to observe.</typeparam>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="add">The addition operator.</param>
+		/// <param name="subtract">The subtraction operator.</param>
+		/// <param name="multiply">The multiplication operator.</param>
+		/// <param name="divide">The division operator.</param>
+		/// <param name="positive">The plus operator.</param>
+		/// <param name="negative">The negation operator.</param>
+		/// <returns>An <see cref="OperationalObservable{T}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed",
 			Justification = "In this case, optional parameters are more flexible than defining only a subset of all possible combinations.")]
 		public static OperationalObservable<T> AsOperational<T>(
@@ -32,6 +49,22 @@ namespace System.Linq
 				negative);
 		}
 
+		/// <summary>
+		/// Creates an <see cref="OperationalObservable{TIn,TOut}"/> for the specified <paramref name="source"/> from the specified operators.
+		/// </summary>
+		/// <typeparam name="TIn">The type of input to observe.</typeparam>
+		/// <typeparam name="TOut">The type of output that each operation generates.</typeparam>
+		/// <param name="source">The observable to be converted.</param>
+		/// <param name="resultSelector">Projects the result sequence into an <see cref="OperationalObservable{T}"/>.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="add">The addition operator.</param>
+		/// <param name="subtract">The subtraction operator.</param>
+		/// <param name="multiply">The multiplication operator.</param>
+		/// <param name="divide">The division operator.</param>
+		/// <param name="positive">The plus operator.</param>
+		/// <param name="negative">The negation operator.</param>
+		/// <returns>An <see cref="OperationalObservable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another observable.</returns>
 		[SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed",
 			Justification = "In this case, optional parameters are more flexible than defining only a subset of all possible combinations.")]
 		public static OperationalObservable<TIn, TOut> AsOperational<TIn, TOut>(

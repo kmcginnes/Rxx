@@ -1,4 +1,5 @@
-﻿using DaveSexton.Labs;
+﻿using System;
+using DaveSexton.Labs;
 
 namespace Rxx.Labs
 {
@@ -8,6 +9,8 @@ namespace Rxx.Labs
 
 		private static void Main()
 		{
+			Console.CancelKeyPress += (sender, e) => e.Cancel = true;
+
 			using (var controller = new ConsoleLabController(new RxxLabCatalog()))
 			{
 #if DEBUG

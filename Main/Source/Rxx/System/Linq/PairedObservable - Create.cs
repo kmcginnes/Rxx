@@ -6,6 +6,13 @@ namespace System.Linq
 {
 	public static partial class PairedObservable
 	{
+		/// <summary>
+		/// Creates a paired observable sequence from the <paramref name="subscribe"/> implementation.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="subscribe">Subscribes observers to the paired observable.</param>
+		/// <returns>A paired observable that calls the specified <paramref name="subscribe"/> function when an observer subscribes.</returns>
 		public static IPairedObservable<TLeft, TRight> Create<TLeft, TRight>(
 			Func<IPairedObserver<TLeft, TRight>, Action> subscribe)
 		{
@@ -15,6 +22,13 @@ namespace System.Linq
 			return CreateWithDisposable<TLeft, TRight>(o => Disposable.Create(subscribe(o)));
 		}
 
+		/// <summary>
+		/// Creates a paired observable sequence from the <paramref name="subscribe"/> implementation.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="subscribe">Subscribes observers to the paired observable.</param>
+		/// <returns>A paired observable that calls the specified <paramref name="subscribe"/> function when an observer subscribes.</returns>
 		public static IPairedObservable<TLeft, TRight> CreateWithDisposable<TLeft, TRight>(
 			Func<IPairedObserver<TLeft, TRight>, IDisposable> subscribe)
 		{

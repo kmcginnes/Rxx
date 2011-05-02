@@ -7,13 +7,19 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
+		/// <summary>
+		/// Uploads data to the specified resource.
+		/// </summary>
+		/// <param name="address">The URI of the resource to receive the collection.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <param name="values">The collection of data as name/value pairs to send to the resource.</param>
+		/// <returns>An observable that caches the response from the server and replays it to observers.</returns>
 		public static IObservable<byte[]> UploadValues(
 			Uri address,
 			string method,
 			NameValueCollection values)
 		{
 			Contract.Requires(address != null);
-			Contract.Requires(method != null);
 			Contract.Requires(values != null);
 			Contract.Ensures(Contract.Result<IObservable<byte[]>>() != null);
 
@@ -26,13 +32,20 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Uploads data to the specified resource and includes a channel for progress notifications.
+		/// </summary>
+		/// <param name="address">The URI of the resource to receive the collection.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <param name="values">The collection of data as name/value pairs to send to the resource.</param>
+		/// <returns>A paired observable that pushes progress notifications through the left channel, caches the response from the 
+		/// server in the right channel and replays the response to observers.</returns>
 		public static IPairedObservable<UploadProgressChangedEventArgs, byte[]> UploadValuesWithProgress(
 			Uri address,
 			string method,
 			NameValueCollection values)
 		{
 			Contract.Requires(address != null);
-			Contract.Requires(method != null);
 			Contract.Requires(values != null);
 			Contract.Ensures(Contract.Result<IPairedObservable<UploadProgressChangedEventArgs, byte[]>>() != null);
 
@@ -45,6 +58,14 @@ namespace System.Net
 			return observable.AsPairedObservable();
 		}
 
+		/// <summary>
+		/// Uploads data to the specified resource.
+		/// </summary>
+		/// <param name="client">The object that uploads to the resource.</param>
+		/// <param name="address">The URI of the resource to receive the collection.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <param name="values">The collection of data as name/value pairs to send to the resource.</param>
+		/// <returns>An observable that caches the response from the server and replays it to observers.</returns>
 		public static IObservable<byte[]> UploadValuesObservable(
 			this WebClient client,
 			Uri address,
@@ -53,7 +74,6 @@ namespace System.Net
 		{
 			Contract.Requires(client != null);
 			Contract.Requires(address != null);
-			Contract.Requires(method != null);
 			Contract.Requires(values != null);
 			Contract.Ensures(Contract.Result<IObservable<byte[]>>() != null);
 
@@ -70,6 +90,15 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Uploads data to the specified resource and includes a channel for progress notifications.
+		/// </summary>
+		/// <param name="client">The object that uploads to the resource.</param>
+		/// <param name="address">The URI of the resource to receive the collection.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <param name="values">The collection of data as name/value pairs to send to the resource.</param>
+		/// <returns>A paired observable that pushes progress notifications through the left channel, caches the response from the 
+		/// server in the right channel and replays the response to observers.</returns>
 		public static IPairedObservable<UploadProgressChangedEventArgs, byte[]> UploadValuesWithProgress(
 			this WebClient client,
 			Uri address,
@@ -78,7 +107,6 @@ namespace System.Net
 		{
 			Contract.Requires(client != null);
 			Contract.Requires(address != null);
-			Contract.Requires(method != null);
 			Contract.Requires(values != null);
 			Contract.Ensures(Contract.Result<IPairedObservable<UploadProgressChangedEventArgs, byte[]>>() != null);
 

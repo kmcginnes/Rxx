@@ -1,13 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using Rxx;
 using Rxx.Properties;
 
 namespace System.ComponentModel
 {
+	/// <summary>
+	/// Provides extension methods for <see cref="PropertyDescriptor"/>.
+	/// </summary>
 	public static class PropertyDescriptorExtensions
 	{
+		/// <summary>
+		/// Returns an observable sequence of property changed notifications from the 
+		/// specified <paramref name="property"/> descriptor.
+		/// </summary>
+		/// <param name="property">The descriptor from which to create an observable sequence of changed notifications.</param>
+		/// <param name="source">The object to which the <paramref name="property"/> belongs.</param>
+		/// <returns>An observable sequence of property changed notifications.</returns>
+		/// <exception cref="ArgumentException">The specified property does not support change events.</exception>
 		public static IObservable<IEvent<PropertyChangedEventArgs>> PropertyChanged(
 			this PropertyDescriptor property,
 			object source)
@@ -33,6 +43,12 @@ namespace System.ComponentModel
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable sequence of events from the specified <paramref name="event"/> descriptor.
+		/// </summary>
+		/// <param name="event">The descriptor from which to create an observable sequence of changed notifications.</param>
+		/// <param name="source">The object to which the <paramref name="event"/> belongs.</param>
+		/// <returns>An observable sequence of events.</returns>
 		public static IObservable<IEvent<EventArgs>> EventRaised(
 			this EventDescriptor @event,
 			object source)

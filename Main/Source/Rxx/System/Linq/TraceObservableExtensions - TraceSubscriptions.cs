@@ -8,6 +8,12 @@ namespace System.Linq
 {
 	public static partial class TraceObservableExtensions
 	{
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
 		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source)
 		{
@@ -33,20 +39,36 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription
+		/// and includes the specified <paramref name="identity"/> in the trace output.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="identity">Identifies the observer in the trace output.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
-		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, string name)
+		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, string identity)
 		{
 			Contract.Requires(source != null);
-			Contract.Requires(name != null);
+			Contract.Requires(identity != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
 			return source.TraceSubscriptions(
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribingFormat, name),
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribedFormat, name),
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposingSubscriptionFormat, name),
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposedSubscriptionFormat, name));
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribingFormat, identity),
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribedFormat, identity),
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposingSubscriptionFormat, identity),
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposedSubscriptionFormat, identity));
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="subscribingMessage">The message to trace when Subscribe is called.</param>
+		/// <param name="subscribedMessage">The message to trace when Subscribe has returned.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
 		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, string subscribingMessage, string subscribedMessage)
 		{
@@ -74,6 +96,16 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="subscribingMessage">The message to trace when Subscribe is called.</param>
+		/// <param name="subscribedMessage">The message to trace when Subscribe has returned.</param>
+		/// <param name="disposingMessage">The message to trace when Dispose is called.</param>
+		/// <param name="disposedMessage">The message to trace when Dispose has returned.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
 		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, string subscribingMessage, string subscribedMessage, string disposingMessage, string disposedMessage)
 		{
@@ -103,6 +135,13 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
 		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, TraceSource trace)
 		{
@@ -129,22 +168,40 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription
+		/// and includes the specified <paramref name="identity"/> in the trace output.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="identity">Identifies the observer in the trace output.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
-		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, TraceSource trace, string name)
+		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, TraceSource trace, string identity)
 		{
 			Contract.Requires(source != null);
 			Contract.Requires(trace != null);
-			Contract.Requires(name != null);
+			Contract.Requires(identity != null);
 			Contract.Ensures(Contract.Result<IObservable<T>>() != null);
 
 			return source.TraceSubscriptions(
 				trace,
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribingFormat, name),
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribedFormat, name),
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposingSubscriptionFormat, name),
-				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposedSubscriptionFormat, name));
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribingFormat, identity),
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.SubscribedFormat, identity),
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposingSubscriptionFormat, identity),
+				string.Format(CultureInfo.CurrentCulture, Rxx.Properties.Text.DisposedSubscriptionFormat, identity));
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="subscribingMessage">The message to trace when Subscribe is called.</param>
+		/// <param name="subscribedMessage">The message to trace when Subscribe has returned.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
 		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, TraceSource trace, string subscribingMessage, string subscribedMessage)
 		{
@@ -173,6 +230,17 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that traces calls to Subscribe for the specified observable and calls to Dispose of the resulting subscription.
+		/// </summary>
+		/// <typeparam name="T">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable for which subscriptions and cancelations will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="subscribingMessage">The message to trace when Subscribe is called.</param>
+		/// <param name="subscribedMessage">The message to trace when Subscribe has returned.</param>
+		/// <param name="disposingMessage">The message to trace when Dispose is called.</param>
+		/// <param name="disposedMessage">The message to trace when Dispose has returned.</param>
+		/// <returns>An observable that traces subscriptions and cancelations.</returns>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Subscription is returned to observer.")]
 		public static IObservable<T> TraceSubscriptions<T>(this IObservable<T> source, TraceSource trace, string subscribingMessage, string subscribedMessage, string disposingMessage, string disposedMessage)
 		{

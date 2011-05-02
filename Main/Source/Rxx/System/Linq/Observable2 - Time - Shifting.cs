@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Concurrency;
 using System.Diagnostics.Contracts;
 using System.Disposables;
 
@@ -7,6 +6,15 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
+		/// <summary>
+		/// Time-shifts each value in the specified observable sequence to a sequence returned by the specified selector
+		/// and concatenates the timer sequences returned by the selector.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TTimer">Type of the timer notifications.</typeparam>
+		/// <param name="source">The observable sequence to be time-shifted.</param>
+		/// <param name="timeSelector">Selects an observable sequence that indicates when the current value should be pushed.</param>
+		/// <returns>The specified observable sequence time-shifted to the concatenated timer sequences returned by the selector.</returns>
 		public static IObservable<TSource> TimeShift<TSource, TTimer>(
 			this IObservable<TSource> source,
 			Func<TSource, IObservable<TTimer>> timeSelector)
@@ -23,6 +31,14 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Time-shifts each value in the specified observable sequence to the specified <paramref name="timer"/>.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TTimer">Type of the timer notifications.</typeparam>
+		/// <param name="source">The observable sequence to be time-shifted.</param>
+		/// <param name="timer">The observable sequence to which the values from the source sequence are time-shifted.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified <paramref name="timer"/> sequence.</returns>
 		public static IObservable<TSource> TimeShift<TSource, TTimer>(
 			this IObservable<TSource> source,
 			IObservable<TTimer> timer)

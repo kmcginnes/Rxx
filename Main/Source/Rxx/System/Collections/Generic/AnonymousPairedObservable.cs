@@ -13,7 +13,7 @@ namespace System.Collections.Generic
 
 		#region Constructors
 		/// <summary>
-		/// Constructs a new instance of the <see cref="AnonymousPairedObservable" /> class.
+		/// Constructs a new instance of the <see cref="AnonymousPairedObservable{TLeft,TRight}" /> class.
 		/// </summary>
 		public AnonymousPairedObservable(IObservable<Either<TLeft, TRight>> observable)
 		{

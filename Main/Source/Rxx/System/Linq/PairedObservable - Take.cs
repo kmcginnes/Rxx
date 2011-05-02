@@ -3,8 +3,18 @@ using System.Diagnostics.Contracts;
 
 namespace System.Linq
 {
+	/// <summary>
+	/// Provides extension and factory methods for <see cref="IPairedObservable{TLeft,TRight}"/>.
+	/// </summary>
 	public static partial class PairedObservable
 	{
+		/// <summary>
+		/// Returns an observable that contains only the values from the left notification channel.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="source">The observable from which values are taken.</param>
+		/// <returns>An observable of values from the left notification channel.</returns>
 		public static IObservable<TLeft> TakeLeft<TLeft, TRight>(
 			this IObservable<Either<TLeft, TRight>> source)
 		{
@@ -26,6 +36,13 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that contains only the values from the right notification channel.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="source">The observable from which values are taken.</param>
+		/// <returns>An observable of values from the right notification channel.</returns>
 		public static IObservable<TRight> TakeRight<TLeft, TRight>(
 			this IObservable<Either<TLeft, TRight>> source)
 		{
@@ -47,6 +64,15 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable that contains only the values from the left notification channel
+		/// up to the specified <paramref name="count"/>.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="source">The observable from which values are taken.</param>
+		/// <param name="count">The number of values to take.</param>
+		/// <returns>An observable of values from the left notification channel.</returns>
 		public static IPairedObservable<TLeft, TRight> TakeLeft<TLeft, TRight>(
 			this IObservable<Either<TLeft, TRight>> source,
 			int count)
@@ -81,6 +107,15 @@ namespace System.Linq
 				});
 		}
 
+		/// <summary>
+		/// Returns an observable that contains only the values from the right notification channel
+		/// up to the specified <paramref name="count"/>.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="source">The observable from which values are taken.</param>
+		/// <param name="count">The number of values to take.</param>
+		/// <returns>An observable of values from the right notification channel.</returns>
 		public static IPairedObservable<TLeft, TRight> TakeRight<TLeft, TRight>(
 			this IObservable<Either<TLeft, TRight>> source,
 			int count)

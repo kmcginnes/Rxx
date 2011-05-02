@@ -6,6 +6,12 @@ namespace System.Linq
 	public static partial class OperationalEnumerable
 	{
 		#region Public
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="SByte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<sbyte, int> AsOperational(
 			this IEnumerable<sbyte> source)
@@ -16,6 +22,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="SByte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<sbyte, int> AsOperational(
 			this IEnumerable<sbyte> source,
@@ -28,6 +41,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="SByte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalEnumerable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<sbyte, int> AsOperational(
 			this IEnumerable<sbyte> source,
@@ -42,6 +63,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<byte, int> AsOperational(
 			this IEnumerable<byte> source)
 		{
@@ -51,6 +78,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<byte, int> AsOperational(
 			this IEnumerable<byte> source,
 			Func<IEnumerable<byte>, IEnumerable<byte>, Func<byte, byte, int>, IEnumerable<int>> binaryOperation)
@@ -62,6 +96,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Byte"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalEnumerable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<byte, int> AsOperational(
 			this IEnumerable<byte> source,
 			Func<IEnumerable<byte>, IEnumerable<byte>, Func<byte, byte, int>, IEnumerable<int>> binaryOperation,
@@ -75,6 +117,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Char"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<char, int> AsOperational(
 			this IEnumerable<char> source)
 		{
@@ -84,6 +132,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Char"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<char, int> AsOperational(
 			this IEnumerable<char> source,
 			Func<IEnumerable<char>, IEnumerable<char>, Func<char, char, int>, IEnumerable<int>> binaryOperation)
@@ -95,6 +150,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Char"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalEnumerable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<char, int> AsOperational(
 			this IEnumerable<char> source,
 			Func<IEnumerable<char>, IEnumerable<char>, Func<char, char, int>, IEnumerable<int>> binaryOperation,
@@ -108,6 +171,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<short, int> AsOperational(
 			this IEnumerable<short> source)
 		{
@@ -117,6 +186,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<short, int> AsOperational(
 			this IEnumerable<short> source,
 			Func<IEnumerable<short>, IEnumerable<short>, Func<short, short, int>, IEnumerable<int>> binaryOperation)
@@ -128,6 +204,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalEnumerable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<short, int> AsOperational(
 			this IEnumerable<short> source,
 			Func<IEnumerable<short>, IEnumerable<short>, Func<short, short, int>, IEnumerable<int>> binaryOperation,
@@ -141,6 +225,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<ushort, int> AsOperational(
 			this IEnumerable<ushort> source)
@@ -151,6 +241,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<ushort, int> AsOperational(
 			this IEnumerable<ushort> source,
@@ -163,6 +260,14 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt16"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="resultBinaryOperation">The join behavior for binary operations on the resulting <see cref="OperationalEnumerable{TIn,TOut}"/>.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<ushort, int> AsOperational(
 			this IEnumerable<ushort> source,
@@ -177,6 +282,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation, resultBinaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<int> AsOperational(
 			this IEnumerable<int> source)
 		{
@@ -186,6 +297,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<int> AsOperational(
 			this IEnumerable<int> source,
 			Func<IEnumerable<int>, IEnumerable<int>, Func<int, int, int>, IEnumerable<int>> binaryOperation)
@@ -197,6 +315,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<uint> AsOperational(
 			this IEnumerable<uint> source)
@@ -207,6 +331,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt32"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<uint> AsOperational(
 			this IEnumerable<uint> source,
@@ -219,6 +350,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<long> AsOperational(
 			this IEnumerable<long> source)
 		{
@@ -228,6 +365,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Int64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<long> AsOperational(
 			this IEnumerable<long> source,
 			Func<IEnumerable<long>, IEnumerable<long>, Func<long, long, long>, IEnumerable<long>> binaryOperation)
@@ -239,6 +383,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<ulong> AsOperational(
 			this IEnumerable<ulong> source)
@@ -249,6 +399,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="UInt64"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[CLSCompliant(false)]
 		public static OperationalEnumerable<ulong> AsOperational(
 			this IEnumerable<ulong> source,
@@ -261,6 +418,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Single"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<float> AsOperational(
 			this IEnumerable<float> source)
 		{
@@ -270,6 +433,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Single"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<float> AsOperational(
 			this IEnumerable<float> source,
 			Func<IEnumerable<float>, IEnumerable<float>, Func<float, float, float>, IEnumerable<float>> binaryOperation)
@@ -281,6 +451,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Double"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<double> AsOperational(
 			this IEnumerable<double> source)
 		{
@@ -290,6 +466,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Double"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<double> AsOperational(
 			this IEnumerable<double> source,
 			Func<IEnumerable<double>, IEnumerable<double>, Func<double, double, double>, IEnumerable<double>> binaryOperation)
@@ -301,6 +484,12 @@ namespace System.Linq
 			return AsOperationalInternal(source, binaryOperation);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Decimal"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<decimal> AsOperational(
 			this IEnumerable<decimal> source)
 		{
@@ -310,6 +499,13 @@ namespace System.Linq
 			return AsOperationalInternal(source);
 		}
 
+		/// <summary>
+		/// Creates a standard <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <see cref="Decimal"/> <paramref name="source"/>.
+		/// </summary>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		public static OperationalEnumerable<decimal> AsOperational(
 			this IEnumerable<decimal> source,
 			Func<IEnumerable<decimal>, IEnumerable<decimal>, Func<decimal, decimal, decimal>, IEnumerable<decimal>> binaryOperation)

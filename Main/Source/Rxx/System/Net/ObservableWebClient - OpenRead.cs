@@ -7,6 +7,11 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
+		/// <summary>
+		/// Downloads the specified resource as a <see cref="Stream"/>.
+		/// </summary>
+		/// <param name="address">A <see cref="Uri"/> containing the URI to download.</param>
+		/// <returns>An observable containing the readable stream that reads data from the resource.</returns>
 		public static IObservable<Stream> OpenRead(
 			Uri address)
 		{
@@ -22,6 +27,12 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Downloads the specified resource as a <see cref="Stream"/> and includes a channel for progress notifications.
+		/// </summary>
+		/// <param name="address">A <see cref="Uri"/> containing the URI to download.</param>
+		/// <returns>A paired observable that pushes progress notifications through the left channel and 
+		/// contains the readable stream that reads data from the resource in the right channel.</returns>
 		public static IPairedObservable<DownloadProgressChangedEventArgs, Stream> OpenReadWithProgress(
 			Uri address)
 		{
@@ -37,6 +48,12 @@ namespace System.Net
 			return observable.AsPairedObservable();
 		}
 
+		/// <summary>
+		/// Downloads the specified resource as a <see cref="Stream"/>.
+		/// </summary>
+		/// <param name="client">The object that downloads the resource.</param>
+		/// <param name="address">A <see cref="Uri"/> containing the URI to download.</param>
+		/// <returns>An observable containing the readable stream that reads data from the resource.</returns>
 		public static IObservable<Stream> OpenReadObservable(
 			this WebClient client,
 			Uri address)
@@ -58,6 +75,13 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Downloads the specified resource as a <see cref="Stream"/> and includes a channel for progress notifications.
+		/// </summary>
+		/// <param name="client">The object that downloads the resource.</param>
+		/// <param name="address">A <see cref="Uri"/> containing the URI to download.</param>
+		/// <returns>A paired observable that pushes progress notifications through the left channel and 
+		/// contains the readable stream that reads data from the resource in the right channel.</returns>
 		public static IPairedObservable<DownloadProgressChangedEventArgs, Stream> OpenReadWithProgress(
 			this WebClient client,
 			Uri address)

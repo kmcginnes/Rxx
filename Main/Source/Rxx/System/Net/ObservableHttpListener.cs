@@ -4,8 +4,23 @@ using System.Linq;
 
 namespace System.Net
 {
+	/// <summary>
+	/// Provides methods for creating HTTP request observables.
+	/// </summary>
 	public static class ObservableHttpListener
 	{
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(IPEndPoint)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="endPoint">The local end point on which to listen for requests.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(IPEndPoint endPoint)
 		{
 			Contract.Requires(endPoint != null);
@@ -16,6 +31,19 @@ namespace System.Net
 			return Start(endPoint, null);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(IPEndPoint,int)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="endPoint">The local end point on which to listen for requests.</param>
+		/// <param name="maxConcurrent">The maximum number of requests that can be pushed through the observable simultaneously.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(IPEndPoint endPoint, int maxConcurrent)
 		{
 			Contract.Requires(endPoint != null);
@@ -27,6 +55,19 @@ namespace System.Net
 			return Start(endPoint, null, maxConcurrent);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(IPEndPoint,string)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="endPoint">The local end point on which to listen for requests.</param>
+		/// <param name="path">The path at which requests will be served.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(IPEndPoint endPoint, string path)
 		{
 			Contract.Requires(endPoint != null);
@@ -41,6 +82,20 @@ namespace System.Net
 			return Start(address, endPoint.Port, path);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(IPEndPoint,string,int)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="endPoint">The local end point on which to listen for requests.</param>
+		/// <param name="path">The path at which requests will be served.</param>
+		/// <param name="maxConcurrent">The maximum number of requests that can be pushed through the observable simultaneously.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(IPEndPoint endPoint, string path, int maxConcurrent)
 		{
 			Contract.Requires(endPoint != null);
@@ -56,6 +111,18 @@ namespace System.Net
 			return Start(address, endPoint.Port, path, maxConcurrent);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(string)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="domain">The domain name on which to listen for requests.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(string domain)
 		{
 			Contract.Requires(!string.IsNullOrEmpty(domain));
@@ -64,6 +131,19 @@ namespace System.Net
 			return Start(domain, 80, null);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(string,int)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="domain">The domain name on which to listen for requests.</param>
+		/// <param name="port">The port number on which to listen for requests.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(string domain, int port)
 		{
 			Contract.Requires(!string.IsNullOrEmpty(domain));
@@ -73,6 +153,20 @@ namespace System.Net
 			return Start(domain, port, null);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(string,int,int)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="domain">The domain name on which to listen for requests.</param>
+		/// <param name="port">The port number on which to listen for requests.</param>
+		/// <param name="maxConcurrent">The maximum number of requests that can be pushed through the observable simultaneously.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> Start(string domain, int port, int maxConcurrent)
 		{
 			Contract.Requires(!string.IsNullOrEmpty(domain));
@@ -83,6 +177,20 @@ namespace System.Net
 			return Start(domain, port, null, maxConcurrent);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(string,int,string)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="domain">The domain name on which to listen for requests.</param>
+		/// <param name="port">The port number on which to listen for requests.</param>
+		/// <param name="path">The path at which requests will be served.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
 			Justification = "The listener variable is disposed by Observable.Using.")]
 		public static IObservable<HttpListenerContext> Start(string domain, int port, string path)
@@ -96,6 +204,21 @@ namespace System.Net
 			return Start(domain, port, path, Observable2.DefaultMaxConcurrent);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="Start(string,int,string,int)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="domain">The domain name on which to listen for requests.</param>
+		/// <param name="port">The port number on which to listen for requests.</param>
+		/// <param name="path">The path at which requests will be served.</param>
+		/// <param name="maxConcurrent">The maximum number of requests that can be pushed through the observable simultaneously.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
 					Justification = "The listener variable is disposed by Observable.Using.")]
 		public static IObservable<HttpListenerContext> Start(string domain, int port, string path, int maxConcurrent)
@@ -123,6 +246,18 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="StartObservable(HttpListener)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="listener">The object that listens for requests.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		public static IObservable<HttpListenerContext> StartObservable(this HttpListener listener)
 		{
 			Contract.Requires(listener != null);
@@ -133,6 +268,19 @@ namespace System.Net
 			return StartObservable(listener, Observable2.DefaultMaxConcurrent);
 		}
 
+		/// <summary>
+		/// Returns an observable of concurrent HTTP requests.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="warn">
+		/// <see cref="StartObservable(HttpListener,int)"/> does not guarantee the serializability of notifications that is recommended in the 
+		/// Rx Design Guidelines.  This allows observers to receive multiple requests concurrently, as is common in 
+		/// hosting scenarios.
+		/// </alert>
+		/// </remarks>
+		/// <param name="listener">The object that listens for requests.</param>
+		/// <param name="maxConcurrent">The maximum number of requests that can be pushed through the observable simultaneously.</param>
+		/// <returns>An observable of concurrent HTTP requests.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes",
 			Justification = "Exception is passed to observers.")]
 		public static IObservable<HttpListenerContext> StartObservable(this HttpListener listener, int maxConcurrent)

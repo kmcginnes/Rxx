@@ -7,7 +7,14 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
-		// Differs from Rx because it allows you to specify TException and returns IPairedObservable - same for the similar Catch operator in Rxx.
+		/// <summary>
+		/// Moves to the next observable sequence when the current sequence throws the specified type of exception.
+		/// The output is paired with an error channel.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TException">The type of exception to catch.</typeparam>
+		/// <param name="sources">The observables to be enumerated.</param>
+		/// <returns>An observable sequence with an error channel.</returns>
 		public static IPairedObservable<TSource, TException> OnErrorResumeNext<TSource, TException>(
 			this IEnumerable<IObservable<TSource>> sources)
 			where TException : Exception
@@ -30,6 +37,16 @@ namespace System.Linq
 			return observable.AsPairedObservable();
 		}
 
+		/// <summary>
+		/// Moves to the next observable sequence when the current sequence throws the specified type of exception 
+		/// using the specified back-off algorithm.  The output is paired with an error channel.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TException">The type of exception to catch.</typeparam>
+		/// <param name="sources">The observables to be enumerated.</param>
+		/// <param name="backOffSelector">Selects the amount of time to delay before moving to the next observable 
+		/// when the current sequence has faulted.</param>
+		/// <returns>An observable sequence with an error channel.</returns>
 		public static IPairedObservable<TSource, TException> OnErrorResumeNext<TSource, TException>(
 			this IEnumerable<IObservable<TSource>> sources,
 			Func<TException, TimeSpan> backOffSelector)
@@ -54,6 +71,14 @@ namespace System.Linq
 			return observable.AsPairedObservable();
 		}
 
+		/// <summary>
+		/// Moves to the next observable sequence when the current sequence throws the specified type of exception.
+		/// The output is paired with an error channel.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TException">The type of exception to catch.</typeparam>
+		/// <param name="sources">The observables to be enumerated.</param>
+		/// <returns>An observable sequence with an error channel.</returns>
 		public static IPairedObservable<TSource, TException> OnErrorResumeNext<TSource, TException>(
 			this IEnumerator<IObservable<TSource>> sources)
 			where TException : Exception
@@ -64,6 +89,15 @@ namespace System.Linq
 			return OnErrorResumeNext<TSource, TException>(sources, ex => sources, ex => TimeSpan.Zero);
 		}
 
+		/// <summary>
+		/// Moves to the next observable sequence provided by the specified <paramref name="handler"/> when the current 
+		/// sequence throws the specified type of exception.  The output is paired with an error channel.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TException">The type of exception to catch.</typeparam>
+		/// <param name="sources">The observables to be enumerated.</param>
+		/// <param name="handler">Selects the next enumerator when an observable from the current enumerator has faulted.</param>
+		/// <returns>An observable sequence with an error channel.</returns>
 		public static IPairedObservable<TSource, TException> OnErrorResumeNext<TSource, TException>(
 			this IEnumerator<IObservable<TSource>> sources,
 			Func<TException, IEnumerator<IObservable<TSource>>> handler)
@@ -76,6 +110,18 @@ namespace System.Linq
 			return OnErrorResumeNext<TSource, TException>(sources, handler, ex => TimeSpan.Zero);
 		}
 
+		/// <summary>
+		/// Moves to the next observable sequence provided by the specified <paramref name="handler"/> when the current 
+		/// sequence throws the specified type of exception using the specified back-off algorithm.
+		/// The output is paired with an error channel.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <typeparam name="TException">The type of exception to catch.</typeparam>
+		/// <param name="sources">The observables to be enumerated.</param>
+		/// <param name="handler">Selects the next enumerator when an observable from the current enumerator has faulted.</param>
+		/// <param name="backOffSelector">Selects the amount of time to delay before moving to the next observable 
+		/// when the current sequence has faulted.</param>
+		/// <returns>An observable sequence with an error channel.</returns>
 		public static IPairedObservable<TSource, TException> OnErrorResumeNext<TSource, TException>(
 			this IEnumerator<IObservable<TSource>> sources,
 			Func<TException, IEnumerator<IObservable<TSource>>> handler,

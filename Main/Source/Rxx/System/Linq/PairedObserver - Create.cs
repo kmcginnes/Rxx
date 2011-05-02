@@ -4,8 +4,19 @@ using System.Diagnostics.Contracts;
 
 namespace System.Linq
 {
+	/// <summary>
+	/// Provides extension and factory methods for <see cref="IPairedObserver{TLeft,TRight}"/>.
+	/// </summary>
 	public static class PairedObserver
 	{
+		/// <summary>
+		/// Creates an observer that is capable of observing paired observables using the specified actions.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="onNextLeft">Handler for notifications from the left channel.</param>
+		/// <param name="onNextRight">Handler for notifications from the right channel.</param>
+		/// <returns>An observer capable of observing paired observables.</returns>
 		public static IPairedObserver<TLeft, TRight> Create<TLeft, TRight>(
 			Action<TLeft> onNextLeft,
 			Action<TRight> onNextRight)
@@ -24,6 +35,15 @@ namespace System.Linq
 				() => { });
 		}
 
+		/// <summary>
+		/// Creates an observer that is capable of observing paired observables using the specified actions.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="onNextLeft">Handler for notifications from the left channel.</param>
+		/// <param name="onNextRight">Handler for notifications from the right channel.</param>
+		/// <param name="onError">Handler for an error notification.</param>
+		/// <returns>An observer capable of observing paired observables.</returns>
 		public static IPairedObserver<TLeft, TRight> Create<TLeft, TRight>(
 			Action<TLeft> onNextLeft,
 			Action<TRight> onNextRight,
@@ -41,6 +61,15 @@ namespace System.Linq
 				() => { });
 		}
 
+		/// <summary>
+		/// Creates an observer that is capable of observing paired observables using the specified actions.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="onNextLeft">Handler for notifications from the left channel.</param>
+		/// <param name="onNextRight">Handler for notifications from the right channel.</param>
+		/// <param name="onCompleted">Handler for a completed notification.</param>
+		/// <returns>An observer capable of observing paired observables.</returns>
 		public static IPairedObserver<TLeft, TRight> Create<TLeft, TRight>(
 			Action<TLeft> onNextLeft,
 			Action<TRight> onNextRight,
@@ -61,6 +90,16 @@ namespace System.Linq
 				onCompleted);
 		}
 
+		/// <summary>
+		/// Creates an observer that is capable of observing paired observables using the specified actions.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="onNextLeft">Handler for notifications from the left channel.</param>
+		/// <param name="onNextRight">Handler for notifications from the right channel.</param>
+		/// <param name="onError">Handler for an error notification.</param>
+		/// <param name="onCompleted">Handler for a completed notification.</param>
+		/// <returns>An observer capable of observing paired observables.</returns>
 		public static IPairedObserver<TLeft, TRight> Create<TLeft, TRight>(
 			Action<TLeft> onNextLeft,
 			Action<TRight> onNextRight,

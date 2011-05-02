@@ -7,6 +7,14 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
+		/// <summary>
+		/// Pairs the specified observable sequence with an observable for each value that indicates 
+		/// the duration of the observation of that value.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable sequence to introspect.</param>
+		/// <returns>A paired observable with the left channel providing introspection windows and the 
+		/// right channel providing values from the specified observable.</returns>
 		public static IPairedObservable<IObservable<TSource>, TSource> Introspect<TSource>(
 			this IObservable<TSource> source)
 		{
@@ -20,6 +28,15 @@ namespace System.Linq
 			return Introspect(source, scheduler);
 		}
 
+		/// <summary>
+		/// Pairs the specified observable sequence with an observable for each value that indicates 
+		/// the duration of the observation of that value.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable sequence to introspect.</param>
+		/// <param name="scheduler">Schedules the observations of values in the right notification channel.</param>
+		/// <returns>A paired observable with the left channel providing introspection windows and the 
+		/// right channel providing values from the specified observable.</returns>
 		public static IPairedObservable<IObservable<TSource>, TSource> Introspect<TSource>(
 			this IObservable<TSource> source,
 			IScheduler scheduler)
@@ -110,6 +127,13 @@ namespace System.Linq
 				});
 		}
 
+		/// <summary>
+		/// Generates a sequence of windows where each window contains all values that were observed from 
+		/// the <paramref name="source"/> while the values in the previous window were being observed.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable sequence from which to create introspection windows.</param>
+		/// <returns>The source observable sequence buffered into introspection windows.</returns>
 		public static IObservable<IObservable<TSource>> WindowIntrospective<TSource>(
 			this IObservable<TSource> source)
 		{
@@ -127,6 +151,10 @@ namespace System.Linq
 		/// Generates a sequence of windows where each window contains all values that were observed from 
 		/// the <paramref name="source"/> while the values in the previous window were being observed.
 		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable sequence from which to create introspection windows.</param>
+		/// <param name="scheduler">Schedules when windows are observed as well as the values in each window.</param>
+		/// <returns>The source observable sequence buffered into introspection windows.</returns>
 		public static IObservable<IObservable<TSource>> WindowIntrospective<TSource>(
 			this IObservable<TSource> source,
 			IScheduler scheduler)
@@ -255,6 +283,13 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Generates a sequence of lists where each list contains all values that were observed from 
+		/// the <paramref name="source"/> while the previous list was being observed.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable sequence from which to create introspection lists.</param>
+		/// <returns>The source observable sequence buffered into introspection lists.</returns>
 		public static IObservable<IList<TSource>> BufferIntrospective<TSource>(
 			this IObservable<TSource> source)
 		{
@@ -274,6 +309,10 @@ namespace System.Linq
 		/// Generates a sequence of lists where each list contains all values that were observed from 
 		/// the <paramref name="source"/> while the previous list was being observed.
 		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable sequence from which to create introspection lists.</param>
+		/// <param name="scheduler">Schedules when lists are observed.</param>
+		/// <returns>The source observable sequence buffered into introspection lists.</returns>
 		public static IObservable<IList<TSource>> BufferIntrospective<TSource>(
 			this IObservable<TSource> source,
 			IScheduler scheduler)

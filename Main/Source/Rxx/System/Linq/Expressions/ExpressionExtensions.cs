@@ -6,8 +6,19 @@ using Rxx.Properties;
 
 namespace System.Linq.Expressions
 {
+	/// <summary>
+	/// Provides extension methods for <see cref="Expression{TDelegate}"/> objects.
+	/// </summary>
 	public static class ExpressionExtensions
 	{
+		/// <summary>
+		/// Gets property information for the specified <paramref name="property"/> expression.
+		/// </summary>
+		/// <typeparam name="TSource">Type of the parameter in the <paramref name="property"/> expression.</typeparam>
+		/// <typeparam name="TValue">Type of the property's value.</typeparam>
+		/// <param name="property">The expression from which to retrieve the property information.</param>
+		/// <returns>Property information for the specified expression.</returns>
+		/// <exception cref="ArgumentException">The expression is not understood.</exception>
 		[SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters",
 			Justification = "Full type may be required for C# compiler support; regardless, this may be clearer to callers.")]
 		public static PropertyInfo GetPropertyInfo<TSource, TValue>(this Expression<Func<TSource, TValue>> property)
@@ -31,6 +42,17 @@ namespace System.Linq.Expressions
 			throw new ArgumentException(Errors.PropertyExpressionNotUnderstood, "property");
 		}
 
+		/// <summary>
+		/// Gets property information for the specified <paramref name="property"/> expression.
+		/// </summary>
+		/// <typeparam name="TValue">Type of the property's value.</typeparam>
+		/// <param name="property">The expression from which to retrieve the property information.</param>
+		/// <param name="owner">Instance of the object that defines the specified property.</param>
+		/// <returns>Property information for the specified expression.</returns>
+		/// <exception cref="ArgumentException">The expression is too complex or is not understood.</exception>
+		/// <exception cref="ArgumentException">The expression does not represent a chain of one or more fields and properties, ending with a property.</exception>
+		/// <exception cref="ArgumentException">The expression contains an indexer.</exception>
+		/// <exception cref="ArgumentException">The owner cannot be determined from the expression.</exception>
 		[SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#",
 			Justification = "This is the simplest API possible in this scenario.")]
 		[SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters",

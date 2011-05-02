@@ -5,6 +5,16 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
+		/// <summary>
+		/// Returns the elements of the specified sequence time-shifted to the specified minimum period
+		/// between elements, starting with the specified minimum period.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable to be time-shifted.</param>
+		/// <param name="minimumPeriod">The minimum amount of time to delay before the first element 
+		/// and between elements.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified minimum period
+		/// between elements, starting with the specified minimum period.</returns>
 		public static IObservable<TSource> AsInterval<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod)
@@ -20,6 +30,17 @@ namespace System.Linq
 			return AsInterval(source, minimumPeriod, scheduler);
 		}
 
+		/// <summary>
+		/// Returns the elements of the specified sequence time-shifted to the specified minimum period
+		/// between elements, starting with the specified minimum period.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable to be time-shifted.</param>
+		/// <param name="minimumPeriod">The minimum amount of time to delay before the first element 
+		/// and between elements.</param>
+		/// <param name="scheduler">An object used to schedule notifications.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified minimum period
+		/// between elements, starting with the specified minimum period.</returns>
 		public static IObservable<TSource> AsInterval<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod,
@@ -72,6 +93,15 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns the elements of the specified sequence time-shifted to the specified minimum period
+		/// between elements.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable to be time-shifted.</param>
+		/// <param name="minimumPeriod">The minimum amount of time to delay between elements.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified minimum period
+		/// between elements.</returns>
 		public static IObservable<TSource> AsTimer<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod)
@@ -87,6 +117,16 @@ namespace System.Linq
 			return AsTimer(source, minimumPeriod, scheduler);
 		}
 
+		/// <summary>
+		/// Returns the elements of the specified sequence time-shifted to the specified minimum period
+		/// between elements.
+		/// </summary>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable to be time-shifted.</param>
+		/// <param name="minimumPeriod">The minimum amount of time to delay between elements.</param>
+		/// <param name="scheduler">An object used to schedule notifications.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified minimum period
+		/// between elements.</returns>
 		public static IObservable<TSource> AsTimer<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan minimumPeriod,
@@ -138,6 +178,27 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Returns the elements of the specified sequence time-shifted to the specified <paramref name="period"/>, 
+		/// with the latest value repeated when the specified sequence is silent for longer than the specified 
+		/// <paramref name="period"/>.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// <see cref="Pulse{TSource}(IObservable{TSource},TimeSpan)"/> is similar to <see cref="AsTimer{TSource}(IObservable{TSource},TimeSpan)"/>
+		/// in that it begins without delaying as soon as the first value is observed; however, it differs in that the 
+		/// <paramref name="period"/> between notifications is constant and the last value is repeated at the specified interval 
+		/// while the observable is silent.
+		/// </para>
+		/// <alert type="tip">
+		/// To achieve a pulse without duplicate values, pass the returned observable to Observable.DistinctUntilChanged.
+		/// </alert>
+		/// </remarks>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable to be time-shifted.</param>
+		/// <param name="period">The exact amount of time to delay between elements.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified minimum period
+		/// between elements, starting with the specified minimum period.</returns>
 		public static IObservable<TSource> Pulse<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan period)
@@ -153,6 +214,28 @@ namespace System.Linq
 			return Pulse(source, period, scheduler);
 		}
 
+		/// <summary>
+		/// Returns the elements of the specified sequence time-shifted to the specified <paramref name="period"/>, 
+		/// with the latest value repeated when the specified sequence is silent for longer than the specified 
+		/// <paramref name="period"/>.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// <see cref="Pulse{TSource}(IObservable{TSource},TimeSpan)"/> is similar to <see cref="AsTimer{TSource}(IObservable{TSource},TimeSpan)"/>
+		/// in that it begins without delaying as soon as the first value is observed; however, it differs in that the 
+		/// <paramref name="period"/> between notifications is constant and the last value is repeated at the specified interval 
+		/// while the observable is silent.
+		/// </para>
+		/// <alert type="tip">
+		/// To achieve a pulse without duplicate values, pass the returned observable to Observable.DistinctUntilChanged.
+		/// </alert>
+		/// </remarks>
+		/// <typeparam name="TSource">The object that provides notification information.</typeparam>
+		/// <param name="source">The observable to be time-shifted.</param>
+		/// <param name="period">The exact amount of time to delay between elements.</param>
+		/// <param name="scheduler">An object used to schedule notifications.</param>
+		/// <returns>The specified observable sequence time-shifted to the specified minimum period
+		/// between elements, starting with the specified minimum period.</returns>
 		public static IObservable<TSource> Pulse<TSource>(
 			this IObservable<TSource> source,
 			TimeSpan period,

@@ -2,6 +2,10 @@
 
 namespace System.Collections.Generic
 {
+	/// <summary>
+	/// Represents an observable that uses its unary and binary operator overloads as observable query operators.
+	/// </summary>
+	/// <typeparam name="T">Input and output type.</typeparam>
 	public sealed class OperationalObservable<T> : OperationalObservable<T, T>
 	{
 		#region Public Properties

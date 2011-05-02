@@ -4,8 +4,25 @@ using System.Diagnostics.Contracts;
 
 namespace System.Linq
 {
+	/// <summary>
+	/// Provides extension methods that convert an <see cref="IEnumerable{T}"/> into an <see cref="OperationalEnumerable{TIn,TOut}"/>.
+	/// </summary>
 	public static partial class OperationalEnumerable
 	{
+		/// <summary>
+		/// Creates an <see cref="OperationalEnumerable{T}"/> for the specified <paramref name="source"/> from the specified operators.
+		/// </summary>
+		/// <typeparam name="T">The type of objects to enumerate.</typeparam>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="add">The addition operator.</param>
+		/// <param name="subtract">The subtraction operator.</param>
+		/// <param name="multiply">The multiplication operator.</param>
+		/// <param name="divide">The division operator.</param>
+		/// <param name="positive">The plus operator.</param>
+		/// <param name="negative">The negation operator.</param>
+		/// <returns>An <see cref="OperationalEnumerable{T}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed",
 			Justification = "In this case, optional parameters are more flexible than defining only a subset of all possible combinations.")]
 		public static OperationalEnumerable<T> AsOperational<T>(
@@ -32,6 +49,22 @@ namespace System.Linq
 				negative);
 		}
 
+		/// <summary>
+		/// Creates an <see cref="OperationalEnumerable{TIn,TOut}"/> for the specified <paramref name="source"/> from the specified operators.
+		/// </summary>
+		/// <typeparam name="TIn">The type of input to enumerate.</typeparam>
+		/// <typeparam name="TOut">The type of output that each operation generates.</typeparam>
+		/// <param name="source">The enumerable to be converted.</param>
+		/// <param name="resultSelector">Projects the result sequence into an <see cref="OperationalEnumerable{T}"/>.</param>
+		/// <param name="binaryOperation">The join behavior for binary operations.</param>
+		/// <param name="add">The addition operator.</param>
+		/// <param name="subtract">The subtraction operator.</param>
+		/// <param name="multiply">The multiplication operator.</param>
+		/// <param name="divide">The division operator.</param>
+		/// <param name="positive">The plus operator.</param>
+		/// <param name="negative">The negation operator.</param>
+		/// <returns>An <see cref="OperationalEnumerable{TIn,TOut}"/> that applies the specified operations to the specified <paramref name="source"/> 
+		/// when combined with another enumerable.</returns>
 		[SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed",
 			Justification = "In this case, optional parameters are more flexible than defining only a subset of all possible combinations.")]
 		public static OperationalEnumerable<TIn, TOut> AsOperational<TIn, TOut>(

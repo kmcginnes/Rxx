@@ -6,6 +6,12 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
+		/// <summary>
+		/// Opens a writeable stream to the specified resource.
+		/// </summary>
+		/// <param name="address">The URI of the resource to receive the stream.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <returns>An observable containing the writeable stream that sends data to the resource.</returns>
 		public static IObservable<Stream> OpenWrite(
 			Uri address,
 			string method)
@@ -23,6 +29,13 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Opens a writeable stream to the specified resource.
+		/// </summary>
+		/// <param name="client">The object that uploads to the resource.</param>
+		/// <param name="address">The URI of the resource to receive the stream.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <returns>An observable containing the writeable stream that sends data to the resource.</returns>
 		public static IObservable<Stream> OpenWriteObservable(
 			this WebClient client,
 			Uri address,

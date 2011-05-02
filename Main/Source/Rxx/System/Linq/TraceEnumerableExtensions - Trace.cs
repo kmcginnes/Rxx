@@ -4,9 +4,18 @@ using TraceSource = System.Diagnostics.TraceSource;
 
 namespace System.Linq
 {
+	/// <summary>
+	/// Provides extension methods that trace enumerables.
+	/// </summary>
 	public static partial class TraceEnumerableExtensions
 	{
 		#region System.Diagnostics.Trace
+		/// <summary>
+		/// Returns an enumerable that traces OnNext, OnError and OnCompleted calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <returns>An enumerable that traces all notifications.</returns>
 		public static IEnumerable<T> Trace<T>(this IEnumerable<T> source)
 		{
 			Contract.Requires(source != null);
@@ -19,6 +28,12 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces OnNext calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <returns>An enumerable that traces OnNext notifications.</returns>
 		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source)
 		{
 			Contract.Requires(source != null);
@@ -31,6 +46,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces OnNext calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <param name="format">The format in which values will be traced.  A single replacement token {0} is supported.</param>
+		/// <returns>An enumerable that traces OnNext notifications.</returns>
 		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, string format)
 		{
 			Contract.Requires(source != null);
@@ -44,6 +66,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces OnNext calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <param name="messageSelector">A function that returns the message to be traced for each notification.</param>
+		/// <returns>An enumerable that traces OnNext notifications.</returns>
 		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, Func<T, string> messageSelector)
 		{
 			Contract.Requires(source != null);
@@ -57,6 +86,12 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnError from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the error will be traced.</param>
+		/// <returns>An enumerable that traces a call to OnError.</returns>
 		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source)
 		{
 			Contract.Requires(source != null);
@@ -69,6 +104,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnError from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the error will be traced.</param>
+		/// <param name="format">The format in which the error will be traced.  A single replacement token {0} is supported.</param>
+		/// <returns>An enumerable that traces a call to OnError.</returns>
 		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, string format)
 		{
 			Contract.Requires(source != null);
@@ -82,6 +124,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnError from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the error will be traced.</param>
+		/// <param name="messageSelector">A function that returns the message to be traced for the error.</param>
+		/// <returns>An enumerable that traces a call to OnError.</returns>
 		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, Func<Exception, string> messageSelector)
 		{
 			Contract.Requires(source != null);
@@ -95,6 +144,12 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnCompleted from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the completed notification will be traced.</param>
+		/// <returns>An enumerable that traces a call to OnCompleted.</returns>
 		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source)
 		{
 			Contract.Requires(source != null);
@@ -107,6 +162,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnCompleted from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the completed notification will be traced.</param>
+		/// <param name="message">The message to be traced for the completed notification.</param>
+		/// <returns>An enumerable that traces a call to OnCompleted.</returns>
 		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, string message)
 		{
 			Contract.Requires(source != null);
@@ -120,6 +182,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnCompleted from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the completed notification will be traced.</param>
+		/// <param name="messageSelector">A function that returns the message to be traced for the completed notification.</param>
+		/// <returns>An enumerable that traces a call to OnCompleted.</returns>
 		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, Func<string> messageSelector)
 		{
 			Contract.Requires(source != null);
@@ -135,6 +204,13 @@ namespace System.Linq
 		#endregion
 
 		#region System.Diagnostics.TraceSource
+		/// <summary>
+		/// Returns an enumerable that traces OnNext, OnError and OnCompleted calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <param name="traceSource">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <returns>An enumerable that traces all notifications.</returns>
 		public static IEnumerable<T> Trace<T>(this IEnumerable<T> source, TraceSource traceSource)
 		{
 			Contract.Requires(source != null);
@@ -148,6 +224,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces OnNext calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <returns>An enumerable that traces OnNext notifications.</returns>
 		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, TraceSource trace)
 		{
 			Contract.Requires(source != null);
@@ -161,6 +244,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces OnNext calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="format">The format in which values will be traced.  A single replacement token {0} is supported.</param>
+		/// <returns>An enumerable that traces OnNext notifications.</returns>
 		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, TraceSource trace, string format)
 		{
 			Contract.Requires(source != null);
@@ -175,6 +266,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces OnNext calls from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which notifications will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="messageSelector">A function that returns the message to be traced for each notification.</param>
+		/// <returns>An enumerable that traces OnNext notifications.</returns>
 		public static IEnumerable<T> TraceOnNext<T>(this IEnumerable<T> source, TraceSource trace, Func<T, string> messageSelector)
 		{
 			Contract.Requires(source != null);
@@ -189,6 +288,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnError from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the error will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <returns>An enumerable that traces a call to OnError.</returns>
 		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, TraceSource trace)
 		{
 			Contract.Requires(source != null);
@@ -202,6 +308,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnError from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the error will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="format">The format in which the error will be traced.  A single replacement token {0} is supported.</param>
+		/// <returns>An enumerable that traces a call to OnError.</returns>
 		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, TraceSource trace, string format)
 		{
 			Contract.Requires(source != null);
@@ -216,6 +330,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnError from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the error will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="messageSelector">A function that returns the message to be traced for the error.</param>
+		/// <returns>An enumerable that traces a call to OnError.</returns>
 		public static IEnumerable<T> TraceOnError<T>(this IEnumerable<T> source, TraceSource trace, Func<Exception, string> messageSelector)
 		{
 			Contract.Requires(source != null);
@@ -230,6 +352,13 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnCompleted from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the completed notification will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <returns>An enumerable that traces a call to OnCompleted.</returns>
 		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, TraceSource trace)
 		{
 			Contract.Requires(source != null);
@@ -243,6 +372,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnCompleted from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the completed notification will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="message">The message to be traced for the completed notification.</param>
+		/// <returns>An enumerable that traces a call to OnCompleted.</returns>
 		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, TraceSource trace, string message)
 		{
 			Contract.Requires(source != null);
@@ -257,6 +394,14 @@ namespace System.Linq
 			return enumerable;
 		}
 
+		/// <summary>
+		/// Returns an enumerable that traces a call to OnCompleted from the specified enumerable.
+		/// </summary>
+		/// <typeparam name="T">Type of object to be enumerated.</typeparam>
+		/// <param name="source">The enumerable from which the completed notification will be traced.</param>
+		/// <param name="trace">The <see cref="TraceSource"/> to be associated with the trace messages.</param>
+		/// <param name="messageSelector">A function that returns the message to be traced for the completed notification.</param>
+		/// <returns>An enumerable that traces a call to OnCompleted.</returns>
 		public static IEnumerable<T> TraceOnCompleted<T>(this IEnumerable<T> source, TraceSource trace, Func<string> messageSelector)
 		{
 			Contract.Requires(source != null);

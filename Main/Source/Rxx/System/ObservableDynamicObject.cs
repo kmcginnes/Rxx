@@ -10,6 +10,20 @@ using Rxx.Properties;
 
 namespace System
 {
+	/// <summary>
+	/// Wraps an object with a dynamic wrapper that converts normal properties, methods and events into observable sequences.
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// Methods are converted to asynchronous invocations much like <see cref="Observable.Start(Action)"/> and <see cref="System.Linq.Observable.Start{TResult}(Func{TResult})"/>.
+	/// </para>
+	/// <para>
+	/// Properties are converted to observable sequences of property changed notifications.
+	/// </para>
+	/// <para>
+	/// Events are converted to observable sequences of <see cref="System.Collections.Generic.IEvent{TEventArgs}"/>, with strong-typed <see cref="EventArgs"/>.
+	/// </para>
+	/// </remarks>
 	public sealed partial class ObservableDynamicObject : DynamicObject
 	{
 		#region Public Properties
@@ -36,6 +50,11 @@ namespace System
 			Contract.Invariant(source != null);
 		}
 
+		/// <summary>
+		/// Wraps the specified object with a <see langword="dynamic"/> wrapper implemented by <see cref="ObservableDynamicObject"/>.
+		/// </summary>
+		/// <param name="source">The object to be wrapped.</param>
+		/// <returns>The specified <paramref name="source"/> as a <see langword="dynamic"/> object.</returns>
 		public static dynamic Create(object source)
 		{
 			Contract.Requires(source != null);
@@ -43,6 +62,10 @@ namespace System
 			return new ObservableDynamicObject(source);
 		}
 
+		/// <summary>
+		/// Gets the names of the dynamic members.
+		/// </summary>
+		/// <returns>Sequence of dynamic member names.</returns>
 		public override IEnumerable<string> GetDynamicMemberNames()
 		{
 			Contract.Ensures(Contract.Result<IEnumerable<string>>() != null);
@@ -50,6 +73,13 @@ namespace System
 			return ComponentReflection.GetMembers(source).Select(member => member.Name);
 		}
 
+		/// <summary>
+		/// Tries to invoke the specified member.
+		/// </summary>
+		/// <param name="binder">The binder.</param>
+		/// <param name="args">The member's arguments.</param>
+		/// <param name="result">The result, if any.</param>
+		/// <returns><see langword="true"/> if the member is invoked; otherwise, <see langword="false"/>.</returns>
 		public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
 		{
 			Contract.Ensures(!Contract.Result<bool>() || Contract.ValueAtReturn(out result) != null);
@@ -92,6 +122,12 @@ namespace System
 			return true;
 		}
 
+		/// <summary>
+		/// Tries to set the specified member to the specified <paramref name="value"/>.
+		/// </summary>
+		/// <param name="binder">The binder.</param>
+		/// <param name="value">The value to be set.</param>
+		/// <returns><see langword="true"/> if the member is set; otherwise, <see langword="false"/>.</returns>
 		public override bool TrySetMember(SetMemberBinder binder, object value)
 		{
 			Contract.Assume(binder != null);
@@ -121,6 +157,12 @@ namespace System
 			return true;
 		}
 
+		/// <summary>
+		/// Tries to get a value from the specified member.
+		/// </summary>
+		/// <param name="binder">The binder.</param>
+		/// <param name="result">The value that was retrieved from the member.</param>
+		/// <returns><see langword="true"/> if the <paramref name="result"/> is retrieved; otherwise, <see langword="false"/>.</returns>
 		public override bool TryGetMember(GetMemberBinder binder, out object result)
 		{
 			Contract.Ensures(!Contract.Result<bool>() || Contract.ValueAtReturn(out result) != null);

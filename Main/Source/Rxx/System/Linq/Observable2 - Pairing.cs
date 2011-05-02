@@ -6,6 +6,14 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
+		/// <summary>
+		/// Converts the specified observable sequence of <see cref="Either{TLeft,TRight}"/> into
+		/// an <see cref="IPairedObservable{TLeft,TRight}"/>.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="source">The observable sequence to convert.</param>
+		/// <returns>The specified observable sequence as a paired observable.</returns>
 		public static IPairedObservable<TLeft, TRight> AsPairedObservable<TLeft, TRight>(
 			this IObservable<Either<TLeft, TRight>> source)
 		{
@@ -19,6 +27,14 @@ namespace System.Linq
 				});
 		}
 
+		/// <summary>
+		/// Creates a paired observable from the specified observable sequence and selector function.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="leftSource">The observable sequence that provides notifications for the left channel.</param>
+		/// <param name="rightSelector">Selects a value for the right channel from each value in the specified observable sequence.</param>
+		/// <returns>The specified observable sequence paired with the values produced by the selector.</returns>
 		public static IPairedObservable<TLeft, TRight> Pair<TLeft, TRight>(
 			this IObservable<TLeft> leftSource,
 			Func<TLeft, TRight> rightSelector)
@@ -41,6 +57,14 @@ namespace System.Linq
 				});
 		}
 
+		/// <summary>
+		/// Creates a paired observable by combining the latest values of the specified observable sequences.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="leftSource">The observable sequence that provides notifications for the left channel.</param>
+		/// <param name="rightSource">The observable sequence that provides notifications for the right channel.</param>
+		/// <returns>The latest vlaues of both observable sequences paired together.</returns>
 		public static IPairedObservable<TLeft, TRight> Pair<TLeft, TRight>(
 			this IObservable<TLeft> leftSource,
 			IObservable<TRight> rightSource)
@@ -52,6 +76,16 @@ namespace System.Linq
 			return Pair(leftSource, rightSource, (left, right) => PairDirection.Both);
 		}
 
+		/// <summary>
+		/// Creates a paired observable by combining the latest values of the specified observable sequences
+		/// and choosing which channels will receive values based on the specified selector.
+		/// </summary>
+		/// <typeparam name="TLeft">Type of the left notification channel.</typeparam>
+		/// <typeparam name="TRight">Type of the right notification channel.</typeparam>
+		/// <param name="leftSource">The observable sequence that provides notifications for the left channel.</param>
+		/// <param name="rightSource">The observable sequence that provides notifications for the right channel.</param>
+		/// <param name="directionSelector">Selects the channels that will receive notifications for every pair.</param>
+		/// <returns>The specified observable sequences paired together and modified by the specified selector.</returns>
 		public static IPairedObservable<TLeft, TRight> Pair<TLeft, TRight>(
 			this IObservable<TLeft> leftSource,
 			IObservable<TRight> rightSource,

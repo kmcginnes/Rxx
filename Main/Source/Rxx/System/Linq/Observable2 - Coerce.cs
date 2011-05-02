@@ -3,6 +3,9 @@ using System.Diagnostics.Contracts;
 
 namespace System.Linq
 {
+	/// <summary>
+	/// Provides a set of <see langword="static"/> methods for query operations over observable sequences.
+	/// </summary>
 	public static partial class Observable2
 	{
 		[ContractVerification(false)]

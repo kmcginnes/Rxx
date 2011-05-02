@@ -9,6 +9,23 @@ namespace System.Linq
 {
 	public static partial class Observable2
 	{
+		/// <summary>
+		/// Creates an observable sequence of property changed notifications for the specified 
+		/// <paramref name="property"/> on the specified <paramref name="source"/>.
+		/// </summary>
+		/// <typeparam name="TSource">Type of the object that defines the specified <paramref name="property"/>.</typeparam>
+		/// <typeparam name="TValue">Type of the property's value.</typeparam>
+		/// <param name="source">The object that defines the specified <paramref name="property"/>.</param>
+		/// <param name="property">The property on the specified <paramref name="source"/> from which to generate property changed notifications.</param>
+		/// <remarks>
+		/// The following property changed notification patterns are supported: 
+		/// <list type="bullet">
+		/// <item><see cref="INotifyPropertyChanged"/> implementations.</item>
+		/// <item>[Property]Changed event pattern.</item>
+		/// <item>WPF dependency properties.</item>
+		/// </list>
+		/// </remarks>
+		/// <returns>An observable sequence of property changed notifications.</returns>
 		public static IObservable<TValue> FromPropertyChangedPattern<TSource, TValue>(
 			TSource source,
 			Expression<Func<TSource, TValue>> property)
@@ -31,6 +48,20 @@ namespace System.Linq
 			return observable;
 		}
 
+		/// <summary>
+		/// Creates an observable sequence of property changed notifications for the specified <paramref name="property"/>.
+		/// </summary>
+		/// <typeparam name="TValue">Type of the property's value.</typeparam>
+		/// <param name="property">The property from which to generate property changed notifications.</param>
+		/// <remarks>
+		/// The following property changed notification patterns are supported: 
+		/// <list type="bullet">
+		/// <item><see cref="INotifyPropertyChanged"/> implementations.</item>
+		/// <item>[Property]Changed event pattern.</item>
+		/// <item>WPF dependency properties.</item>
+		/// </list>
+		/// </remarks>
+		/// <returns>An observable sequence of property changed notifications.</returns>
 		public static IObservable<TValue> FromPropertyChangedPattern<TValue>(
 			Expression<Func<TValue>> property)
 		{
@@ -54,8 +85,8 @@ namespace System.Linq
 			return observable;
 		}
 
-		public static IObservable<IEvent<PropertyChangedEventArgs>> FromPropertyChangedPattern<TSource>(
-			TSource source,
+		private static IObservable<IEvent<PropertyChangedEventArgs>> FromPropertyChangedPattern(
+			object source,
 			Func<PropertyInfo> getPropertyInfo)
 		{
 			Contract.Requires(source != null);

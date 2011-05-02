@@ -7,12 +7,21 @@ using System.Linq;
 
 namespace System.IO
 {
+	/// <summary>
+	/// Provides extension methods for <see cref="FileSystemWatcher"/>.
+	/// </summary>
 	public static class FileSystemWatcherExtensions
 	{
 		// http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.internalbuffersize.aspx
 		private const int minBufferSize = 4096;
 		private const int maxBufferSize = 65536;
 
+		/// <summary>
+		/// Creates an observable sequence of file system change notifications of the specified types.
+		/// </summary>
+		/// <param name="watcher">Watches the file system for changes.</param>
+		/// <param name="changes">Specifies the types of changes to watch.</param>
+		/// <returns>An observable sequence of file system change notifications.</returns>
 		public static IObservable<FileSystemNotification> Watch(
 			this FileSystemWatcher watcher,
 			WatcherChangeTypes changes)

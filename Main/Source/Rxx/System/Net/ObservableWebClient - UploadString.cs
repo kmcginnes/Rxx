@@ -5,6 +5,13 @@ namespace System.Net
 {
 	public static partial class ObservableWebClient
 	{
+		/// <summary>
+		/// Uploads a string to the specified resource.
+		/// </summary>
+		/// <param name="address">The URI of the resource to receive the string.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <param name="data">The string to send to the resource.</param>
+		/// <returns>An observable that caches the response from the server and replays it to observers.</returns>
 		public static IObservable<string> UploadString(
 			Uri address,
 			string method,
@@ -23,6 +30,14 @@ namespace System.Net
 			return observable;
 		}
 
+		/// <summary>
+		/// Uploads a string to the specified resource.
+		/// </summary>
+		/// <param name="client">The object that uploads to the resource.</param>
+		/// <param name="address">The URI of the resource to receive the string.</param>
+		/// <param name="method">The HTTP method used to send data to the resource.  If <see langword="null"/>, the default is POST for HTTP and STOR for FTP.</param>
+		/// <param name="data">The string to send to the resource.</param>
+		/// <returns>An observable that caches the response from the server and replays it to observers.</returns>
 		public static IObservable<string> UploadStringObservable(
 			this WebClient client,
 			Uri address,

@@ -2,6 +2,10 @@
 
 namespace System.Collections.Generic
 {
+	/// <summary>
+	/// Represents an enumerable that uses its unary and binary operator overloads as query operators.
+	/// </summary>
+	/// <typeparam name="T">Input and output type.</typeparam>
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix",
 		Justification = "This class is not intended to be consumed publicly.  It's public only so that the compiler can resolve operator overloads.")]
 	public sealed class OperationalEnumerable<T> : OperationalEnumerable<T, T>

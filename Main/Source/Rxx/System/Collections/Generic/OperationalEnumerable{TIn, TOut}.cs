@@ -4,6 +4,11 @@ using System.Linq;
 
 namespace System.Collections.Generic
 {
+	/// <summary>
+	/// Represents an enumerable that uses its unary and binary operator overloads as query operators.
+	/// </summary>
+	/// <typeparam name="TIn">Input type.</typeparam>
+	/// <typeparam name="TOut">Output type.</typeparam>
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix",
 		Justification = "This class is not intended to be consumed publicly.  It's public only so that the compiler can resolve operator overloads.")]
 	public class OperationalEnumerable<TIn, TOut> : IEnumerable<TIn>
@@ -63,6 +68,10 @@ namespace System.Collections.Generic
 			Contract.Invariant(negative != null);
 		}
 
+		/// <summary>
+		/// Returns an enumerator that iterates through the collection.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerator{T}"/> that can be used to iterate through the collection.</returns>
 		public IEnumerator<TIn> GetEnumerator()
 		{
 			return source.GetEnumerator();
@@ -136,8 +145,19 @@ namespace System.Collections.Generic
 		#endregion
 
 		#region Binary Operators
+		/// <summary>
+		/// Creates a new operational enumerable that adds the values in the specified enumerables 
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The first enumerable.</param>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
 		public static OperationalEnumerable<TOut> operator +(OperationalEnumerable<TIn, TOut> first, IEnumerable<TIn> second)
 		{
 			Contract.Requires(first != null);
@@ -147,8 +167,38 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.add);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that adds the values in this enumerable to the values in the specified enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Add(IEnumerable<TIn> second)
+		{
+			Contract.Requires(second != null);
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(second, add);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that adds the values in the specified enumerable to the specified value
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The enumerable.</param>
+		/// <param name="second">A value that is added to each value in the <paramref name="first"/> enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator +(OperationalEnumerable<TIn, TOut> first, TIn second)
 		{
 			Contract.Requires(first != null);
@@ -157,8 +207,37 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.add);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that adds the values in this enumerable to the specified value.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="value">A value that is added to each value in this enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Add(TIn value)
+		{
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(value, add);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that subtracts the values in the specified enumerables 
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The first enumerable.</param>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator -(OperationalEnumerable<TIn, TOut> first, IEnumerable<TIn> second)
 		{
 			Contract.Requires(first != null);
@@ -168,8 +247,38 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.subtract);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that subtracts the values in the specified enumerable from the values in this enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Subtract(IEnumerable<TIn> second)
+		{
+			Contract.Requires(second != null);
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(second, subtract);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that subtracts the specified value from the values in the specified enumerable
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The enumerable.</param>
+		/// <param name="second">A value that is subtracted from each value in the <paramref name="first"/> enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator -(OperationalEnumerable<TIn, TOut> first, TIn second)
 		{
 			Contract.Requires(first != null);
@@ -178,8 +287,37 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.subtract);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that subtracts the specified value from the values in this enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="value">A value that is subtracted from each value in this enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Subtract(TIn value)
+		{
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(value, subtract);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that multiplies the values in the specified enumerables 
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The first enumerable.</param>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator *(OperationalEnumerable<TIn, TOut> first, IEnumerable<TIn> second)
 		{
 			Contract.Requires(first != null);
@@ -189,8 +327,33 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.multiply);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that multiplies the values in this enumerable by the values in the specified enumerable.
+		/// </summary>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Multiply(IEnumerable<TIn> second)
+		{
+			Contract.Requires(second != null);
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(second, multiply);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that multiplies the values in the specified enumerable by the specified value
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The enumerable.</param>
+		/// <param name="second">A value that is multiplied against each value in the <paramref name="first"/> enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator *(OperationalEnumerable<TIn, TOut> first, TIn second)
 		{
 			Contract.Requires(first != null);
@@ -199,8 +362,37 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.multiply);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that multiplies the values in this enumerable by the specified <paramref name="value"/>.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="value">A value that is multiplied against each value in this enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Multiply(TIn value)
+		{
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(value, multiply);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that divides the values in the specified enumerables 
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The first enumerable.</param>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator /(OperationalEnumerable<TIn, TOut> first, IEnumerable<TIn> second)
 		{
 			Contract.Requires(first != null);
@@ -210,8 +402,38 @@ namespace System.Collections.Generic
 			return first.BinaryOperation(second, first.divide);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that divides the values in this enumerable by the values in the specified enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="second">The second enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
+		public OperationalEnumerable<TOut> Divide(IEnumerable<TIn> second)
+		{
+			Contract.Requires(second != null);
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(second, divide);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that divides the values in the specified enumerable by the specified value
+		/// based on the binary operation logic of the <paramref name="first"/> enumerable.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="first">The enumerable.</param>
+		/// <param name="second">A value that divides each value in the <paramref name="first"/> enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
 		public static OperationalEnumerable<TOut> operator /(OperationalEnumerable<TIn, TOut> first, TIn second)
 		{
 			Contract.Requires(first != null);
@@ -219,27 +441,97 @@ namespace System.Collections.Generic
 
 			return first.BinaryOperation(second, first.divide);
 		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that divides the values in this enumerable by the specified <paramref name="value"/>.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="value">A value that divides each value in this enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
+		public OperationalEnumerable<TOut> Divide(TIn value)
+		{
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return BinaryOperation(value, divide);
+		}
 		#endregion
 
 		#region Unary Operators
+		/// <summary>
+		/// Creates a new operational enumerable that ensures the sign of the specified enumerable's values are positive.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="enumerable">The enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
-		public static OperationalEnumerable<TOut> operator +(OperationalEnumerable<TIn, TOut> observable)
+		public static OperationalEnumerable<TOut> operator +(OperationalEnumerable<TIn, TOut> enumerable)
 		{
-			Contract.Requires(observable != null);
+			Contract.Requires(enumerable != null);
 			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
 
-			return observable.UnaryOperation(observable.positive);
+			return enumerable.UnaryOperation(enumerable.positive);
 		}
 
+		/// <summary>
+		/// Creates a new operational enumerable that ensures the sign of this enumerable's values are positive.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
 		[ContractVerification(false)]
-		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates", Justification = "Used as a combinator method in queries.")]
-		public static OperationalEnumerable<TOut> operator -(OperationalEnumerable<TIn, TOut> observable)
+		public OperationalEnumerable<TOut> Plus()
 		{
-			Contract.Requires(observable != null);
 			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
 
-			return observable.UnaryOperation(observable.negative);
+			return UnaryOperation(positive);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that ensures the sign of the specified enumerable's values are negative.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <param name="enumerable">The enumerable.</param>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
+		public static OperationalEnumerable<TOut> operator -(OperationalEnumerable<TIn, TOut> enumerable)
+		{
+			Contract.Requires(enumerable != null);
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return enumerable.UnaryOperation(enumerable.negative);
+		}
+
+		/// <summary>
+		/// Creates a new operational enumerable that ensures the sign of this enumerable's values are negative.
+		/// </summary>
+		/// <remarks>
+		/// <alert type="note">
+		/// The actual behavior of this operator is determined by <see cref="System.Linq.OperationalEnumerable.AsOperational(IEnumerable{int})"/>.
+		/// </alert>
+		/// </remarks>
+		/// <returns>An operational enumerable that generates the output of the operation.</returns>
+		[ContractVerification(false)]
+		public OperationalEnumerable<TOut> Negate()
+		{
+			Contract.Ensures(Contract.Result<OperationalEnumerable<TOut>>() != null);
+
+			return UnaryOperation(negative);
 		}
 		#endregion
 	}
