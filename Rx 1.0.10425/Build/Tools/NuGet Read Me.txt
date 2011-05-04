@@ -1,0 +1,11 @@
+NuGet.exe
+
+	Retrieved From
+	http://nuget.codeplex.com/releases/view/58939
+
+	Retrieved On
+	5/2/2011
+
+	Apache License
+	Version 2.0, January 2004
+	http://nuget.codeplex.com/license

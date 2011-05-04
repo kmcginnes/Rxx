@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("Release")]
 [assembly: AssemblyInformationalVersion("1.0")]
 
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Dave Sexton, James Miles")]		// Replaces $author$ token in NuGet package
 [assembly: AssemblyProduct("Rxx")]
 [assembly: AssemblyCopyright("Copyright © 2011 Rxx")]
 [assembly: AssemblyTrademark("")]

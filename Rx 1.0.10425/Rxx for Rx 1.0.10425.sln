@@ -49,6 +49,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rxx.Labs", "Testing\Rxx.Labs\Rxx.Labs.csproj", "{EB68F9C7-42C9-4ABB-81E0-53F4836360A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{D81AB3E0-F9A2-4E2F-A593-61AB8CA5F218}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\Deployment Procedure.txt = Deployment\Deployment Procedure.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labs", "Labs", "{EDEA810D-D55F-4942-A8C9-D0CA945E1877}"
 	ProjectSection(SolutionItems) = preProject
@@ -57,24 +60,32 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labs", "Labs", "{EDEA810D-D
 		Build\Labs\Labs.targets = Build\Labs\Labs.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{661F2BAF-FEA2-47CB-B98B-492331773400}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Tools\DaveSexton.MSBuild.Tasks.dll = Build\Tools\DaveSexton.MSBuild.Tasks.dll
+		Build\Tools\NuGet Read Me.txt = Build\Tools\NuGet Read Me.txt
+		Build\Tools\NuGet.exe = Build\Tools\NuGet.exe
+		Build\Tools\NuGet.targets = Build\Tools\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs03
-		SccProjectUniqueName0 = Source\\Rxx\\Rxx.csproj
-		SccProjectTopLevelParentUniqueName0 = Rxx\u0020for\u0020Rx\u00201.0.10425.sln
-		SccProjectName0 = Source/Rxx
-		SccLocalPath0 = Source\\Rxx
-		SccProjectUniqueName1 = Testing\\Rxx.UnitTests\\Rxx.UnitTests.csproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Source\\Rxx\\Rxx.csproj
 		SccProjectTopLevelParentUniqueName1 = Rxx\u0020for\u0020Rx\u00201.0.10425.sln
-		SccProjectName1 = Testing/Rxx.UnitTests
-		SccLocalPath1 = Testing\\Rxx.UnitTests
-		SccProjectUniqueName2 = Testing\\Rxx.Labs\\Rxx.Labs.csproj
+		SccProjectName1 = Source/Rxx
+		SccLocalPath1 = Source\\Rxx
+		SccProjectUniqueName2 = Testing\\Rxx.UnitTests\\Rxx.UnitTests.csproj
 		SccProjectTopLevelParentUniqueName2 = Rxx\u0020for\u0020Rx\u00201.0.10425.sln
-		SccProjectName2 = Testing/Rxx.Labs
-		SccLocalPath2 = Testing\\Rxx.Labs
-		SccLocalPath3 = .
+		SccProjectName2 = Testing/Rxx.UnitTests
+		SccLocalPath2 = Testing\\Rxx.UnitTests
+		SccProjectUniqueName3 = Testing\\Rxx.Labs\\Rxx.Labs.csproj
+		SccProjectTopLevelParentUniqueName3 = Rxx\u0020for\u0020Rx\u00201.0.10425.sln
+		SccProjectName3 = Testing/Rxx.Labs
+		SccLocalPath3 = Testing\\Rxx.Labs
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Rxx.vsmdi
@@ -118,6 +129,7 @@ Global
 		{FBCF9F08-0D6A-4F61-9BA3-07F076168F0B} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
 		{2CB1BA08-9880-4705-A14B-D46DC2453071} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
 		{EDEA810D-D55F-4942-A8C9-D0CA945E1877} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
+		{661F2BAF-FEA2-47CB-B98B-492331773400} = {AE9594C3-3D8C-4CB0-88AB-E7DB358B98ED}
 		{F6F21A07-1E98-481E-AB39-D55340AB571B} = {7813925C-F1CD-4204-BD5B-8DBDC90D1685}
 		{C61969C1-533A-41ED-939B-F19C257536A2} = {7813925C-F1CD-4204-BD5B-8DBDC90D1685}
 		{ACD2EB7F-24CC-478B-8699-04238179DD27} = {F6F21A07-1E98-481E-AB39-D55340AB571B}

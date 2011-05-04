@@ -2,8 +2,127 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 	<PropertyGroup>
+		<SolutionDir Condition=" '$(SolutionDir)' == '' OR '$(SolutionDir)' == '*Undefined*' ">$(MSBuildThisFileDirectory)..\</SolutionDir>
+		<SourceDir Condition=" '$(SourceDir)' == '' ">$(SolutionDir)Source\</SourceDir>
+		<DeploymentDir Condition=" '$(DeploymentDir)' == '' ">$(SolutionDir)Deployment\</DeploymentDir>
+		<ProjectDeploymentDirBase>$(DeploymentDir)$(Configuration)\$(MSBuildProjectName)\</ProjectDeploymentDirBase>
+		<Date>$([System.DateTime]::Now.ToString("dd-MM-yyyy"))</Date>
+		<Time>$([System.DateTime]::Now.ToString("hh-mm-ss"))</Time>
+		<ProjectDeploymentDir>$(ProjectDeploymentDirBase)$(Date)_$(Time)\</ProjectDeploymentDir>
+		<NuGetDeploymentDir>$(ProjectDeploymentDir)NuGet\</NuGetDeploymentDir>
+		<CodePlexDeploymentDir>$(ProjectDeploymentDir)CodePlex\</CodePlexDeploymentDir>
+		<SymbolsPackDir>$(ProjectDeploymentDir)Symbols\</SymbolsPackDir>
 	</PropertyGroup>
 
+	<Choose>
+		<When Condition=" '$(MSBuildProjectName)' == 'Rxx' ">
+			<ItemGroup>
+				<CodePlexZip Include="$(TargetDir)CodeContracts\*Contracts.dll" />
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(MSBuildProjectName)' == 'Rxx.Labs' ">
+			<ItemGroup>
+				<CodePlexZip Include="$(SourceDir)Rxx\**\CodeContracts\*Contracts.dll" />
+				<CodePlexZip Include="$(SourceDir)Rxx\**\Rxx.dll" />
+				<CodePlexZip Include="$(SourceDir)Rxx\**\Rxx.xml" />
+				<CodePlexZip Include="$(TargetDir)DaveSexton.Labs.dll" />
+			</ItemGroup>
+		</When>
+	</Choose>
+
 	<Import Project="$(MSBuildExtensionsPath)\StyleCop\v4.5\StyleCop.Targets" />
+	<Import Project="Tools\NuGet.targets" />
+
+	<UsingTask AssemblyFile="Tools\DaveSexton.MSBuild.Tasks.dll" TaskName="DaveSexton.MSBuild.Tasks.Zip" />
+
+	<PropertyGroup>
+		<BuildDeploymentPackagesDependsOn>
+			PrepareDeployment;
+			NuGetPack;
+			CopyNuGetPackagesToDeploymentDir;
+			CreateNuGetPushFile;
+			CodePlexPack;
+			SymbolsPack;
+		</BuildDeploymentPackagesDependsOn>
+	</PropertyGroup>
+	<Target Name="BuildDeploymentPackages" AfterTargets="Build" DependsOnTargets="$(BuildDeploymentPackagesDependsOn)"
+					Condition=" '$(LabsBuildSecondPass)' != True ">
+		<!-- 
+			Only projects that have a [Project Name].nuspec file at the project root will be packaged for NuGet.
+			By default, only the Release configuration produces a NuGet package.
+		-->
+	</Target>
+
+	<Target Name="PrepareDeployment">
+
+		<MakeDir Directories="$(NuGetDeploymentDir)" Condition=" '$(NuGetPackEnabled)' == True " />
+		<MakeDir Directories="$(CodePlexDeploymentDir)" />
+		<MakeDir Directories="$(SymbolsPackDir)" />
+
+		<PropertyGroup>
+			<CodeContractsAssembly>$(TargetDir)CodeContracts\$(AssemblyName).Contracts$(TargetExt)</CodeContractsAssembly>
+		</PropertyGroup>
+
+		<!-- This is required so that NuGet picks up the Contracts assembly and adds it to the package -->
+		<Copy Condition=" EXISTS($(CodeContractsAssembly)) " SourceFiles="$(CodeContractsAssembly)" DestinationFolder="$(TargetDir)" />
+
+	</Target>
+
+	<Target Name="CopyNuGetPackagesToDeploymentDir" Condition=" '@(NuGetPackages)' != '' ">
+
+		<Move SourceFiles="@(NuGetPackages)" DestinationFolder="$(NuGetDeploymentDir)" />
+
+	</Target>
+
+	<Target Name="CreateNuGetPushFile" Condition=" '@(NuGetPackages)' != '' ">
+
+		<ItemGroup>
+			<_NuGetPackagesWithoutExtensions Include="%(NuGetPackages.Filename)" />
+			<NuGetMainPackageItem Condition=" '%(_NuGetPackagesWithoutExtensions.Extension)' != '.symbols' " Include="@(_NuGetPackagesWithoutExtensions)" />
+		</ItemGroup>
+
+		<PropertyGroup>
+			<NuGetMainPackage>@(NuGetMainPackageItem)%(NuGetPackages.Extension)</NuGetMainPackage>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<NuGetPush Include="@ECHO OFF" />
+			<NuGetPush Include="SET /P APIKey=API Key (Optional): " />
+			<NuGetPush Include="&quot;$(NuGetProgram)&quot; push &quot;$(NuGetMainPackage)&quot; %APIKey%" />
+			<!-- –source http://packages.nuget.org/v1/ -->
+			<NuGetPush Include="PAUSE" />
+		</ItemGroup>
+
+		<WriteLinesToFile File="$(NuGetDeploymentDir)NuGetPush.bat" Lines="@(NuGetPush)" />
+
+	</Target>
+
+	<Target Name="CodePlexPack" Condition=" '$(Configuration)' == 'Release' ">
+
+		<ItemGroup>
+			<CodePlexZip Include="$(TargetDir)$(TargetFilename)" />
+
+			<!-- Workaround: http://social.msdn.microsoft.com/Forums/en-US/msbuild/thread/8a2f4af8-7a57-454f-aa7d-684f3f89acf3 -->
+			<CodePlexZip Condition=" '$(BuildingInsideVisualStudio)' == True " Include="$(TargetDir)*.tmp">
+				<ZipFilename>$(TargetName).xml</ZipFilename>
+			</CodePlexZip>
+			<CodePlexZip Condition=" EXISTS($(DocumentationFile)) " Include="$(DocumentationFile)" />
+		</ItemGroup>
+
+		<Zip SourceFiles="@(CodePlexZip)" DestinationZipFile="$(CodePlexDeploymentDir)$(MSBuildProjectName).zip" />
+
+	</Target>
+
+	<Target Name="SymbolsPack" Condition=" '$(Configuration)' == 'Release' ">
+
+		<ItemGroup>
+			<SymbolsZip Condition=" EXISTS('$(TargetDir)$(TargetName).pdb') " Include="$(TargetDir)$(TargetName).pdb" />
+			<SymbolsZip Condition=" EXISTS('$(TargetDir)CodeContracts\$(TargetName).Contracts.pdb') " Include="$(TargetDir)CodeContracts\$(TargetName).Contracts.pdb" />
+		</ItemGroup>
+
+		<Zip Condition=" '@(SymbolsZip)' != '' "
+				 SourceFiles="@(SymbolsZip)" DestinationZipFile="$(SymbolsPackDir)$(MSBuildProjectName).Symbols.zip" />
+
+	</Target>
 
 </Project>
